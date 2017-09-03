@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="linux下mysql的配置修改">
+<meta name="description" content="=== linux下mysql的配置修改-使用CentOS下yum安装mysql  mysql启动和停止等操作  “”” /etc/init.d/mysqld start;service mysqld start;#service mysqld stop; #/etc/init.d/mysqld stop; service mysqld restart;#/etc/init.d/mysqld re">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux下mysql的配置修改">
 <meta property="og:url" content="http://yoursite.com/2017/09/03/mysql-centos1/index.html">
 <meta property="og:site_name" content="ok绷ii 的 狗窝">
-<meta property="og:description" content="linux下mysql的配置修改">
+<meta property="og:description" content="=== linux下mysql的配置修改-使用CentOS下yum安装mysql  mysql启动和停止等操作  “”” /etc/init.d/mysqld start;service mysqld start;#service mysqld stop; #/etc/init.d/mysqld stop; service mysqld restart;#/etc/init.d/mysqld re">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-03T11:37:32.549Z">
+<meta property="og:updated_time" content="2017-09-03T11:44:40.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下mysql的配置修改">
-<meta name="twitter:description" content="linux下mysql的配置修改">
+<meta name="twitter:description" content="=== linux下mysql的配置修改-使用CentOS下yum安装mysql  mysql启动和停止等操作  “”” /etc/init.d/mysqld start;service mysqld start;#service mysqld stop; #/etc/init.d/mysqld stop; service mysqld restart;#/etc/init.d/mysqld re">
 
 
 
@@ -330,8 +330,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/Mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">Mysql</span>
                   </a>
                 </span>
 
@@ -367,7 +367,24 @@
       
 
       
-        <p>linux下mysql的配置修改</p>
+        <p>===</p>
+<h1 id="linux下mysql的配置修改"><a href="#linux下mysql的配置修改" class="headerlink" title="linux下mysql的配置修改"></a>linux下mysql的配置修改</h1><p>-使用CentOS下yum安装mysql</p>
+<ol>
+<li>mysql启动和停止等操作</li>
+</ol>
+<p>“””</p>
+<h1 id="etc-init-d-mysqld-start"><a href="#etc-init-d-mysqld-start" class="headerlink" title="/etc/init.d/mysqld start;"></a>/etc/init.d/mysqld start;</h1><h1 id="service-mysqld-start"><a href="#service-mysqld-start" class="headerlink" title="service mysqld start;"></a>service mysqld start;</h1><p>#service mysqld stop;</p>
+<p>#/etc/init.d/mysqld stop;</p>
+<h1 id="service-mysqld-restart"><a href="#service-mysqld-restart" class="headerlink" title="service mysqld restart;"></a>service mysqld restart;</h1><p>#/etc/init.d/mysqld restart;</p>
+<p>#service mysqld status;</p>
+<p>设置新的最大连接数为200：<br>mysql&gt; set GLOBAL max_connections=200<br>显示当前运行的Query：<br>mysql&gt; show processlist<br>显示当前状态：<br>mysql&gt; show status<br>退出客户端：<br>mysql&gt; exit<br>“””</p>
+<ol>
+<li>mysql配置文件</li>
+</ol>
+<p>以使用的MySQL配置文件共有５个。<br>最后４个位于/usr/share/mysql-server-*/目录中。<br>·/etc/my.cnf是默认的MySQL配置文件。应该对这个文件配置修改。它是为学习目的而设计的。<br>·my-small.cnf是为了小型数据库而设计的。不应该把这个模型用于含有一些常用项目的数据库。<br>·my-medium.cnf是为中等规模的数据库而设计的。如果你正在企业中使用RHEL,可能会比这个操作系统的最小RAM需求(256MB)明显多得多的物理内存。由此可见，如果有那么多RAM内存可以使用，自然可以在同一台机器上运行其它服务。<br>·my-large.cnf是为专用于一个SQL数据库的计算机而设计的。由于它可以为该数据库使用多达512MB的内存，所以在这种类型的系统上将需要至少1GB的RAM,以便它能够同时处理操作系统与数据库应用程序。<br>·my-huge.cnf是为企业中的数据库而设计的。这样的数据库要求专用服务器和1GB或1GB以上的RAM。</p>
+<ol>
+<li>mysql配置参数<br>一般我们会把配置文件（例如：my-small.cnf）拷贝到/etc/my.cnf<br>只需要修改这个配置文件就可以了，使用<br>mysqladmin variables extended-status -u root -p<br>可以看到目前的参数，有3个配置参数是最重要的，即<br>key_buffer_size,<br>query_cache_size,<br>table_cache。</li>
+</ol>
 
       
     </div>
@@ -456,8 +473,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <p class="site-author-name" itemprop="name">ok绷ii</p>
@@ -482,7 +508,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -509,6 +535,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux下mysql的配置修改"><span class="nav-number">1.</span> <span class="nav-text">linux下mysql的配置修改</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#etc-init-d-mysqld-start"><span class="nav-number">2.</span> <span class="nav-text">/etc/init.d/mysqld start;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#service-mysqld-start"><span class="nav-number">3.</span> <span class="nav-text">service mysqld start;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#service-mysqld-restart"><span class="nav-number">4.</span> <span class="nav-text">service mysqld restart;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
