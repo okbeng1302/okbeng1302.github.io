@@ -514,17 +514,24 @@
       
         
           
-            <p>===</p>
-<h1 id="linux下mysql的配置修改"><a href="#linux下mysql的配置修改" class="headerlink" title="linux下mysql的配置修改"></a>linux下mysql的配置修改</h1><p>-使用CentOS下yum安装mysql</p>
+            <h1 id="linux下mysql的配置修改"><a href="#linux下mysql的配置修改" class="headerlink" title="linux下mysql的配置修改"></a>linux下mysql的配置修改</h1><ul>
+<li>使用CentOS下yum安装mysql</li>
+</ul>
 <ol>
 <li>mysql启动和停止等操作</li>
 </ol>
-<p>“””</p>
+<p>``</p>
 <h1 id="etc-init-d-mysqld-start"><a href="#etc-init-d-mysqld-start" class="headerlink" title="/etc/init.d/mysqld start;"></a>/etc/init.d/mysqld start;</h1><h1 id="service-mysqld-start"><a href="#service-mysqld-start" class="headerlink" title="service mysqld start;"></a>service mysqld start;</h1><p>#service mysqld stop;</p>
 <p>#/etc/init.d/mysqld stop;</p>
 <h1 id="service-mysqld-restart"><a href="#service-mysqld-restart" class="headerlink" title="service mysqld restart;"></a>service mysqld restart;</h1><p>#/etc/init.d/mysqld restart;</p>
-<p>#service mysqld status;</p>
-<p>设置新的最大连接数为200：<br>mysql&gt; set GLOBAL max_connections=200<br>显示当前运行的Query：<br>mysql&gt; show processlist<br>显示当前状态：<br>mysql&gt; show status<br>退出客户端：<br>mysql&gt; exit<br>“””</p>
+<p>#service mysqld status;<br><code>设置新的最大连接数为200：
+mysql&gt; set GLOBAL max_connections=200 
+显示当前运行的Query：
+mysql&gt; show processlist 
+显示当前状态：
+mysql&gt; show status 
+退出客户端：
+mysql&gt; exit</code></p>
 <ol>
 <li>mysql配置文件</li>
 </ol>
