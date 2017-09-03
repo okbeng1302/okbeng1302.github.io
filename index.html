@@ -520,18 +520,13 @@
 <ol>
 <li>mysql启动和停止等操作</li>
 </ol>
-<p>‘’</p>
-<h1 id="etc-init-d-mysqld-start"><a href="#etc-init-d-mysqld-start" class="headerlink" title="/etc/init.d/mysqld start;"></a>/etc/init.d/mysqld start;</h1><h1 id="service-mysqld-start"><a href="#service-mysqld-start" class="headerlink" title="service mysqld start;"></a>service mysqld start;</h1><p>#service mysqld stop;</p>
-<p>#/etc/init.d/mysqld stop;</p>
-<h1 id="service-mysqld-restart"><a href="#service-mysqld-restart" class="headerlink" title="service mysqld restart;"></a>service mysqld restart;</h1><p>#/etc/init.d/mysqld restart;</p>
-<p>#service mysqld status;</p>
-<p>设置新的最大连接数为200：<br>mysql&gt; set GLOBAL max_connections=200<br>显示当前运行的Query：<br>mysql&gt; show processlist<br>显示当前状态：<br>mysql&gt; show status<br>退出客户端：<br>mysql&gt; exit<br>‘’</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># /etc/init.d/mysqld start;</div><div class="line"># service mysqld start;</div><div class="line">#service mysqld stop;</div><div class="line">#/etc/init.d/mysqld stop;</div><div class="line"># service mysqld restart;</div><div class="line">#/etc/init.d/mysqld restart;</div><div class="line">#service mysqld status;</div><div class="line"></div><div class="line">设置新的最大连接数为200：</div><div class="line">mysql&gt; set GLOBAL max_connections=200 </div><div class="line">显示当前运行的Query：</div><div class="line">mysql&gt; show processlist </div><div class="line">显示当前状态：</div><div class="line">mysql&gt; show status </div><div class="line">退出客户端：</div><div class="line">mysql&gt; exit</div></pre></td></tr></table></figure>
 <ol>
 <li>mysql配置文件</li>
 </ol>
 <p>以使用的MySQL配置文件共有５个。<br>最后４个位于/usr/share/mysql-server-*/目录中。<br>·/etc/my.cnf是默认的MySQL配置文件。应该对这个文件配置修改。它是为学习目的而设计的。<br>·my-small.cnf是为了小型数据库而设计的。不应该把这个模型用于含有一些常用项目的数据库。<br>·my-medium.cnf是为中等规模的数据库而设计的。如果你正在企业中使用RHEL,可能会比这个操作系统的最小RAM需求(256MB)明显多得多的物理内存。由此可见，如果有那么多RAM内存可以使用，自然可以在同一台机器上运行其它服务。<br>·my-large.cnf是为专用于一个SQL数据库的计算机而设计的。由于它可以为该数据库使用多达512MB的内存，所以在这种类型的系统上将需要至少1GB的RAM,以便它能够同时处理操作系统与数据库应用程序。<br>·my-huge.cnf是为企业中的数据库而设计的。这样的数据库要求专用服务器和1GB或1GB以上的RAM。</p>
 <ol>
-<li>mysql配置参数<br>一般我们会把配置文件（例如：my-small.cnf）拷贝到/etc/my.cnf<br>只需要修改这个配置文件就可以了，使用<br>mysqladmin variables extended-status -u root -p<br>可以看到目前的参数，有3个配置参数是最重要的，即<br>key_buffer_size,<br>query_cache_size,<br>table_cache。</li>
+<li>mysql配置参数<br>一般我们会把配置文件（例如：my-small.cnf）拷贝到/etc/my.cnf<br>只需要修改这个配置文件就可以了，使用<br>mysqladmin variables extended-status -u root -p<br>可以看到目前的参数，有3个配置参数是最重要的，即<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">key_buffer_size,</div><div class="line">query_cache_size,</div><div class="line">table_cache。</div></pre></td></tr></table></figure></li>
 </ol>
 
           
