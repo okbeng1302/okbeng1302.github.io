@@ -13,9 +13,9 @@
     <url>%2F2017%2F09%2F07%2Fpyspider-environment%2F</url>
     <content type="text"><![CDATA[依赖 lxml（建议采用windows 编译好的） pycurl phantomjs(将 phantomjs.exe 放在python path 路径下即可) 建议采用 python2.7 32bit（windows环境下）1# pip install pyspider 注意：用pip下载的pyspider不是最新版本，在使用phantomjs进行渲染的时候，发现无法使用 代理 和 执行 js动作，需要更新pyspider 的 fetch_script.js 文件，[pyspider](https://github.com/binux/pyspider)地址 运行1# pyspider all 打开浏览器，输入 localhost:5000 即可dashboard 界面 点击 create ，填写项目名称，开始爬行之旅 搭建完成。]]></content>
       <categories>
-        <category>pyspider</category>
-        <category>爬虫</category>
         <category>python</category>
+        <category>爬虫</category>
+        <category>pyspider</category>
       </categories>
   </entry>
   <entry>
