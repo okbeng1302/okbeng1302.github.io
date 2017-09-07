@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="破解方案： 第一次执行start_navicat时，会在用户主目录下生成一个名为.navicat的隐藏文件夹。 cd /home/hadoop/.navicat/此文件夹下有一个system.reg文件 rm system.reg 把此文件删除后，下次启动navicat 会重新生成此文件，30天试用期会按新的时间开始计算。">
+<meta name="description" content="TCP协议和UDP协议的区别是什么 TCP保证数据按序到达，提供超时重传来保证可靠性，但是UDP不保证按序到达，只是努力交付。 TCP协议所需资源较多，TCP首部需20字节（不算可选项），UDP首部字段只需8字节。 TCP有流量控制和拥塞控制，UDP没有，网络拥堵不会影响发送端的发送速率。 TCP是一对一的连接，UDP支持一对一，多对多，一对多的通信。 TCP是面向的字节流的服务，UDP是面向的报">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS 下 navicat 破解">
-<meta property="og:url" content="http://yoursite.com/2017/09/03/mysql-centos/index.html">
+<meta property="og:title" content="常见面试题">
+<meta property="og:url" content="http://yoursite.com/2017/09/03/tcp/index.html">
 <meta property="og:site_name" content="ok绷ii 的 狗窝">
-<meta property="og:description" content="破解方案： 第一次执行start_navicat时，会在用户主目录下生成一个名为.navicat的隐藏文件夹。 cd /home/hadoop/.navicat/此文件夹下有一个system.reg文件 rm system.reg 把此文件删除后，下次启动navicat 会重新生成此文件，30天试用期会按新的时间开始计算。">
+<meta property="og:description" content="TCP协议和UDP协议的区别是什么 TCP保证数据按序到达，提供超时重传来保证可靠性，但是UDP不保证按序到达，只是努力交付。 TCP协议所需资源较多，TCP首部需20字节（不算可选项），UDP首部字段只需8字节。 TCP有流量控制和拥塞控制，UDP没有，网络拥堵不会影响发送端的发送速率。 TCP是一对一的连接，UDP支持一对一，多对多，一对多的通信。 TCP是面向的字节流的服务，UDP是面向的报">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-03T08:48:54.276Z">
+<meta property="og:updated_time" content="2017-09-07T02:07:20.977Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS 下 navicat 破解">
-<meta name="twitter:description" content="破解方案： 第一次执行start_navicat时，会在用户主目录下生成一个名为.navicat的隐藏文件夹。 cd /home/hadoop/.navicat/此文件夹下有一个system.reg文件 rm system.reg 把此文件删除后，下次启动navicat 会重新生成此文件，30天试用期会按新的时间开始计算。">
+<meta name="twitter:title" content="常见面试题">
+<meta name="twitter:description" content="TCP协议和UDP协议的区别是什么 TCP保证数据按序到达，提供超时重传来保证可靠性，但是UDP不保证按序到达，只是努力交付。 TCP协议所需资源较多，TCP首部需20字节（不算可选项），UDP首部字段只需8字节。 TCP有流量控制和拥塞控制，UDP没有，网络拥堵不会影响发送端的发送速率。 TCP是一对一的连接，UDP支持一对一，多对多，一对多的通信。 TCP是面向的字节流的服务，UDP是面向的报">
 
 
 
@@ -135,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/03/mysql-centos/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/03/tcp/"/>
 
 
 
 
 
-  <title>CentOS 下 navicat 破解 | ok绷ii 的 狗窝</title>
+  <title>常见面试题 | ok绷ii 的 狗窝</title>
   
 
 
@@ -312,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/03/mysql-centos/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/03/tcp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ok绷ii">
@@ -329,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CentOS 下 navicat 破解</h1>
+          <h1 class="post-title" itemprop="name headline">常见面试题</h1>
         
 
         <div class="post-meta">
@@ -364,8 +364,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">Mysql</span>
+                  <a href="/categories/网络基础/" itemprop="url" rel="index">
+                    <span itemprop="name">网络基础</span>
                   </a>
                 </span>
 
@@ -401,11 +401,39 @@
       
 
       
-        <p>破解方案：</p>
-<p>第一次执行start_navicat时，会在用户主目录下生成一个名为.navicat的隐藏文件夹。</p>
-<p>cd /home/hadoop/.navicat/<br>此文件夹下有一个system.reg文件</p>
-<p>rm system.reg</p>
-<p>把此文件删除后，下次启动navicat 会重新生成此文件，30天试用期会按新的时间开始计算。</p>
+        <h3 id="TCP协议和UDP协议的区别是什么"><a href="#TCP协议和UDP协议的区别是什么" class="headerlink" title="TCP协议和UDP协议的区别是什么"></a>TCP协议和UDP协议的区别是什么</h3><ul>
+<li>TCP保证数据按序到达，提供超时重传来保证可靠性，但是UDP不保证按序到达，只是努力交付。</li>
+<li>TCP协议所需资源较多，TCP首部需20字节（不算可选项），UDP首部字段只需8字节。</li>
+<li>TCP有流量控制和拥塞控制，UDP没有，网络拥堵不会影响发送端的发送速率。</li>
+<li>TCP是一对一的连接，UDP支持一对一，多对多，一对多的通信。</li>
+<li>TCP是面向的字节流的服务，UDP是面向的报文的服务。</li>
+</ul>
+<h3 id="请详细介绍TCP协议建立连接和终止连接的过程？"><a href="#请详细介绍TCP协议建立连接和终止连接的过程？" class="headerlink" title="请详细介绍TCP协议建立连接和终止连接的过程？"></a>请详细介绍TCP协议建立连接和终止连接的过程？</h3><ul>
+<li><p>建立连接：三次握手<br><a href="http://images.cnitblog.com/blog/385532/201308/30193701-72f027c0ea0f4c69834076466fa5383c.png" target="_blank" rel="external">tcp</a></p>
+</li>
+<li><p>关闭连接：四次挥手<br><a href="http://images.cnitblog.com/blog/385532/201308/30193703-63640062b79a4fc8b8ed31e95fd87bd8.png" target="_blank" rel="external">four</a></p>
+<h3 id="常见的应用中有那些是应用TCP协议的，那些是UDP协议的，为什么？"><a href="#常见的应用中有那些是应用TCP协议的，那些是UDP协议的，为什么？" class="headerlink" title="常见的应用中有那些是应用TCP协议的，那些是UDP协议的，为什么？"></a>常见的应用中有那些是应用TCP协议的，那些是UDP协议的，为什么？</h3></li>
+</ul>
+<ul>
+<li><p>以下应用一般或必须使用UDP实现？</p>
+<ul>
+<li>多播的信息一定要用UDP实现，因为TCP只支持一对一通信。</li>
+<li>如果一个应用场景中大多是简短的信息，适合用UDP实现，因为udp是基于报文的它直接上层应用的数据封装成报文段，然后丢在网络中，如果信息量太大，会在链路层中被分片，影响传输速率。</li>
+<li>如果一个应用场景性能甚于完整性和安全性，那么适合udp，比如多媒体应用，缺一两帧不影响用户体验，但是需要流媒体到达速度快，因此比较适合udp。</li>
+<li>如果要求快速响应，那么udp比较合适。</li>
+<li>如果有要利用udp的快速响应有点，又想可靠传输，那么只能靠上层应用自己制定规则。</li>
+<li>常见的使用UDP的例子：ICQ，QQ的聊天模块。</li>
+</ul>
+</li>
+<li><p>以qq为例：<br>登录采用TCP协议和http协议，和好友间的信息发送，主要用udp协议，内网文件传输采用p2p技术。</p>
+<ol>
+<li>登陆过程，客户端client 采用TCP协议向服务器server发送信息，HTTP协议下载信息。登陆之后，会有一个TCP连接来保持在线状态。 </li>
+<li>和好友发消息，客户端client采用UDP协议，但是需要通过服务器转发。腾讯为了确保传输消息的可靠，采用上层协议来保证可靠传输。如果消息发送失败，客户端会提示消息发送失败，并可重新发送。 </li>
+<li>如果是在内网里面的两个客户端传文件，QQ采用的是P2P技术，不需要服务器中转。</li>
+</ol>
+<p><a href="http://images.cnitblog.com/blog/385532/201308/30193704-d65f24c7ddea474ab3236bd701650059.png" target="_blank" rel="external">xieyi</a></p>
+</li>
+</ul>
 
       
     </div>
@@ -430,8 +458,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/03/tcp/" rel="next" title="常见面试题">
-                <i class="fa fa-chevron-left"></i> 常见面试题
+              <a href="/2017/09/03/mysql-centos1/" rel="next" title="linux下mysql的配置修改">
+                <i class="fa fa-chevron-left"></i> linux下mysql的配置修改
               </a>
             
           </div>
@@ -439,6 +467,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/03/mysql-centos/" rel="prev" title="CentOS 下 navicat 破解">
+                CentOS 下 navicat 破解 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -490,8 +522,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -571,6 +612,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP协议和UDP协议的区别是什么"><span class="nav-number">1.</span> <span class="nav-text">TCP协议和UDP协议的区别是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请详细介绍TCP协议建立连接和终止连接的过程？"><span class="nav-number">2.</span> <span class="nav-text">请详细介绍TCP协议建立连接和终止连接的过程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的应用中有那些是应用TCP协议的，那些是UDP协议的，为什么？"><span class="nav-number">3.</span> <span class="nav-text">常见的应用中有那些是应用TCP协议的，那些是UDP协议的，为什么？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
