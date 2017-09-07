@@ -9,6 +9,16 @@
       </categories>
   </entry>
   <entry>
+    <title><![CDATA[pyspider windows 下环境搭建]]></title>
+    <url>%2F2017%2F09%2F07%2Fpyspider-environment%2F</url>
+    <content type="text"><![CDATA[依赖 lxml（建议采用windows 编译好的） pycurl phantomjs(将 phantomjs.exe 放在python path 路径下即可) 建议采用 python2.7 32bit（windows环境下）1# pip install pyspider 注意：用pip下载的pyspider不是最新版本，在使用phantomjs进行渲染的时候，发现无法使用 代理 和 执行 js动作，需要更新pyspider 的 fetch_script.js 文件，[pyspider](https://github.com/binux/pyspider)地址 运行1# pyspider all 打开浏览器，输入 localhost:5000 即可dashboard 界面 点击 create ，填写项目名称，开始爬行之旅 搭建完成。]]></content>
+      <categories>
+        <category>pyspider</category>
+        <category>爬虫</category>
+        <category>python</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[lru 计算缺页]]></title>
     <url>%2F2017%2F09%2F07%2Flru%2F</url>
     <content type="text"><![CDATA[在一个请求页式存储管理中，一个程序的页面走向为 3、4、2、1、4、5、3、4、5、1、2，并采用 LRU 算法。设分配给该程序的存储块数 S 分别为 3 和 4，在该访问中发生的缺页次数 F 是 ?解： LRU置换算法是选择最近最久未使用的页面予以淘汰。该算法赋予每个页面一个访问字段，用来记录一个页面上次被访问以来所经历的时间t，当需要淘汰一个页面时，选择现有页面中其t值最大的。 123456789101112131415161718以下用x表示缺页的情况1.S=33,4,2,1,4,5,3,4,5,1,2---------------------3 4 2 1 4 5 3 4 5 1 2 3 4 2 1 4 5 3 3 5 1 3 4 2 1 4 5 4 3 5x x x x x x x x所以F=82.S=43,4,2,1,4,5,3,4,5,1,2---------------------3 4 2 1 4 5 3 4 5 1 2 3 4 2 1 4 5 3 3 3 1 3 4 2 1 4 5 4 5 3 3 3 2 1 1 1 4 5x x x x x x x所以F=7]]></content>
