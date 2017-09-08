@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[翻转链表]]></title>
+    <url>%2F2017%2F09%2F08%2Flinklist-reverse%2F</url>
+    <content type="text"><![CDATA[翻转链表1-&gt;2-&gt;3-&gt;4-&gt;5head = 1next = 2 1-&gt;2 保存1到2 的指针防止造成断链 null&lt;-1 2-&gt;3..-&gt;5head.next = pre 1-&gt;nullpre = 1head = next = 2 head = 2next = 3 2-&gt;3head.next = pre = 1 1&lt;-2-&gt;3..-&gt;5pre = head = 2head = next = 3… 123456789101112131415161718192021222324public class ListNode&#123; int val; ListNode next = null; ListNode(int val)&#123; this.val = val; &#125;&#125;public class Solution&#123; public ListNode ReverseList(ListNode listnode)&#123; if(listnode == null) return null; ListNode next = null; // 保存当前节点指向下一节点的指针 ListNode pre = null; // 保存当前节点的上一个节点 while(head != null)&#123; next = head.next; head.next = pre; pre = head; head = next; &#125; return pre; &#125;&#125;]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[TCP&&UDP常见面试题]]></title>
     <url>%2F2017%2F09%2F07%2Ftcp%2F</url>
     <content type="text"><![CDATA[TCP协议和UDP协议的区别是什么 TCP保证数据按序到达，提供超时重传来保证可靠性，但是UDP不保证按序到达，只是努力交付。 TCP协议所需资源较多，TCP首部需20字节（不算可选项），UDP首部字段只需8字节。 TCP有流量控制和拥塞控制，UDP没有，网络拥堵不会影响发送端的发送速率。 TCP是一对一的连接，UDP支持一对一，多对多，一对多的通信。 TCP是面向的字节流的服务，UDP是面向的报文的服务。 请详细介绍TCP协议建立连接和终止连接的过程？ 建立连接：三次握手 关闭连接：四次挥手 常见的应用中有那些是应用TCP协议的，那些是UDP协议的，为什么？ 以下应用一般或必须使用UDP实现？ 多播的信息一定要用UDP实现，因为TCP只支持一对一通信。 如果一个应用场景中大多是简短的信息，适合用UDP实现，因为udp是基于报文的它直接上层应用的数据封装成报文段，然后丢在网络中，如果信息量太大，会在链路层中被分片，影响传输速率。 如果一个应用场景性能甚于完整性和安全性，那么适合udp，比如多媒体应用，缺一两帧不影响用户体验，但是需要流媒体到达速度快，因此比较适合udp。 如果要求快速响应，那么udp比较合适。 如果有要利用udp的快速响应有点，又想可靠传输，那么只能靠上层应用自己制定规则。 常见的使用UDP的例子：ICQ，QQ的聊天模块。 以qq为例：登录采用TCP协议和http协议，和好友间的信息发送，主要用udp协议，内网文件传输采用p2p技术。 登陆过程，客户端client 采用TCP协议向服务器server发送信息，HTTP协议下载信息。登陆之后，会有一个TCP连接来保持在线状态。 和好友发消息，客户端client采用UDP协议，但是需要通过服务器转发。腾讯为了确保传输消息的可靠，采用上层协议来保证可靠传输。如果消息发送失败，客户端会提示消息发送失败，并可重新发送。 如果是在内网里面的两个客户端传文件，QQ采用的是P2P技术，不需要服务器中转。]]></content>
