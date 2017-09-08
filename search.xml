@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[合并两个链表]]></title>
+    <url>%2F2017%2F09%2F08%2Flinklist-merge-two%2F</url>
+    <content type="text"><![CDATA[输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。非递归版本123456789/*public class ListNode&#123; int val; ListNode node = null; ListNode(int val)&#123; this.val = val; &#125;&#125;*/ 1234567891011121314151617181920212223242526272829303132333435363738394041424344public class Solution&#123; public ListNode merge(ListNode list1,ListNode list2)&#123; if(list1 == null) return list2; if(list2 == null) return list1; // 确定头结点 ListNode head = null; // 保存当前节点 ListNode current = null; // 当list1 和 list2 都不为空时，比较两个链表的值 while(list1 != null &amp;&amp; list2 != null)&#123; // 如果list1的值比list2的值较小 if(list1.val&lt;=list2.val)&#123; // 确定头结点 if(head == null)&#123; head = current = list1; &#125;else&#123; current.next = list1; // 保存当前节点 current = current.next; &#125; // 下一节点 list1 = list1.next; &#125;else&#123; // 确定头结点 if(head == null)&#123; head = current = list2; &#125;else&#123; current.next = list2; current = current.next; &#125; list2 = list2.next; &#125; &#125; if(list1 == null)&#123; current.next = list2; &#125; if(list2 == null)&#123; current.next = list1; &#125; return head; &#125;&#125; 递归版本1234567891011121314151617public class Solution&#123; public ListNode Merge(ListNode list1,ListNode list2)&#123; if(list1 == null)&#123; return list2; &#125; if(list2 == null)&#123; return list1; &#125; if(list1.val&lt;=list2.val)&#123; list1.next = Merge(list1.next,list2); return list1; &#125;else&#123; list2.next = Merge(list1,list2.next); return list2; &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[输入一个链表从尾到头进行打印]]></title>
     <url>%2F2017%2F09%2F08%2Flinklist-tail-head%2F</url>
     <content type="text"><![CDATA[从尾到头打印链表输入一个链表，从尾到头打印链表每个节点的值。 思路：利用 栈 的先进后出的原则123456789/*public class ListNode&#123; int val; ListNode next = null; ListNode(int val)&#123; this.val = val; &#125;&#125;*/ 12345678910111213141516171819202122import java.util.Stack;import java.util.ArrayList;public class Solution&#123; public ArrayList&lt;Integer&gt; PrintTailToHead(ListNode node)&#123; ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;(); Stack&lt;Integer&gt; stack = new Stack&lt;Integer&gt;(); if(node == null)&#123; return result; &#125; ListNode head = node; while(head.next != null)&#123; stack.push(head.val); head = head.next; &#125; stack.push(head.val); while(!stack.isEmpty())&#123; result.add(stack.pop()); &#125; return result; &#125;&#125;]]></content>
