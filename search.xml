@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[tail-head]]></title>
+    <url>%2F2017%2F09%2F08%2Ftail-head%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[输入一个链表从尾到头进行打印]]></title>
+    <url>%2F2017%2F09%2F08%2Flinklist-tail-head%2F</url>
+    <content type="text"><![CDATA[从尾到头打印链表输入一个链表，从尾到头打印链表每个节点的值。 思路：利用 栈 的先进后出的原则123456789/*public class ListNode&#123; int val; ListNode next = null; ListNode(int val)&#123; this.val = val; &#125;&#125;*/ 12345678910111213141516171819202122import java.util.Stack;import java.util.ArrayList;public class Solution&#123; public ArrayList&lt;Integer&gt; PrintTailToHead(ListNode node)&#123; ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;(); Stack&lt;Integer&gt; stack = new Stack&lt;Integer&gt;(); if(node == null)&#123; return result; &#125; ListNode head = node; while(head.next != null)&#123; stack.push(head.val); head = head.next; &#125; stack.push(head.val); while(!stack.isEmpty())&#123; result.add(stack.pop()); &#125; return result; &#125;&#125;]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[翻转链表]]></title>
     <url>%2F2017%2F09%2F08%2Flinklist-reverse%2F</url>
     <content type="text"><![CDATA[翻转链表1-&gt;2-&gt;3-&gt;4-&gt;5head = 1next = 2 1-&gt;2 保存1到2 的指针防止造成断链 null&lt;-1 2-&gt;3..-&gt;5head.next = pre 1-&gt;nullpre = 1head = next = 2 head = 2next = 3 2-&gt;3head.next = pre = 1 1&lt;-2-&gt;3..-&gt;5pre = head = 2head = next = 3… 123456789101112131415161718192021222324public class ListNode&#123; int val; ListNode next = null; ListNode(int val)&#123; this.val = val; &#125;&#125;public class Solution&#123; public ListNode ReverseList(ListNode listnode)&#123; if(listnode == null) return null; ListNode next = null; // 保存当前节点指向下一节点的指针 ListNode pre = null; // 保存当前节点的上一个节点 while(head != null)&#123; next = head.next; head.next = pre; pre = head; head = next; &#125; return pre; &#125;&#125;]]></content>
