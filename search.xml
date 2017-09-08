@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[tail-head]]></title>
-    <url>%2F2017%2F09%2F08%2Ftail-head%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
     <title><![CDATA[输入一个链表从尾到头进行打印]]></title>
     <url>%2F2017%2F09%2F08%2Flinklist-tail-head%2F</url>
     <content type="text"><![CDATA[从尾到头打印链表输入一个链表，从尾到头打印链表每个节点的值。 思路：利用 栈 的先进后出的原则123456789/*public class ListNode&#123; int val; ListNode next = null; ListNode(int val)&#123; this.val = val; &#125;&#125;*/ 12345678910111213141516171819202122import java.util.Stack;import java.util.ArrayList;public class Solution&#123; public ArrayList&lt;Integer&gt; PrintTailToHead(ListNode node)&#123; ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;(); Stack&lt;Integer&gt; stack = new Stack&lt;Integer&gt;(); if(node == null)&#123; return result; &#125; ListNode head = node; while(head.next != null)&#123; stack.push(head.val); head = head.next; &#125; stack.push(head.val); while(!stack.isEmpty())&#123; result.add(stack.pop()); &#125; return result; &#125;&#125;]]></content>
