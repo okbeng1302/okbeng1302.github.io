@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[java-stack 类]]></title>
     <url>%2F2017%2F09%2F08%2Fjava-stack%2F</url>
-    <content type="text"><![CDATA[JAVA Stack 类栈是Vector的一个自雷，他是实现了一个标准的后进先出的栈。 方法： empty()测试堆栈是否为空。 peek()查看堆栈顶部的对象，但不从堆栈中移除它。 pop()移除堆栈顶部的对象，并作为此函数的值返回该对象。 push()把项压入堆栈顶部。 search()返回对象在堆栈中的位置，以 1 为基数。]]></content>
+    <content type="text"><![CDATA[JAVA Stack 类栈是Vector的一个子类，他是实现了一个标准的后进先出的栈。 方法： empty()测试堆栈是否为空。 peek()查看堆栈顶部的对象，但不从堆栈中移除它。 pop()移除堆栈顶部的对象，并作为此函数的值返回该对象。 push()把项压入堆栈顶部。 search()返回对象在堆栈中的位置，以 1 为基数。]]></content>
       <categories>
         <category>java</category>
       </categories>
