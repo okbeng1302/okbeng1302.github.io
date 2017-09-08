@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[java-stack 类]]></title>
+    <url>%2F2017%2F09%2F08%2Fjava-stack%2F</url>
+    <content type="text"><![CDATA[JAVA Stack 类栈是Vector的一个自雷，他是实现了一个标准的后进先出的栈。 方法： empty()测试堆栈是否为空。 peek()查看堆栈顶部的对象，但不从堆栈中移除它。 pop()移除堆栈顶部的对象，并作为此函数的值返回该对象。 push()把项压入堆栈顶部。 search()返回对象在堆栈中的位置，以 1 为基数。]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[输入两个链表，找出它们的第一个公共结点。]]></title>
+    <url>%2F2017%2F09%2F08%2Flinklist-commonnode%2F</url>
+    <content type="text"><![CDATA[输入两个链表，找出它们的第一个公共结点。思路:使用 stack 1234567class LinkNode&#123; int val; LinkNode next = null; LinkNode(int val)&#123; this.val = val; &#125;&#125; 代码实现1234567891011121314151617181920212223import java.util.Stack;public class Solution&#123; public LinkNode FindCommonNode(LinkNode list1,LinkNode list2)&#123; Stack&lt;LinkNode&gt; stack1 = new Stack&lt;LinkNode&gt;(); Stack&lt;LinkNode&gt; stack2 = new Stack&lt;LinkNode&gt;(); LinkNode result = null; while(list1 != null)&#123; stack1.push(list1); list1 = list1.next; &#125; while(list2 != null)&#123; stack2.push(list2); list2 = list2.next; &#125; // 只要 两个链表中的值相等，就进入循环，直到循环结束，最后一次相等的值就是首次相等的值 while(!stack1.isEmpty() &amp;&amp; !stack2.isEmpty() &amp;&amp; stakc1.peek() == stack2.peek())&#123; stack1.pop(); result = stack2.pop(); &#125; return result; &#125;&#125;]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[二叉树转换成双向链表]]></title>
     <url>%2F2017%2F09%2F08%2FTwoTree-linklist%2F</url>
     <content type="text"><![CDATA[输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求不能创建任何新的结点，只能调整树中结点指针的指向。思路： 利用二叉树的中序遍历是是递增的。 12345 5 3 81 4 6 9中序遍历(左根右): 1 3 4 5 6 8 9 代码实现： 12345678public class TreeNode&#123; int val; TreeNode left = null; TreeNode right = null; TreeNode(int val)&#123; this.val = val; &#125;&#125; 123456789101112131415161718192021222324252627282930import java.util.Stack;public class Solution&#123; public TreeNode Convert(TreeNode root)&#123; if(root == null) return null; TreeNode p = root; TreeNode pre = null; Stack&lt;TreeNode&gt; stack = new Stack&lt;TreeNode&gt;(); boolean isFirst = true; // 确定首节点 while(p!=null || !stack.isEmpty())&#123; while(p != null!)&#123; stack.push(p); p = p.left; &#125; p = stack.pop(); // 确定首节点 if(isFirst)&#123; root = p; // 首节点 pre = root; // 前一节点 isFirst = fasle; &#125;else&#123; pre.right = p; // 前一节点右指向当前节点 p.left = pre; // 当前节点左指向前一节点 pre = p; //当前节点变为前一节点 &#125; p = pre.right; // 取右节点 &#125; return root; &#125;&#125;]]></content>
