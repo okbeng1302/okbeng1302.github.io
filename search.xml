@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[字符串中找出连续最长的数字串]]></title>
+    <url>%2F2017%2F09%2F09%2FFindLongNum%2F</url>
+    <content type="text"><![CDATA[题目描述读入一个字符串str，输出字符串str中的连续最长的数字串 输入描述:个测试输入包含1个测试用例，一个字符串str，长度不超过255。 输出描述:在一行内输出str中里连续最长的数字串。 示例11234输入abcd12345ed125ss123456789输出123456789 思路： 1. 定义一个值，数字字符串的长度 2. 定义StringBuilder，保存数字字符串 1234567891011121314151617181920212223242526import java.util.Scanner;public class Main&#123; public static void main(String args[])&#123; Scanner in = new Scanner(System.in); String s = in.nextLine(); char[] ch = s.toCharArray(); int max = 0; // 保存最终最大值的长度 int temp = 0; // 保存当前连续数字字符串的长度 String result = &quot;&quot;; // 保存对吼的字符串结果 StringBuilder sb = new StringBuilder(); // 保存当前的连续数字字符串 for(int i=0;i&lt;ch.length;i++)&#123; if(Character.isDigit(ch[i]))&#123; temp++; sb.append(ch[i]); &#125;else&#123; sb.delete(0,sb.length()); temp = 0; &#125; if(temp &gt; max)&#123; max = temp; result = sb.toString(); &#125; &#125; System.out.println(result); &#125;&#125;]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[fibonacci 数列]]></title>
     <url>%2F2017%2F09%2F09%2Ffibonacci%2F</url>
     <content type="text"><![CDATA[题目描述Fibonacci数列是这样定义的：F[0] = 0F[1] = 1for each i ≥ 2: F[i] = F[i-1] + F[i-2]因此，Fibonacci数列就形如：0, 1, 1, 2, 3, 5, 8, 13, …，在Fibonacci数列中的数我们称为Fibonacci数。给你一个N，你想让其变为一个Fibonacci数，每一步你可以把当前数字X变为X-1或者X+1，现在给你一个数N求最少需要多少步可以变为Fibonacci数。 输入描述输入为一个正整数N(1 ≤ N ≤ 1,000,000) 输出描述输出一个最小的步数变为Fibonacci数” 思路： 判断 N 与相邻两个数的差的大小，以 N 作为界限 代码实现1234567891011121314151617import java.util.Scanner;public class Main&#123; public static void main(String args[])&#123; Scanner in = new Scanner(System.in); int Num = in.nextInt(); int a = 0; int b = 1; while(b&lt;=Num)&#123; int tmp = a + b; a = b; b = tmp; &#125; int result = (b-Num)&gt;(Num-a)?(Num-a):(b-Num); System.out.println(result); &#125;&#125;]]></content>
