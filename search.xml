@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CentOS 下 Redis 安装]]></title>
+    <url>%2F2017%2F09%2F11%2Fredis-install%2F</url>
+    <content type="text"><![CDATA[CentOS 下 Redis 安装本文已下载好redis包：redis-3.0.7.tar.gz 安装redis确定好安装目录，将redis包移动到指定目录进行解压安装 12345678# tar –xzvf redis-3.0.7.tar.gz# 首先将解压文件改名# mv redis-3.0.7 redis#进入redis路径# cd /usr/local/redis/src# make &amp;&amp; make install ##安装编译 验证是否安装成功 1# redis-server –version 启动redis12# 进入redis安装路径 /usr/local/src/redis/src# redis-server 查看进程1# ps aux | grep redis 清除redis缓存1# redis-cli flushdb Redis远程连接需要关闭防火墙： 关闭防火墙—–service iptables stop 启动防火墙—–service iptables start 重启防火墙—–service iptables restart 查看防火墙状态–service iptables status 永久关闭防火墙–chkconfig iptables off 永久关闭后启用–chkconfig iptables on 修改配置文件redis.conf：123# bind 127.0.0.1 取消注释bind 127.0.0.1 取消requirepass foobar注释 远程登录：进入redis根目录，12# redis-cli –h 192.168.17.135 –p 6379# redis-cli –h 192.168.17.135 –p 6379 shutdown //服务停止 采用RedisStudio图形工具观察。 Redis自启动配置Utils文件夹在 redis 根目录下首先将utils/redis_init_script文件复制到/etc/init.d下，同时易名为redis1# cp/usr/local/redis/utils/redis_init_script /etc/rc.d/init.d/redis /usr/local/redis是redis的安装路径1# vim /etc/rc.d/init.d/redis 在文档的第二行添加1# chkconfig：2345 80 90 如果 /usr/local/bin 中没有redis-server和redis-cli，从redis目录中复制过来。在文档的 文档中：1CONF=&quot;/etc/redis/$&#123;REDISPORT&#125;.conf&quot; 将redis配置文件拷贝到 /etc/redis/路径下1234# mkdir /etc/redis# cp /usr/src/redis/redis.conf /etc/redis/6379.conf# vim /etc/rc.d/init.d/redis 将redis_${REDISPORT}.pid修改为redis.pid。 结果图：！ $ EXEC $ CONF 后边加一个 &amp; ，表示让redis作为后台服务启动，否则该服务会独占输入屏。 完成上面操作，注册服务：1# chkconfig --add redis 然后启动redis服务：1# service redis start 关闭redis服务：1# service redis stop]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>redis</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[scrapy分布式搭建]]></title>
     <url>%2F2017%2F09%2F11%2Fscrapy-redis%2F</url>
     <content type="text"><![CDATA[Scrapy 分布式部署使用scrapy-redis 插件实现scrapy分布式 1# pip install scrapy-redis 配置 redis 打开项目 settings.py,做如下修改: 123456SCHDULER = &quot;scrapy_redis.scheduler.Scheduler&quot;SCHEDULER_PERSIST = TrueSCHEDULER_QUEUE_CLASS = &apos;scrapy_redis.queue.SpiderPriorityQueue&apos;REDIS_URL = NoneREDIS_HOST = &apos;127.0.0.1&apos;REDIS_PORT = 6379 Master 端 REDIS_HOST = ‘127.0.0.1’ REDIS_PORT = 6379Slave 端 REDIS_URL = ‘redis://192.168.17.134:6379’192.168.17.134 是Master端的机器IP]]></content>
