@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Centos下Scrapy环境搭建]]></title>
+    <url>%2F2017%2F09%2F11%2Fcentos-python%2F</url>
+    <content type="text"><![CDATA[Scrapy 环境搭建 Centos 6.5 默认python2.6 ,但是scrapy 支持 python &gt;=2.7 scrapy python2.7 Vmware xshell 升级python1# [root@localhost ~]# wget http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tgz 进入路径并编译：1234567891011[root@localhost ~]# tar zxf Python-2.7.3.tgz[root@localhost ~]# cd Python-2.7.3[root@localhost Python-2.7.3]# ./configure[root@localhost Python-2.7.3]#make &amp;&amp; make install[root@localhost Python-2.7.3]# mv /usr/bin/python /usr/bin/python_old[root@localhost Python-2.7.3]# python --version-bash: /usr/bin/python: No such file or directory[root@localhost Python-2.7.3]# ln -s /usr/local/bin/python2.7 /usr/bin/python[root@localhost Python-2.7.3]# python --versionPython 2.7.3 更改yum的配置文件（因为升级到python2.7之后，原来的yum就无法使用了）1[root@localhost Python-2.7.3]# vim /usr/bin/yum 1[root@localhost Python-2.7.3]# yum intall zlib-devel 再重新编译python2.7 easy_install 安装首先安装 openssl 和 openssl-devel12345678# yum install openssl# yum install openssl-devel# wget --no-cookie --no-check-certificate http://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c11.tar.gz# tar xzvf setuptools-0.6c11.tar.gz# cd setuptools-0.6c11# python setup.py build# python setup.py install pip安装123456789# yum install openssl# yum install openssl-devel# ./configure# make &amp;&amp; make install# wget &quot;https://pypi.python.org/packages/source/p/pip/pip-1.5.4.tar.gz#md5=834b2904f92d46aaa333267fb1c922bb&quot; --no-check-certificate# tar -xzvf pip-1.5.4.tar.gz# cd pip-1.5.4# python setup.py install Scrapy 安装安装依赖Twisted 依赖 bzip2-devel12345678910111213141516171819# yum install bzip2-devel依赖 lxml# yum install lxml依赖 w3lib# yum install w3lib报 Unicode 错误# easy_install Cython# yum install libxslt-devel libxml2-devel llibffi-devel# yum install gcc libffi-devel# pip install pydispatcher# yum install sqlite-devel缺少 cryptography 包# yum install cryptography# pip install scrapy Scrapyd 安装123456# pip install attrs# easy_install pyasnl-modules# easy_install pyasnl# pip install scrapyd# pip install scrapyd-client# scrapyd 在虚拟机中打开浏览器输入 localhost：6800 环境搭建完成，可能在安装的过程中，需要安装其他的包，缺什么就pip安装什么就可以。]]></content>
+      <categories>
+        <category>python</category>
+        <category>爬虫</category>
+        <category>scrapy</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[java-PriorityQueue实现最大堆和最小堆]]></title>
     <url>%2F2017%2F09%2F10%2Fzuidaduiandzuixiaodui%2F</url>
     <content type="text"><![CDATA[PriorityQueue 实现最大堆和最小堆概念：堆是一种经过排序的完全二叉树，其中任一非终端节点的数值均不大于(或不小于)其左孩子和右孩子的节点。 * 最小堆(小根堆) 根节点(堆顶)的值在堆里是最小的堆,称为最小堆 * 最大堆(大根堆) 根节点(堆顶)的值在堆里是最大的堆,称为最大堆 借助PriorityQueue 可以实现小根堆和大根堆。 PriorityQueue 的容量没有界限,并且默认排序是自然排序,队头元素是最小元素,可以拿来做最小堆使用(注意：默认的PriorityQueue并非保证了整个队列是有序的,只是保证了队头是最小的) 对于大根堆,就要借助于comparator比较器实现最大堆。(默认的初始容量：11) 代码实现： 123456PriorityQueue &lt;Integer&gt; maxHeap = new PriorityQueue&lt;Integer&gt;(11,new Comparator&lt;Integer&gt;()&#123; @Override public int compare(Integer o1,Integer o2)&#123; return o2.compareTo(o1); &#125;&#125;) 最大堆和最小堆实例：已知关键字序列5,8,12,19,28,20,15,22是最小堆，插入关键字3，调整后得到的最小堆是() 算法实例：题目描述(数据流中的中位数)如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，那么中位数就是所有数值排序之后中间两个数的平均值。 代码实现：1234567891011121314151617181920212223242526272829303132333435363738import java.util.PriorityQueue;import java.util.Comparator;/** 最大堆中 放 较小的一半， 最小值放较大的一半* 如果是奇数个，就最大堆数量比最小堆数量大 1，如果是偶数，取最大堆得的最小值和最小堆得最大值的平均数*/public class Solution &#123; private int count = 0; private PriorityQueue&lt;Integer&gt; minHeap = new PriorityQueue&lt;Integer&gt;(); private PriorityQueue&lt;Integer&gt; maxHeap = new PriorityQueue&lt;Integer&gt;(11,new Comparator&lt;Integer&gt;()&#123; public int compare(Integer o1,Integer o2)&#123; return o2.compareTo(o1); &#125; &#125;); public void Insert(Integer num) &#123; if(count % 2 == 1)&#123; // 如果是偶数，放入最小堆中 maxHeap.offer(num); minHeap.offer(maxHeap.poll()); &#125;else&#123; // 如果是奇数，放入最大堆中 minHeap.offer(num); maxHeap.offer(minHeap.poll()); &#125; count++; &#125; // 如果是奇数，就取最大堆中的最大值，如果是偶数，就取最大堆中的最大值和最小堆中的最小值的平均值 public Double GetMedian() &#123; if(count % 2 == 0)&#123; return new Double((maxHeap.peek()+minHeap.peek()))/2; &#125;else&#123; return new Double(maxHeap.peek()); &#125; &#125;&#125;]]></content>
@@ -119,17 +129,17 @@
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[CentOS 下 navicat 破解]]></title>
-    <url>%2F2017%2F09%2F03%2Fmysql-centos%2F</url>
-    <content type="text"><![CDATA[破解方案： 第一次执行start_navicat时，会在用户主目录下生成一个名为.navicat的隐藏文件夹。 cd /home/hadoop/.navicat/此文件夹下有一个system.reg文件 rm system.reg 把此文件删除后，下次启动navicat 会重新生成此文件，30天试用期会按新的时间开始计算。]]></content>
+    <title><![CDATA[linux下mysql的配置修改]]></title>
+    <url>%2F2017%2F09%2F03%2Fmysql-centos1%2F</url>
+    <content type="text"><![CDATA[linux下mysql的配置修改 使用CentOS下yum安装mysql mysql启动和停止等操作 12345678910111213141516# /etc/init.d/mysqld start;# service mysqld start;#service mysqld stop;#/etc/init.d/mysqld stop;# service mysqld restart;#/etc/init.d/mysqld restart;#service mysqld status;设置新的最大连接数为200：mysql&gt; set GLOBAL max_connections=200 显示当前运行的Query：mysql&gt; show processlist 显示当前状态：mysql&gt; show status 退出客户端：mysql&gt; exit mysql配置文件 以使用的MySQL配置文件共有５个。最后４个位于/usr/share/mysql-server-*/目录中。·/etc/my.cnf是默认的MySQL配置文件。应该对这个文件配置修改。它是为学习目的而设计的。·my-small.cnf是为了小型数据库而设计的。不应该把这个模型用于含有一些常用项目的数据库。·my-medium.cnf是为中等规模的数据库而设计的。如果你正在企业中使用RHEL,可能会比这个操作系统的最小RAM需求(256MB)明显多得多的物理内存。由此可见，如果有那么多RAM内存可以使用，自然可以在同一台机器上运行其它服务。·my-large.cnf是为专用于一个SQL数据库的计算机而设计的。由于它可以为该数据库使用多达512MB的内存，所以在这种类型的系统上将需要至少1GB的RAM,以便它能够同时处理操作系统与数据库应用程序。·my-huge.cnf是为企业中的数据库而设计的。这样的数据库要求专用服务器和1GB或1GB以上的RAM。 mysql配置参数一般我们会把配置文件（例如：my-small.cnf）拷贝到/etc/my.cnf只需要修改这个配置文件就可以了，使用mysqladmin variables extended-status -u root -p可以看到目前的参数，有3个配置参数是最重要的，即123key_buffer_size,query_cache_size,table_cache。]]></content>
       <categories>
         <category>Mysql</category>
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[linux下mysql的配置修改]]></title>
-    <url>%2F2017%2F09%2F03%2Fmysql-centos1%2F</url>
-    <content type="text"><![CDATA[linux下mysql的配置修改 使用CentOS下yum安装mysql mysql启动和停止等操作 12345678910111213141516# /etc/init.d/mysqld start;# service mysqld start;#service mysqld stop;#/etc/init.d/mysqld stop;# service mysqld restart;#/etc/init.d/mysqld restart;#service mysqld status;设置新的最大连接数为200：mysql&gt; set GLOBAL max_connections=200 显示当前运行的Query：mysql&gt; show processlist 显示当前状态：mysql&gt; show status 退出客户端：mysql&gt; exit mysql配置文件 以使用的MySQL配置文件共有５个。最后４个位于/usr/share/mysql-server-*/目录中。·/etc/my.cnf是默认的MySQL配置文件。应该对这个文件配置修改。它是为学习目的而设计的。·my-small.cnf是为了小型数据库而设计的。不应该把这个模型用于含有一些常用项目的数据库。·my-medium.cnf是为中等规模的数据库而设计的。如果你正在企业中使用RHEL,可能会比这个操作系统的最小RAM需求(256MB)明显多得多的物理内存。由此可见，如果有那么多RAM内存可以使用，自然可以在同一台机器上运行其它服务。·my-large.cnf是为专用于一个SQL数据库的计算机而设计的。由于它可以为该数据库使用多达512MB的内存，所以在这种类型的系统上将需要至少1GB的RAM,以便它能够同时处理操作系统与数据库应用程序。·my-huge.cnf是为企业中的数据库而设计的。这样的数据库要求专用服务器和1GB或1GB以上的RAM。 mysql配置参数一般我们会把配置文件（例如：my-small.cnf）拷贝到/etc/my.cnf只需要修改这个配置文件就可以了，使用mysqladmin variables extended-status -u root -p可以看到目前的参数，有3个配置参数是最重要的，即123key_buffer_size,query_cache_size,table_cache。]]></content>
+    <title><![CDATA[CentOS 下 navicat 破解]]></title>
+    <url>%2F2017%2F09%2F03%2Fmysql-centos%2F</url>
+    <content type="text"><![CDATA[破解方案： 第一次执行start_navicat时，会在用户主目录下生成一个名为.navicat的隐藏文件夹。 cd /home/hadoop/.navicat/此文件夹下有一个system.reg文件 rm system.reg 把此文件删除后，下次启动navicat 会重新生成此文件，30天试用期会按新的时间开始计算。]]></content>
       <categories>
         <category>Mysql</category>
       </categories>
