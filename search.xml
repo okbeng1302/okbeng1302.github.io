@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[从上到下打印二叉树]]></title>
+    <url>%2F2017%2F09%2F18%2Fnodetree-reconstruct%2F</url>
+    <content type="text"><![CDATA[从上到下打印二叉树12345678class TreeNode&#123; int val; TreeNode left; TreeNode right; TreeNode(int val)&#123; this.val = val; &#125;&#125; 12345678910111213141516171819202122232425262728293031323334353637383940import java.util.ArrayList; import java.util.LinkedList; import java.util.Queue; /** * * @author 毛二 * @data 2015-8-9 * @comments 层次遍历二叉树 * 从上往下打印出二叉树的每个节点，同层节点从左至右打印。 * 访问根节点，并将根节点入队。 * 当队列不空的时候，重复以下操作。 * 1、弹出一个元素。作为当前的根节点。 * 2、如果根节点有左孩子，访问左孩子，并将左孩子入队。 * 3、如果根节点有右孩子，访问右孩子，并将右孩子入队。 */ public class Solution&#123; public ArrayList&lt;Integer&gt; PrintFromToBottom(TreeNode root)&#123; ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;(); // 存储值 Queue&lt;TreeNode&gt; queue = new Queue&lt;TreeNode&gt;(); list.add(root.val); queue.add(root); while(queue.size() != 0)&#123; root = queue.poll(); if(root.left != null)&#123; queue.add(root.left); list.add(root.left.val); &#125; if(root.right != null)&#123; queue.add(root.right); list.add(root.right.val); &#125; &#125; return list; &#125;&#125;]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[垂直搜索]]></title>
     <url>%2F2017%2F09%2F13%2Ffocused-crawler%2F</url>
     <content type="text"><![CDATA[垂直搜索Focused crawling enhanced by CBP-SLC(Content Block Partition-Selective Link Context)摘要复杂的网络环境和多种主题网页影响主题爬虫的效率。 网页： 锚文本 和 文本内容 基于以上：提出 启发性的方法 CBP-SLC 结合 网页的区分算法和选择性的使用网页相关块的一部分，提高主题爬虫的效率 为了引导爬虫，建立一个权重选举分类器 使用基于新颖的 TFIDF特征加权 的 SVM 算法分类的过程中， 1-DNF算法，(1-DNFC):从没有标记的数据集中分辨出可靠的不相关的页面 比较算法：Breadth-First Best-First Anchor Text Link context SLC CBP 标准：Harvest rate 收获率Target recall 召回率 Introduction原因：由于互联网的快速发展，网络上拥有大量的信息，人们要想找到有用的信息，变得越来越**困难。 主题爬虫：用来收集特定主题的网页，主题爬虫决定去浏览哪个网页基于当前的网页 主题爬虫的关键: 搜索策略 一般关于主题的 文本和链接总是在网页的同一块区域中， 所以 把网页分成多个文本块，而不是把整个页面当成一个整体。 锚文本是网页中的一个关键。 获取不相关页面的训练集是困难的，但是获取相关页面的训练集是效率很高的策略。 文本分类器 用来给新的网页打标签（是否相关） 本文使用的是 TFIDF 改进版 —》 TFIPNDF(Term frrquency Inverse Positive-Negative Document Frequency)计算 某词在 相关训练集和不相关训练集中的词权重。 CBP-SLC本文使用 Content Block Partition(CBP）算法 将网页分成 多个文本块。 如果一个高度相关的文本区域，在一个低相关性的网页中，将不会被 进行抓取。在一个不相关的网页中，但是他的 某块区域 相关性很强，说明 可以进行抓取。 在本文中，如果一个文本区域是相关的，爬虫将会对文本区域中的链接进行采集，否则，主题爬虫将将选择性的使用 link-context(SLC）来扩展区域 根据向光性。 Content block partition在不相关的网页中，可能很多的区域是相关的。 把多主题的网页分解成多个单主题的小区域，可以有效提高主题爬虫的搜索效率。]]></content>
