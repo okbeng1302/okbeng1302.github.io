@@ -95,14 +95,19 @@
 
 
 
+<meta name="description" content="Java线程进程和线程的区别进程是操作系统的调用程序，拥有独立的系统资源。线程是进程的自己，它不是拥有系统的资源，一个进程可以有很多线程，每条线程并行执行不同的任务。不同的进程使用不同的内存空间。而所有的线程共享一片相同的内存空间。每个线程都有独立的栈内存来存储本地数据。 线程的基本概念、基本状态和状态之间的关系线程状态之间的关系 线程的五种状态 新建： 使用 new 关键字新建一个线程。如： T">
 <meta property="og:type" content="article">
 <meta property="og:title" content="thread">
 <meta property="og:url" content="http://yoursite.com/2017/09/19/thread/index.html">
 <meta property="og:site_name" content="ok绷ii 的 狗窝">
+<meta property="og:description" content="Java线程进程和线程的区别进程是操作系统的调用程序，拥有独立的系统资源。线程是进程的自己，它不是拥有系统的资源，一个进程可以有很多线程，每条线程并行执行不同的任务。不同的进程使用不同的内存空间。而所有的线程共享一片相同的内存空间。每个线程都有独立的栈内存来存储本地数据。 线程的基本概念、基本状态和状态之间的关系线程状态之间的关系 线程的五种状态 新建： 使用 new 关键字新建一个线程。如： T">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-19T01:15:14.400Z">
+<meta property="og:image" content="http://images.cnitblog.com/i/426802/201406/232002051747387.jpg">
+<meta property="og:updated_time" content="2017-09-19T02:36:36.093Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="thread">
+<meta name="twitter:description" content="Java线程进程和线程的区别进程是操作系统的调用程序，拥有独立的系统资源。线程是进程的自己，它不是拥有系统的资源，一个进程可以有很多线程，每条线程并行执行不同的任务。不同的进程使用不同的内存空间。而所有的线程共享一片相同的内存空间。每个线程都有独立的栈内存来存储本地数据。 线程的基本概念、基本状态和状态之间的关系线程状态之间的关系 线程的五种状态 新建： 使用 new 关键字新建一个线程。如： T">
+<meta name="twitter:image" content="http://images.cnitblog.com/i/426802/201406/232002051747387.jpg">
 
 
 
@@ -349,6 +354,39 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/线程/" itemprop="url" rel="index">
+                    <span itemprop="name">线程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -376,7 +414,46 @@
       
 
       
-        
+        <h3 id="Java线程"><a href="#Java线程" class="headerlink" title="Java线程"></a>Java线程</h3><h2 id="进程和线程的区别"><a href="#进程和线程的区别" class="headerlink" title="进程和线程的区别"></a>进程和线程的区别</h2><p>进程是操作系统的调用程序，拥有独立的系统资源。线程是进程的自己，它不是拥有系统的资源，一个进程可以有很多线程，每条线程并行执行不同的任务。不同的进程使用不同的内存空间。而所有的线程共享一片相同的内存空间。<br>每个线程都有独立的栈内存来存储本地数据。</p>
+<h2 id="线程的基本概念、基本状态和状态之间的关系"><a href="#线程的基本概念、基本状态和状态之间的关系" class="headerlink" title="线程的基本概念、基本状态和状态之间的关系"></a>线程的基本概念、基本状态和状态之间的关系</h2><h1 id="线程状态之间的关系"><a href="#线程状态之间的关系" class="headerlink" title="线程状态之间的关系"></a>线程状态之间的关系</h1><p><img src="http://images.cnitblog.com/i/426802/201406/232002051747387.jpg" alt=""></p>
+<h1 id="线程的五种状态"><a href="#线程的五种状态" class="headerlink" title="线程的五种状态"></a>线程的五种状态</h1><ol>
+<li>新建： 使用 new 关键字新建一个线程。如： Thread t = new MyThread()</li>
+<li>就绪： 线程对象调用了 start() 方法后；此时线程没有开始执行，只是表示可以开始运行了。 t.start()</li>
+<li>运行： 线程获得CPU,开始执行 run() 方法。</li>
+<li>阻塞： 在某些情况下，如执行 sleep() 方法，等待 I/O设备等资源，将让出CPU暂时停止自己的运行。<ul>
+<li>等待阻塞：运行状态中的线程执行wait() 方法，使本线程进入到等待阻塞状态</li>
+<li>同步阻塞：线程在获取synchronized同步锁失败(因为锁被其他线程所占用)，他会进入同步阻塞状态</li>
+<li>其他阻塞：通过调用线程的sleep()或join()或发出I/O请求时，线程会进入到阻塞状态。当sleep()状态超时、join()等待线程终止或者超时、或者I/O处理完毕时，线程重新转入就绪状态。</li>
+</ul>
+</li>
+<li>死亡： run() 方法执行结束，线程正常结束，或调用 stop() 方法强制终止该线程。</li>
+</ol>
+<h1 id="线程方法"><a href="#线程方法" class="headerlink" title="线程方法"></a>线程方法</h1><ul>
+<li>join(): 调用哪个线程的 join() 方法，就等待哪个线程执行完毕后调用者在继续执行。</li>
+<li>yield(): 暂停正在执行的线程，但是不会阻塞该线程，只是将其转入就绪状态，有可能暂时之后马上又继续执行，     是静态方法。（就绪）</li>
+<li>sleep(): 将正执行的线程暂停一段时间，不释放锁，常用语倒计时和模拟网络延时，静态方法。（阻塞）</li>
+<li>setDaemon(true): 设置为后台线程；如果所有的前台线程死亡，后台线程会自动死亡。</li>
+<li>Thread.currentThread(): 获取当前线程</li>
+<li>getName(): 获取线程名称</li>
+<li>setName(): 设置线程名称</li>
+</ul>
+<h2 id="Java线程的创建及启动"><a href="#Java线程的创建及启动" class="headerlink" title="Java线程的创建及启动"></a>Java线程的创建及启动</h2><h1 id="Java中线程的创建常见的有三种基本形式"><a href="#Java中线程的创建常见的有三种基本形式" class="headerlink" title="Java中线程的创建常见的有三种基本形式"></a>Java中线程的创建常见的有三种基本形式</h1><ol>
+<li>继承Thread类，重写该类的run()方法</li>
+<li>实现Runnable接口，并重写该接口的run方法，该run()方法同样是线程执行体。创建Runnable实现类的实例，并以此实例作为Thread类的target来创建Thread对象，该Thread对象才是真正 的Thread对象。</li>
+<li>使用Callable和Future接口创建线程。具体是创建Callable接口的实现类，并实现call()方法。并使用FutureTask类来包装Callable实现类的对象，且以此FutureTask对象作为Thread对象的target来创建线程。</li>
+</ol>
+<h1 id="继承Thread类"><a href="#继承Thread类" class="headerlink" title="继承Thread类"></a>继承Thread类</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">class MyThread extends Thread&#123;</div><div class="line">    private int i = 0;</div><div class="line">    @override</div><div class="line">    public void run()&#123;</div><div class="line">        for(i=0;i&lt;100;i++)&#123;</div><div class="line">            System.out.println(Thread.currentThread().getName() + &quot;&quot; + i);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class Test&#123;</div><div class="line">    public static void main(String args[])&#123;</div><div class="line">        for(int i=0;i&lt;100;i++)&#123;        </div><div class="line">            System.out.println(Thread.currentThread().getName() + &quot;&quot; + i);</div><div class="line">            if(i == 30)&#123;</div><div class="line">                Thread myThread1 = new MyThread();</div><div class="line">                Thread myThread2 = new MyThread();</div><div class="line">                myThread1.start();</div><div class="line">                myThread2.start();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="实现Runnable接口"><a href="#实现Runnable接口" class="headerlink" title="实现Runnable接口"></a>实现Runnable接口</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">class MyRunnable implements Runnable&#123;</div><div class="line">    private int i = 0;</div><div class="line">    @override</div><div class="line">    public void run()&#123;</div><div class="line">        for(int i=0;i&lt;100;i++)&#123;</div><div class="line">            System.out.println(Thread.currentThread().getName() + &quot; &quot; + i); </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class Test&#123;</div><div class="line">    public static void main(String args[])【</div><div class="line">        for(int i=0;i&lt;100;i++)&#123;</div><div class="line">            System.out.println(Thread.currentThread().getName() + &quot;&quot; + i);</div><div class="line">            if(i == 30)&#123;</div><div class="line">                Runnable myRannable = new MyRunnable();</div><div class="line">                Thread thread1 = new Thread(myRunnable);</div><div class="line">                Thread thread2 = new Thread(myRunnable);</div><div class="line">                thread1.start();</div><div class="line">                thread2.start();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="使用Callable和Future接口创建线程"><a href="#使用Callable和Future接口创建线程" class="headerlink" title="使用Callable和Future接口创建线程"></a>使用Callable和Future接口创建线程</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">public class ThreadTest &#123;</div><div class="line"></div><div class="line">    public static void main(String[] args) &#123;</div><div class="line"></div><div class="line">        Callable&lt;Integer&gt; myCallable = new MyCallable();    // 创建MyCallable对象</div><div class="line">        FutureTask&lt;Integer&gt; ft = new FutureTask&lt;Integer&gt;(myCallable); //使用FutureTask来包装MyCallable对象</div><div class="line"></div><div class="line">        for (int i = 0; i &lt; 100; i++) &#123;</div><div class="line">            System.out.println(Thread.currentThread().getName() + &quot; &quot; + i);</div><div class="line">            if (i == 30) &#123;</div><div class="line">                Thread thread = new Thread(ft);   //FutureTask对象作为Thread对象的target创建新的线程</div><div class="line">                thread.start();                      //线程进入到就绪状态</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        System.out.println(&quot;主线程for循环执行完毕..&quot;);</div><div class="line">        </div><div class="line">        try &#123;</div><div class="line">            int sum = ft.get();            //取得新创建的新线程中的call()方法返回的结果</div><div class="line">            System.out.println(&quot;sum = &quot; + sum);</div><div class="line">        &#125; catch (InterruptedException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; catch (ExecutionException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">class MyCallable implements Callable&lt;Integer&gt; &#123;</div><div class="line">    private int i = 0;</div><div class="line"></div><div class="line">    // 与run()方法不同的是，call()方法具有返回值</div><div class="line">    @Override</div><div class="line">    public Integer call() &#123;</div><div class="line">        int sum = 0;</div><div class="line">        for (; i &lt; 100; i++) &#123;</div><div class="line">            System.out.println(Thread.currentThread().getName() + &quot; &quot; + i);</div><div class="line">            sum += i;</div><div class="line">        &#125;</div><div class="line">        return sum;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>不能对同一线程对象两次调用start()方法。</strong></p>
+<h2 id="Java-多线程的就绪、运行和死亡状态"><a href="#Java-多线程的就绪、运行和死亡状态" class="headerlink" title="Java 多线程的就绪、运行和死亡状态"></a>Java 多线程的就绪、运行和死亡状态</h2><ul>
+<li>就绪状态转换为死亡状态：当此线程得到处理器资源；</li>
+<li>运行状态转换为就绪状态：当此线程主动调用yield()方法或运行过程中失去处理器资源</li>
+<li>运行状态转换为死亡状态：当此线程线程执行体执行完毕或发生了异常</li>
+</ul>
+<p>由于实际的业务需要，常常会遇到需要在特定时机终止某一线程的运行，使其进入到死亡状态。目前最通用的做法是设置一boolean型的变量，当条件满足时，使线程执行体快速执行完毕。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">public class ThreadTest &#123;</div><div class="line"></div><div class="line">    public static void main(String[] args) &#123;</div><div class="line"></div><div class="line">        MyRunnable myRunnable = new MyRunnable();</div><div class="line">        Thread thread = new Thread(myRunnable);</div><div class="line">        </div><div class="line">        for (int i = 0; i &lt; 100; i++) &#123;</div><div class="line">            System.out.println(Thread.currentThread().getName() + &quot; &quot; + i);</div><div class="line">            if (i == 30) &#123;</div><div class="line">                thread.start();</div><div class="line">            &#125;</div><div class="line">            if(i == 40)&#123;</div><div class="line">                myRunnable.stopThread();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class MyRunnable implements Runnable &#123;</div><div class="line"></div><div class="line">    private boolean stop;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void run() &#123;</div><div class="line">        for (int i = 0; i &lt; 100 &amp;&amp; !stop; i++) &#123;</div><div class="line">            System.out.println(Thread.currentThread().getName() + &quot; &quot; + i);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void stopThread() &#123;</div><div class="line">        this.stop = true;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -460,8 +537,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -490,7 +576,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -550,6 +636,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java线程"><span class="nav-number">1.</span> <span class="nav-text">Java线程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程和线程的区别"><span class="nav-number"></span> <span class="nav-text">进程和线程的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程的基本概念、基本状态和状态之间的关系"><span class="nav-number"></span> <span class="nav-text">线程的基本概念、基本状态和状态之间的关系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程状态之间的关系"><span class="nav-number"></span> <span class="nav-text">线程状态之间的关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程的五种状态"><span class="nav-number"></span> <span class="nav-text">线程的五种状态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程方法"><span class="nav-number"></span> <span class="nav-text">线程方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java线程的创建及启动"><span class="nav-number"></span> <span class="nav-text">Java线程的创建及启动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java中线程的创建常见的有三种基本形式"><span class="nav-number"></span> <span class="nav-text">Java中线程的创建常见的有三种基本形式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承Thread类"><span class="nav-number"></span> <span class="nav-text">继承Thread类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现Runnable接口"><span class="nav-number"></span> <span class="nav-text">实现Runnable接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Callable和Future接口创建线程"><span class="nav-number"></span> <span class="nav-text">使用Callable和Future接口创建线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-多线程的就绪、运行和死亡状态"><span class="nav-number"></span> <span class="nav-text">Java 多线程的就绪、运行和死亡状态</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
