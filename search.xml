@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【排序算法】快速排序]]></title>
+    <url>%2F2017%2F09%2F20%2Fjava-sort-quick%2F</url>
+    <content type="text"><![CDATA[快速排序在排序算法中，经常会问到 时间复杂度 和 空间复杂度 的问题，同时在排序算法算法中，经常会问到稳定性的问题。接下来介绍一下一些基本的概念： 排序算法的稳定性如果在对象序列中有两个对象r[i]和r[j] ,它们的排序码k[i]==k[j] 。如果排序前后,对象r[i]和r[j] 的相对位置不变，则称排序算法是稳定的；否则排序算法是不稳定的。 排序算法的评价时间开销 排序的时间开销可用算法执行中的数据比较次数与数据移动次数来衡量。 算法运行时间代价的大略估算一般都按平均情况进行估算。对于那些受对象排序码序列初始排列及对象个数影响较大的，需要按最好情况和最坏情况进行估算 空间开销 算法执行时所需要的附加存储。 快速排序的基本思想： 任选一个记录，以其关键字为“枢轴”，序列中比它小的移动到记录之前，反之移动到他的后面 通过一趟排序将待排的记录分隔成两个区域，一个区域中记录的关键字比另一个区域的关键字小(一次划分) 然后左右两边分别处理进行相同的操作直到排好 快排复杂度： 平均时间复杂度O(nlogn) 代码实现： 1234567891011121314151617181920212223242526272829303132333435public class QuickSort&#123; public static void main(String args[])&#123; int[] arr = &#123;5,2,8,6,4,3,1,9&#125;; quick(arr,0,arr.length-1); for(int a:arr)&#123; System.out.println(a + &quot; &quot;); &#125; &#125; public static void quick(int[] arr,int low,int high)&#123; while(low&lt;high)&#123; int middle = quickSoring(arr,low,high); quickSorting(arr,low,middle-1); quickSorting(arr,middle+1,high); &#125; &#125; public static int quickSorting(int[] arr,int low,int high)&#123; // 选择起始点作为中轴点 int temp = arr[low]; while(low&lt;high)&#123; // 找到小于中轴点的点 while(low &lt; high &amp;&amp; arr[high] &gt; temp) high--; arr[low] = arr[high]; // 找到大于中轴点的点 while(low &lt; high &amp;&amp; arr[low] &lt; temp) low++; arr[high] = arr[low]; &#125; arr[low] = temp; return low; &#125;&#125;]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>排序算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【排序算法】插入排序]]></title>
     <url>%2F2017%2F09%2F20%2Fjava-sort-insert%2F</url>
     <content type="text"><![CDATA[插入排序出入排序类似于 整扑克牌 例如： [2,5,3,6,8,1] 第一遍 2 5 3 6 8 1 第二遍 2 3 5 6 8 1 第三遍 2 3 5 6 8 1 … 第5遍1 2 3 4 5 8 复杂度：空间复杂度 O(1) 时间复杂度最好 O(n) 最坏 O(n^2) 平均 O(n^2) 最差情况：反序,需要移动 n*(n-1)/2 个元素最好情况：正序,不需要移动元素 稳定排序代码实现： 123456789101112131415161718public class Main&#123; public static void main(String args[])&#123; int[] arr = &#123;6,5,8,3,2,1&#125;; for(int i=0;i&lt;arr.length;i++)&#123; for(int j=i;j&gt;=0;j--)&#123; // 注意边界条件 j ;如果 j&gt;=0, 判断arr[j+1] arr[j];j&gt;0 判断arr[j-1] arr[j] if(arr[j+1]&lt;arr[j])&#123; int temp = arr[j]; arr[j] = arr[j+1]; arr[j+1] = temp; &#125; &#125; &#125; for(int a:arr)&#123; System.out.print(a); &#125; &#125;&#125;]]></content>
@@ -267,17 +278,17 @@
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[CentOS 下 navicat 破解]]></title>
-    <url>%2F2017%2F09%2F03%2Fmysql-centos%2F</url>
-    <content type="text"><![CDATA[破解方案： 第一次执行start_navicat时，会在用户主目录下生成一个名为.navicat的隐藏文件夹。 cd /home/hadoop/.navicat/此文件夹下有一个system.reg文件 rm system.reg 把此文件删除后，下次启动navicat 会重新生成此文件，30天试用期会按新的时间开始计算。]]></content>
+    <title><![CDATA[linux下mysql的配置修改]]></title>
+    <url>%2F2017%2F09%2F03%2Fmysql-centos1%2F</url>
+    <content type="text"><![CDATA[linux下mysql的配置修改 使用CentOS下yum安装mysql mysql启动和停止等操作 12345678910111213141516# /etc/init.d/mysqld start;# service mysqld start;#service mysqld stop;#/etc/init.d/mysqld stop;# service mysqld restart;#/etc/init.d/mysqld restart;#service mysqld status;设置新的最大连接数为200：mysql&gt; set GLOBAL max_connections=200 显示当前运行的Query：mysql&gt; show processlist 显示当前状态：mysql&gt; show status 退出客户端：mysql&gt; exit mysql配置文件 以使用的MySQL配置文件共有５个。最后４个位于/usr/share/mysql-server-*/目录中。·/etc/my.cnf是默认的MySQL配置文件。应该对这个文件配置修改。它是为学习目的而设计的。·my-small.cnf是为了小型数据库而设计的。不应该把这个模型用于含有一些常用项目的数据库。·my-medium.cnf是为中等规模的数据库而设计的。如果你正在企业中使用RHEL,可能会比这个操作系统的最小RAM需求(256MB)明显多得多的物理内存。由此可见，如果有那么多RAM内存可以使用，自然可以在同一台机器上运行其它服务。·my-large.cnf是为专用于一个SQL数据库的计算机而设计的。由于它可以为该数据库使用多达512MB的内存，所以在这种类型的系统上将需要至少1GB的RAM,以便它能够同时处理操作系统与数据库应用程序。·my-huge.cnf是为企业中的数据库而设计的。这样的数据库要求专用服务器和1GB或1GB以上的RAM。 mysql配置参数一般我们会把配置文件（例如：my-small.cnf）拷贝到/etc/my.cnf只需要修改这个配置文件就可以了，使用mysqladmin variables extended-status -u root -p可以看到目前的参数，有3个配置参数是最重要的，即123key_buffer_size,query_cache_size,table_cache。]]></content>
       <categories>
         <category>Mysql</category>
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[linux下mysql的配置修改]]></title>
-    <url>%2F2017%2F09%2F03%2Fmysql-centos1%2F</url>
-    <content type="text"><![CDATA[linux下mysql的配置修改 使用CentOS下yum安装mysql mysql启动和停止等操作 12345678910111213141516# /etc/init.d/mysqld start;# service mysqld start;#service mysqld stop;#/etc/init.d/mysqld stop;# service mysqld restart;#/etc/init.d/mysqld restart;#service mysqld status;设置新的最大连接数为200：mysql&gt; set GLOBAL max_connections=200 显示当前运行的Query：mysql&gt; show processlist 显示当前状态：mysql&gt; show status 退出客户端：mysql&gt; exit mysql配置文件 以使用的MySQL配置文件共有５个。最后４个位于/usr/share/mysql-server-*/目录中。·/etc/my.cnf是默认的MySQL配置文件。应该对这个文件配置修改。它是为学习目的而设计的。·my-small.cnf是为了小型数据库而设计的。不应该把这个模型用于含有一些常用项目的数据库。·my-medium.cnf是为中等规模的数据库而设计的。如果你正在企业中使用RHEL,可能会比这个操作系统的最小RAM需求(256MB)明显多得多的物理内存。由此可见，如果有那么多RAM内存可以使用，自然可以在同一台机器上运行其它服务。·my-large.cnf是为专用于一个SQL数据库的计算机而设计的。由于它可以为该数据库使用多达512MB的内存，所以在这种类型的系统上将需要至少1GB的RAM,以便它能够同时处理操作系统与数据库应用程序。·my-huge.cnf是为企业中的数据库而设计的。这样的数据库要求专用服务器和1GB或1GB以上的RAM。 mysql配置参数一般我们会把配置文件（例如：my-small.cnf）拷贝到/etc/my.cnf只需要修改这个配置文件就可以了，使用mysqladmin variables extended-status -u root -p可以看到目前的参数，有3个配置参数是最重要的，即123key_buffer_size,query_cache_size,table_cache。]]></content>
+    <title><![CDATA[CentOS 下 navicat 破解]]></title>
+    <url>%2F2017%2F09%2F03%2Fmysql-centos%2F</url>
+    <content type="text"><![CDATA[破解方案： 第一次执行start_navicat时，会在用户主目录下生成一个名为.navicat的隐藏文件夹。 cd /home/hadoop/.navicat/此文件夹下有一个system.reg文件 rm system.reg 把此文件删除后，下次启动navicat 会重新生成此文件，30天试用期会按新的时间开始计算。]]></content>
       <categories>
         <category>Mysql</category>
       </categories>
