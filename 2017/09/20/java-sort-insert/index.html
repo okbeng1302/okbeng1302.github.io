@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="排序算法," />
 
 
 
@@ -95,14 +95,20 @@
 
 
 
+<meta name="description" content="插入排序出入排序类似于 整扑克牌 例如： [2,5,3,6,8,1] 第一遍 2 5 3 6 8 1 第二遍 2 3 5 6 8 1 第三遍 2 3 5 6 8 1 … 第5遍1 2 3 4 5 8  复杂度：空间复杂度 O(1) 时间复杂度最好 O(n) 最坏 O(n^2) 平均 O(n^2) 最差情况：反序,需要移动 n*(n-1)/2 个元素最好情况：正序,不需要移动元素  稳定排序代码实现">
+<meta name="keywords" content="排序算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java-sort-insert">
+<meta property="og:title" content="【排序算法】插入排序">
 <meta property="og:url" content="http://yoursite.com/2017/09/20/java-sort-insert/index.html">
 <meta property="og:site_name" content="ok绷ii 的 狗窝">
+<meta property="og:description" content="插入排序出入排序类似于 整扑克牌 例如： [2,5,3,6,8,1] 第一遍 2 5 3 6 8 1 第二遍 2 3 5 6 8 1 第三遍 2 3 5 6 8 1 … 第5遍1 2 3 4 5 8  复杂度：空间复杂度 O(1) 时间复杂度最好 O(n) 最坏 O(n^2) 平均 O(n^2) 最差情况：反序,需要移动 n*(n-1)/2 个元素最好情况：正序,不需要移动元素  稳定排序代码实现">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-20T11:44:46.258Z">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/968514/201609/968514-20160911211509100-1331489851.png">
+<meta property="og:updated_time" content="2017-09-20T14:04:12.463Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java-sort-insert">
+<meta name="twitter:title" content="【排序算法】插入排序">
+<meta name="twitter:description" content="插入排序出入排序类似于 整扑克牌 例如： [2,5,3,6,8,1] 第一遍 2 5 3 6 8 1 第二遍 2 3 5 6 8 1 第三遍 2 3 5 6 8 1 … 第5遍1 2 3 4 5 8  复杂度：空间复杂度 O(1) 时间复杂度最好 O(n) 最坏 O(n^2) 平均 O(n^2) 最差情况：反序,需要移动 n*(n-1)/2 个元素最好情况：正序,不需要移动元素  稳定排序代码实现">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/968514/201609/968514-20160911211509100-1331489851.png">
 
 
 
@@ -138,7 +144,7 @@
 
 
 
-  <title>java-sort-insert | ok绷ii 的 狗窝</title>
+  <title>【排序算法】插入排序 | ok绷ii 的 狗窝</title>
   
 
 
@@ -326,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java-sort-insert</h1>
+          <h1 class="post-title" itemprop="name headline">【排序算法】插入排序</h1>
         
 
         <div class="post-meta">
@@ -348,6 +354,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -376,7 +404,19 @@
       
 
       
-        
+        <h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>出入排序类似于 整扑克牌<br><img src="http://images2015.cnblogs.com/blog/968514/201609/968514-20160911211509100-1331489851.png" alt=""></p>
+<p>例如： [2,5,3,6,8,1]</p>
+<p>第一遍</p>
+<p>2 5 3 6 8 1</p>
+<p>第二遍</p>
+<p>2 3 5 6 8 1</p>
+<p>第三遍</p>
+<p>2 3 5 6 8 1</p>
+<p>…</p>
+<p>第5遍<br>1 2 3 4 5 8 </p>
+<p>复杂度：空间复杂度 O(1) 时间复杂度最好 O(n) 最坏 O(n^2) 平均 O(n^2)</p>
+<p>最差情况：反序,需要移动 n*(n-1)/2 个元素<br>最好情况：正序,不需要移动元素  稳定排序<br>代码实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class Main&#123;</div><div class="line"></div><div class="line">    public static void main(String args[])&#123;</div><div class="line">        int[] arr = &#123;6,5,8,3,2,1&#125;;</div><div class="line">        for(int i=0;i&lt;arr.length;i++)&#123;</div><div class="line">            for(int j=i;j&gt;=0;j--)&#123;</div><div class="line">                if(arr[j+1]&lt;arr[j])&#123;</div><div class="line">                    int temp = arr[j];</div><div class="line">                    arr[j] = arr[j+1];</div><div class="line">                    arr[j+1] = temp;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        for(int a:arr)&#123;</div><div class="line">            System.out.print(a);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -390,6 +430,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/排序算法/" rel="tag"># 排序算法</a>
+          
+        </div>
       
 
       
@@ -460,8 +506,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -550,6 +605,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#插入排序"><span class="nav-number">1.</span> <span class="nav-text">插入排序</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
