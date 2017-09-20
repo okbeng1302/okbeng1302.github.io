@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[【排序算法】插入排序]]></title>
     <url>%2F2017%2F09%2F20%2Fjava-sort-insert%2F</url>
-    <content type="text"><![CDATA[插入排序出入排序类似于 整扑克牌 例如： [2,5,3,6,8,1] 第一遍 2 5 3 6 8 1 第二遍 2 3 5 6 8 1 第三遍 2 3 5 6 8 1 … 第5遍1 2 3 4 5 8 复杂度：空间复杂度 O(1) 时间复杂度最好 O(n) 最坏 O(n^2) 平均 O(n^2) 最差情况：反序,需要移动 n*(n-1)/2 个元素最好情况：正序,不需要移动元素 稳定排序代码实现： 123456789101112131415161718public class Main&#123; public static void main(String args[])&#123; int[] arr = &#123;6,5,8,3,2,1&#125;; for(int i=0;i&lt;arr.length;i++)&#123; for(int j=i;j&gt;=0;j--)&#123; if(arr[j+1]&lt;arr[j])&#123; int temp = arr[j]; arr[j] = arr[j+1]; arr[j+1] = temp; &#125; &#125; &#125; for(int a:arr)&#123; System.out.print(a); &#125; &#125;&#125;]]></content>
+    <content type="text"><![CDATA[插入排序出入排序类似于 整扑克牌 例如： [2,5,3,6,8,1] 第一遍 2 5 3 6 8 1 第二遍 2 3 5 6 8 1 第三遍 2 3 5 6 8 1 … 第5遍1 2 3 4 5 8 复杂度：空间复杂度 O(1) 时间复杂度最好 O(n) 最坏 O(n^2) 平均 O(n^2) 最差情况：反序,需要移动 n*(n-1)/2 个元素最好情况：正序,不需要移动元素 稳定排序代码实现： 123456789101112131415161718public class Main&#123; public static void main(String args[])&#123; int[] arr = &#123;6,5,8,3,2,1&#125;; for(int i=0;i&lt;arr.length;i++)&#123; for(int j=i;j&gt;=0;j--)&#123; // 注意边界条件 j ;如果 j&gt;=0, 判断arr[j+1] arr[j];j&gt;0 判断arr[j-1] arr[j] if(arr[j+1]&lt;arr[j])&#123; int temp = arr[j]; arr[j] = arr[j+1]; arr[j+1] = temp; &#125; &#125; &#125; for(int a:arr)&#123; System.out.print(a); &#125; &#125;&#125;]]></content>
       <categories>
         <category>算法</category>
       </categories>
