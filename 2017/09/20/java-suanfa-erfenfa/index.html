@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="排序算法," />
 
 
 
@@ -95,13 +95,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="ok绷ii 的 狗窝">
-<meta property="og:url" content="http://yoursite.com/tags/算法/index.html">
+<meta name="description" content="二分法查找在昨天的面试中，考了二分法查找，今天好好整理一下二分法查找  二分法查找原始版-查找某个元素的下标(任意一个)  复杂度：总共有N个元素，每次查找的区间大小就是N,N/2，N/4…N/2^k  k是循环的次数由于N/2^k 取整后 &amp;gt;= 1,也就是 N/2^k = 1; k = log2n时间复杂度是: O(logn) class Test{    public static vo">
+<meta name="keywords" content="排序算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【排序算法】二分查找">
+<meta property="og:url" content="http://yoursite.com/2017/09/20/java-suanfa-erfenfa/index.html">
 <meta property="og:site_name" content="ok绷ii 的 狗窝">
+<meta property="og:description" content="二分法查找在昨天的面试中，考了二分法查找，今天好好整理一下二分法查找  二分法查找原始版-查找某个元素的下标(任意一个)  复杂度：总共有N个元素，每次查找的区间大小就是N,N/2，N/4…N/2^k  k是循环的次数由于N/2^k 取整后 &amp;gt;= 1,也就是 N/2^k = 1; k = log2n时间复杂度是: O(logn) class Test{    public static vo">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-20T09:21:55.085Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ok绷ii 的 狗窝">
+<meta name="twitter:title" content="【排序算法】二分查找">
+<meta name="twitter:description" content="二分法查找在昨天的面试中，考了二分法查找，今天好好整理一下二分法查找  二分法查找原始版-查找某个元素的下标(任意一个)  复杂度：总共有N个元素，每次查找的区间大小就是N,N/2，N/4…N/2^k  k是循环的次数由于N/2^k 取整后 &amp;gt;= 1,也就是 N/2^k = 1; k = log2n时间复杂度是: O(logn) class Test{    public static vo">
 
 
 
@@ -131,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/算法/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/20/java-suanfa-erfenfa/"/>
 
 
 
 
 
-  <title>标签: 算法 | ok绷ii 的 狗窝</title>
+  <title>【排序算法】二分查找 | ok绷ii 的 狗窝</title>
   
 
 
@@ -156,7 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -294,54 +299,215 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>算法<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/20/java-suanfa-erfenfa/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ok绷ii">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/upload/image/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ok绷ii 的 狗窝">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/09/10/zuidaduiandzuixiaodui/" itemprop="url">
-              
-                <span itemprop="name">【Java】PriorityQueue实现最大堆和最小堆</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">【排序算法】二分查找</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-10T13:32:25+08:00"
-              content="2017-09-10" >
-          09-10
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-20T14:19:15+08:00">
+                2017-09-20
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="二分法查找"><a href="#二分法查找" class="headerlink" title="二分法查找"></a>二分法查找</h3><p>在昨天的面试中，考了二分法查找，今天好好整理一下二分法查找</p>
+<ol>
+<li>二分法查找原始版-查找某个元素的下标(任意一个)</li>
+</ol>
+<p>复杂度：总共有N个元素，每次查找的区间大小就是N,N/2，N/4…N/2^k  k是循环的次数<br>由于N/2^k 取整后 &gt;= 1,也就是 N/2^k = 1; k = log2n<br>时间复杂度是: O(logn)</p>
+<p>class Test{<br>    public static void main(String args[]){<br>        int[] a = {1,2,3,4};<br>        int result = binarySearch(a,2);<br>        System.out.prinltn(result);<br>    }</p>
+<pre><code>public static int binarySearch(int[] arr,int k){
+    int low = 0;
+    int high = arr.length-1; // 注意这里的-1
+    int mid = 0;
+    while(low&lt;=high){ // 注意终止的条件,如果 low&lt;high 会陷入死循环 {1,2,3,4,5} 当查找 5 时，只有low等于 high 时才终止。
+        mid = (high + low)&gt;&gt;1;
+        if(arr[mid] == k)
+            return mid;
+        else if(arr[mid] &gt; k)
+            high = mid - 1;
+        else if(arr[mid] &lt; k)
+            low = mid + 1;
+    }
+    return -1;
+}
+</code></pre><p>}</p>
+<ol>
+<li>二分法查找第一个大于等于某个数的下标</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public class Main&#123;</div><div class="line">    public static void main(String args[])&#123;</div><div class="line">        int[] arr = &#123;1,1,2,3,5&#125;;</div><div class="line">        int result = FirstGreatOrEqual(arr,4,3);</div><div class="line">        System.out.println(result);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static int FirstGreatOrEqual(int[] a,int n,int k)&#123;</div><div class="line">        int low = 0;</div><div class="line">        int mid = 0;</div><div class="line">        int high = n;</div><div class="line"></div><div class="line">        while(low&lt;=high)&#123; //注意终止条件</div><div class="line">            mid = low + ((high-low) &gt;&gt; 1);</div><div class="line">            if(a[mid] &gt;= k)</div><div class="line">                high = mid - 1;</div><div class="line">            else</div><div class="line">                low = mid + 1;</div><div class="line">        &#125;</div><div class="line">        return low &lt;= n ? low:-1;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>查找第一个大于某个数的下标</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class Main&#123;</div><div class="line">    public static void main(String args[])&#123;</div><div class="line">        int[] arr = &#123;1,2,3,4,5,5&#125;;</div><div class="line">        int result = FirstGreat(arr,arr.length-1,3);   </div><div class="line">        System.out.println(result);   </div><div class="line">    &#125;</div><div class="line">    public static int FirstGreat(int arr,int n,int k)&#123;</div><div class="line">        int low = 0;</div><div class="line">        int high = n;</div><div class="line">        int mid = 0;</div><div class="line">        while(low&lt;=high)&#123;</div><div class="line">            mid = low + ((high-low) &gt;&gt; 1);</div><div class="line">            if(arr[mid]&gt;k)</div><div class="line">                high = mid -1;</div><div class="line">            else</div><div class="line">                low = mid -1;</div><div class="line">        &#125;</div><div class="line">        return low &lt;= n ? low : -1;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>查找数组中某个数的位置的最小下标，没有返回-1</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public class Mian&#123;</div><div class="line">    public static void main(String args[])&#123;</div><div class="line">        int[] arr = &#123;1,2,3,4,4,5&#125;;</div><div class="line">        int result = FirstIndex(arr,arr.length-1,3);</div><div class="line">        System.out.println(result);    </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static int FirstIndex(int[] a,int n,int k)&#123;</div><div class="line">        int low = 0;</div><div class="line">        int high = n;</div><div class="line">        int mid = 0;</div><div class="line">        while(low&lt;=high)&#123;</div><div class="line">            mid = low + ((high-low)&gt;&gt;1);</div><div class="line">            if(a[mid]&gt;=k)</div><div class="line">                high = mid -1;</div><div class="line">            else</div><div class="line">                low = mid + 1;        </div><div class="line">        &#125;</div><div class="line">        return (low&lt;=n) &amp;&amp; (a[low] == k) ? low:-1;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>查找数组中某个数的位置的最大下标，没有返回-1</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public class Mian&#123;</div><div class="line">    public static void main(String args[])&#123;</div><div class="line">        int[] arr = &#123;1,2,3,4,4,5&#125;;</div><div class="line">        int result = FirstIndex(arr,arr.length-1,3);</div><div class="line">        System.out.println(result);    </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static int lastIndex(int[] a,int n,int k)&#123;</div><div class="line">        int low = 0;</div><div class="line">        int high = n;</div><div class="line">        int mid = 0;</div><div class="line">        while(low&lt;=high)&#123;</div><div class="line">            mid = low + ((high-low)&gt;&gt;1);</div><div class="line">            if(a[mid]&gt;k)</div><div class="line">                high = mid -1;</div><div class="line">            else</div><div class="line">                low = mid + 1;        </div><div class="line">        &#125;</div><div class="line">        return (low&lt;=n) &amp;&amp; (a[low-1] == k) ? low-1:-1;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>查找数组中小于某个数的最大下标，没有返回-1</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">public int firstLess(int[] a, int n, int key) &#123;  </div><div class="line">        // n + 1 个数  </div><div class="line">        int low = 0;  </div><div class="line">        int high = n;  </div><div class="line">        int mid = 0;  </div><div class="line">        while (low &lt;= high) &#123;  </div><div class="line">            mid = low + ((high - low) &gt;&gt; 1);  </div><div class="line">            if (key &lt;= a[mid]) &#123;  </div><div class="line">                high = mid - 1;  </div><div class="line">            &#125; else &#123;  </div><div class="line">                low = mid + 1;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">        return (low - 1 &gt;= 0) ? low - 1 : -1;  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>查找数组中某个数的出现次数</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">public int getCount(int[] a, int n, int key) &#123;  </div><div class="line">    // n + 1 个数  </div><div class="line">    int first = firstGreatOrEqual2(a, n, key);  </div><div class="line">    int last = firstGreat2(a, n, key);  </div><div class="line">    return last - first;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line">public int firstGreatOrEqual2(int[] a, int n, int key) &#123;  </div><div class="line">    // n + 1 个数  </div><div class="line">    int low = 0;  </div><div class="line">    int high = n;  </div><div class="line">    int mid = 0;  </div><div class="line">    while (low &lt;= high) &#123;  </div><div class="line">        mid = low + ((high - low) &gt;&gt; 1);  </div><div class="line">        if (key &lt;= a[mid]) &#123;  </div><div class="line">            high = mid - 1;  </div><div class="line">        &#125; else &#123;  </div><div class="line">            low = mid + 1;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">    return low;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line">public int firstGreat2(int[] a, int n, int key) &#123;  </div><div class="line">    // n + 1 个数  </div><div class="line">    int low = 0;  </div><div class="line">    int high = n;  </div><div class="line">    int mid = 0;  </div><div class="line">    while (low &lt;= high) &#123;  </div><div class="line">        mid = low + ((high - low) &gt;&gt; 1);  </div><div class="line">        if (key &lt; a[mid]) &#123;  </div><div class="line">            high = mid - 1;  </div><div class="line">        &#125; else &#123;  </div><div class="line">            low = mid + 1;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">    return low;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>喝水不忘挖井人<a href="http://blog.csdn.net/yefengzhichen/article/details/52372407" target="_blank" rel="external">二分算法</a></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/排序算法/" rel="tag"># 排序算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/19/thread/" rel="next" title="【Java】多线程">
+                <i class="fa fa-chevron-left"></i> 【Java】多线程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -349,6 +515,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -369,8 +539,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -459,6 +638,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#二分法查找"><span class="nav-number">1.</span> <span class="nav-text">二分法查找</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -591,6 +786,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 
