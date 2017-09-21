@@ -312,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/03/mysql-centos/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/07/lru/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ok绷ii">
@@ -331,7 +331,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/03/mysql-centos/" itemprop="url">CentOS 下 navicat 破解</a></h1>
+                <a class="post-title-link" href="/2017/09/07/lru/" itemprop="url">lru 计算缺页</a></h1>
         
 
         <div class="post-meta">
@@ -343,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-03T16:47:00+08:00">
-                2017-09-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-07T10:50:49+08:00">
+                2017-09-07
               </time>
             
 
@@ -366,8 +366,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">Mysql</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -405,15 +405,13 @@
       
         
           
-          破解方案：
-第一次执行start_navicat时，会在用户主目录下生成一个名为.navicat的隐藏文件夹。
-cd /home/hadoop/.navicat/此文件夹下有一个system.reg文件
-rm system.reg
-把此文件删除后，下次启动navicat 会重新生成此文件，30天试用
+          在一个请求页式存储管理中，一个程序的页面走向为 3、4、2、1、4、5、3、4、5、1、2，并采用 LRU 算法。设分配给该程序的存储块数 S 分别为 3 和 4，在该访问中发生的缺页次数 F 是 ?解：
+
+LRU置换算法是选择最近最久未使用的页面予以淘汰。该算法赋予每个页面一个访问字段，用来记录一
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/09/03/mysql-centos/#more" rel="contents">
+            <a class="btn" href="/2017/09/07/lru/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -605,6 +603,158 @@ mysql启动和停止等操作
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/03/mysql-centos/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ok绷ii">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/upload/image/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ok绷ii">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/03/mysql-centos/" itemprop="url">CentOS 下 navicat 破解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-03T16:47:00+08:00">
+                2017-09-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">Mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          破解方案：
+第一次执行start_navicat时，会在用户主目录下生成一个名为.navicat的隐藏文件夹。
+cd /home/hadoop/.navicat/此文件夹下有一个system.reg文件
+rm system.reg
+把此文件删除后，下次启动navicat 会重新生成此文件，30天试用
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/03/mysql-centos/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -658,7 +808,7 @@ mysql启动和停止等操作
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
