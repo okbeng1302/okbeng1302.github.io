@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java,算法," />
+  <meta name="keywords" content="java," />
 
 
 
@@ -95,20 +95,21 @@
 
 
 
-<meta name="description" content="PriorityQueue 实现最大堆和最小堆概念：堆是一种经过排序的完全二叉树，其中任一非终端节点的数值均不大于(或不小于)其左孩子和右孩子的节点。 * 最小堆(小根堆) 根节点(堆顶)的值在堆里是最小的堆,称为最小堆 * 最大堆(大根堆) 根节点(堆顶)的值在堆里是最大的堆,称为最大堆 借助PriorityQueue 可以实现小根堆和大根堆。 PriorityQueue 的容量没有界限,并且默">
-<meta name="keywords" content="java,算法">
+<meta name="description" content="Java Collection(集合类详解)Collection接口 派生 List 和 Set接口   Map 不属于 Collection  Set接口 是Collection的子接口 不包含重复的元素   HashSet类和TreeSet类  一般先将元素添加到HashSet，再把集合转化为 TreeSet来进行有序遍历会更快。 为了优化 HashSet空间的使用，可以调整初试容量因子和负载">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Java】PriorityQueue实现最大堆和最小堆">
-<meta property="og:url" content="http://yoursite.com/2017/09/10/zuidaduiandzuixiaodui/index.html">
+<meta property="og:title" content="【Java基础】集合类">
+<meta property="og:url" content="http://yoursite.com/2017/09/21/java-collection/index.html">
 <meta property="og:site_name" content="ok绷ii">
-<meta property="og:description" content="PriorityQueue 实现最大堆和最小堆概念：堆是一种经过排序的完全二叉树，其中任一非终端节点的数值均不大于(或不小于)其左孩子和右孩子的节点。 * 最小堆(小根堆) 根节点(堆顶)的值在堆里是最小的堆,称为最小堆 * 最大堆(大根堆) 根节点(堆顶)的值在堆里是最大的堆,称为最大堆 借助PriorityQueue 可以实现小根堆和大根堆。 PriorityQueue 的容量没有界限,并且默">
+<meta property="og:description" content="Java Collection(集合类详解)Collection接口 派生 List 和 Set接口   Map 不属于 Collection  Set接口 是Collection的子接口 不包含重复的元素   HashSet类和TreeSet类  一般先将元素添加到HashSet，再把集合转化为 TreeSet来进行有序遍历会更快。 为了优化 HashSet空间的使用，可以调整初试容量因子和负载">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://uploadfiles.nowcoder.com/images/20160714/893824_1468465317717_CD9ABCC783F8AAE13C12170B43B4818F">
-<meta property="og:updated_time" content="2017-09-19T02:42:18.025Z">
+<meta property="og:image" content="http://img.my.csdn.net/uploads/201207/17/1342513304_6964.png">
+<meta property="og:image" content="http://img.my.csdn.net/uploads/201207/17/1342513335_2987.png">
+<meta property="og:updated_time" content="2017-09-21T11:00:23.190Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【Java】PriorityQueue实现最大堆和最小堆">
-<meta name="twitter:description" content="PriorityQueue 实现最大堆和最小堆概念：堆是一种经过排序的完全二叉树，其中任一非终端节点的数值均不大于(或不小于)其左孩子和右孩子的节点。 * 最小堆(小根堆) 根节点(堆顶)的值在堆里是最小的堆,称为最小堆 * 最大堆(大根堆) 根节点(堆顶)的值在堆里是最大的堆,称为最大堆 借助PriorityQueue 可以实现小根堆和大根堆。 PriorityQueue 的容量没有界限,并且默">
-<meta name="twitter:image" content="https://uploadfiles.nowcoder.com/images/20160714/893824_1468465317717_CD9ABCC783F8AAE13C12170B43B4818F">
+<meta name="twitter:title" content="【Java基础】集合类">
+<meta name="twitter:description" content="Java Collection(集合类详解)Collection接口 派生 List 和 Set接口   Map 不属于 Collection  Set接口 是Collection的子接口 不包含重复的元素   HashSet类和TreeSet类  一般先将元素添加到HashSet，再把集合转化为 TreeSet来进行有序遍历会更快。 为了优化 HashSet空间的使用，可以调整初试容量因子和负载">
+<meta name="twitter:image" content="http://img.my.csdn.net/uploads/201207/17/1342513304_6964.png">
 
 
 
@@ -138,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/10/zuidaduiandzuixiaodui/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/21/java-collection/"/>
 
 
 
 
 
-  <title>【Java】PriorityQueue实现最大堆和最小堆 | ok绷ii</title>
+  <title>【Java基础】集合类 | ok绷ii</title>
   
 
 
@@ -315,7 +316,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/10/zuidaduiandzuixiaodui/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/21/java-collection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ok绷ii">
@@ -332,7 +333,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">【Java】PriorityQueue实现最大堆和最小堆</h1>
+          <h1 class="post-title" itemprop="name headline">【Java基础】集合类</h1>
         
 
         <div class="post-meta">
@@ -344,8 +345,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-10T13:32:25+08:00">
-                2017-09-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T16:24:59+08:00">
+                2017-09-21
               </time>
             
 
@@ -415,20 +416,94 @@
       
 
       
-        <h2 id="PriorityQueue-实现最大堆和最小堆"><a href="#PriorityQueue-实现最大堆和最小堆" class="headerlink" title="PriorityQueue 实现最大堆和最小堆"></a>PriorityQueue 实现最大堆和最小堆</h2><h1 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h1><pre><code>堆是一种经过排序的完全二叉树，其中任一非终端节点的数值均不大于(或不小于)其左孩子和右孩子的节点。
-* 最小堆(小根堆)
-根节点(堆顶)的值在堆里是最小的堆,称为最小堆
-* 最大堆(大根堆)
-根节点(堆顶)的值在堆里是最大的堆,称为最大堆
-</code></pre><p>借助PriorityQueue 可以实现小根堆和大根堆。</p>
-<p>PriorityQueue 的容量没有界限,并且默认排序是自然排序,队头元素是最小元素,可以拿来做最小堆使用<br>(注意：默认的PriorityQueue并非保证了整个队列是有序的,只是保证了队头是最小的)</p>
-<p>对于大根堆,就要借助于comparator比较器实现最大堆。(默认的初始容量：11)</p>
-<p>代码实现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">PriorityQueue &lt;Integer&gt; maxHeap = new PriorityQueue&lt;Integer&gt;(11,new Comparator&lt;Integer&gt;()&#123;</div><div class="line">	@Override</div><div class="line">	public int compare(Integer o1,Integer o2)&#123;</div><div class="line">		return o2.compareTo(o1);</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h1 id="最大堆和最小堆实例："><a href="#最大堆和最小堆实例：" class="headerlink" title="最大堆和最小堆实例："></a>最大堆和最小堆实例：</h1><p>已知关键字序列5,8,12,19,28,20,15,22是最小堆，插入关键字3，调整后得到的最小堆是()</p>
-<p><img src="https://uploadfiles.nowcoder.com/images/20160714/893824_1468465317717_CD9ABCC783F8AAE13C12170B43B4818F" alt="dui"></p>
-<h2 id="算法实例："><a href="#算法实例：" class="headerlink" title="算法实例："></a>算法实例：</h2><h1 id="题目描述-数据流中的中位数"><a href="#题目描述-数据流中的中位数" class="headerlink" title="题目描述(数据流中的中位数)"></a>题目描述(数据流中的中位数)</h1><p>如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，那么中位数就是所有数值排序之后中间两个数的平均值。</p>
-<p>代码实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">import java.util.PriorityQueue;</div><div class="line">import java.util.Comparator;</div><div class="line">/*</div><div class="line">* 最大堆中 放 较小的一半， 最小值放较大的一半</div><div class="line">* 如果是奇数个，就最大堆数量比最小堆数量大 1，如果是偶数，取最大堆得的最小值和最小堆得最大值的平均数</div><div class="line">*/</div><div class="line">public class Solution &#123;</div><div class="line"></div><div class="line">    private int count = 0;</div><div class="line">    private PriorityQueue&lt;Integer&gt; minHeap = new PriorityQueue&lt;Integer&gt;();</div><div class="line">    private PriorityQueue&lt;Integer&gt; maxHeap = new PriorityQueue&lt;Integer&gt;(11,new Comparator&lt;Integer&gt;()&#123;</div><div class="line">		public int compare(Integer o1,Integer o2)&#123;</div><div class="line">            return o2.compareTo(o1);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    public void Insert(Integer num) &#123;</div><div class="line">    	if(count % 2 == 1)&#123;</div><div class="line">            // 如果是偶数，放入最小堆中</div><div class="line">            maxHeap.offer(num);</div><div class="line">            minHeap.offer(maxHeap.poll());</div><div class="line">        &#125;else&#123;</div><div class="line">            // 如果是奇数，放入最大堆中</div><div class="line">            minHeap.offer(num);</div><div class="line">            maxHeap.offer(minHeap.poll());</div><div class="line">        &#125;</div><div class="line">        count++;</div><div class="line">    &#125;</div><div class="line">	// 如果是奇数，就取最大堆中的最大值，如果是偶数，就取最大堆中的最大值和最小堆中的最小值的平均值</div><div class="line">    public Double GetMedian() &#123;</div><div class="line">        if(count % 2 == 0)&#123;</div><div class="line">            return new Double((maxHeap.peek()+minHeap.peek()))/2;</div><div class="line">        &#125;else&#123;</div><div class="line">            return new Double(maxHeap.peek());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <h3 id="Java-Collection-集合类详解"><a href="#Java-Collection-集合类详解" class="headerlink" title="Java Collection(集合类详解)"></a>Java Collection(集合类详解)</h3><p>Collection接口 派生 List 和 Set接口 </p>
+<p><img src="http://img.my.csdn.net/uploads/201207/17/1342513304_6964.png" alt=""></p>
+<p>Map 不属于 Collection</p>
+<p><img src="http://img.my.csdn.net/uploads/201207/17/1342513335_2987.png" alt=""></p>
+<h2 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h2><ul>
+<li>是Collection的子接口</li>
+<li>不包含重复的元素</li>
+</ul>
+<p><strong> HashSet类和TreeSet类 </strong></p>
+<p>一般先将元素添加到HashSet，再把集合转化为 TreeSet来进行有序遍历会更快。</p>
+<p>为了优化 HashSet空间的使用，可以调整初试容量因子和负载因子。<br>TreeSet不包含调优项，因为树总是平衡的。保证了插入、删除、查询的性能为 logn</p>
+<p>HashSet 和 TreeSet 都实现了Cloneable接口。</p>
+<h2 id="List-接口"><a href="#List-接口" class="headerlink" title="List 接口"></a>List 接口</h2><p>List接口继承了Collection接口来定义一个允许重复元素的集合。</p>
+<p>List 接口提供了特殊的迭代器，称为ListIterator，除了允许Iterator接口提供正常操作外，该迭代器还允许元素插入和替换，以及双向访问。还提供了一个方法来获取从列表中指定位置开始的列表迭代器。</p>
+<p><strong>List subList(int fromIndex,int toIndex)</strong><br>处理 <strong>subList()</strong> 时，位于fromIndex的元素在子列表中，而位于toIndex的元素则不是。</p>
+<p>Linked 改快读慢<br>Array 读快改慢<br>Hash 两者之间</p>
+<p>Collection是集合接口</p>
+<ul>
+<li>Set子接口：无序，不允许重复</li>
+<li>List子接口：有序，可以有重复元素。</li>
+</ul>
+<p>区别：Collections 是集合类</p>
+<p>Set和List对比：</p>
+<ul>
+<li>Set:检索元素效率低下，删除和插入效率高，插入和删除不会引起元素位置改变。</li>
+<li>List：和数组类似，List可以动态增长，查找元素效率高，插入删除元素效率低，因为会引起其他元素位置的改变。</li>
+</ul>
+<p>Set 和 List 具体类</p>
+<ul>
+<li><p>Set： HashSet：以哈希表的形式存放元素，插入删除速度快。</p>
+</li>
+<li><p>List：</p>
+<ul>
+<li>ArrayList：动态数组</li>
+<li>LinckedList：链表、队列和堆栈。</li>
+</ul>
+</li>
+</ul>
+<p>Array 和 java.util.Vector<br>Vector 是一种老的动态数组，是线程同步的，效率很低，一般不赞成使用。</p>
+<p>Map 接口</p>
+<p>Map接口不是Collection的接口的继承，而是从自己的用于维护键-值关联的接口层次入手的。按定义，该接口描述了从不重复的键到值得映射。</p>
+<p>我们可以把这个接口方法分成三组操作：改变、查询和提供可选视图。</p>
+<ul>
+<li>改变操作允许您从映射中添加和除去键-值对。键和值都可以为 null。但是，您不能把Map 作为一个键或值添加给自身。<ul>
+<li>Object put(Object key, Object value)返回值是被替换的值。</li>
+<li>Object remove(Object key)</li>
+<li>void putAll(Map mapping)</li>
+<li>void clear()</li>
+</ul>
+</li>
+<li>查询操作允许您检查映射内容：<ul>
+<li>Object get(Object key)</li>
+<li>boolean containsKey(Object key)</li>
+<li>boolean containsValue(Object value)</li>
+<li>int size()</li>
+<li>boolean isEmpty()</li>
+</ul>
+</li>
+<li>最后一组方法允许您把键或值的组作为集合来处理。<ul>
+<li>public Set keySet()</li>
+<li>public Collection values()</li>
+<li>public Set entrySet()<br>因为映射中键的集合必须是唯一的，您用 Set 支持。因为映射中值的集合可能不唯一，您用Collection 支持。最后一个方法返回一个实现 Map.Entry 接口的元素 Set。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Map.Entry 接口</strong><br>Map 的 entrySet() 方法返回一个实现Map.Entry 接口的对象集合。集合中每个对象都是底层 Map 中一个特定的键-值对。<br>通过这个集合迭代，您可以获得每一条目的键或值并对值进行更改。但是，如果底层 Map 在Map.Entry 接口的setValue() 方法外部被修改，此条目集就会变得无效，并导致迭代器行为未定义</p>
+<p><strong>HashMap 类和 TreeMap 类</strong><br>“集合框架”提供两种常规的 Map 实现：HashMap 和TreeMap。和所有的具体实现一样，使用哪种实现取决于您的特定需要。在Map 中插入、删除和定位元素，HashMap 是最好的选择。但如果您要按顺序遍历键，那么TreeMap 会更好。根据集合大小，先把元素添加到 HashMap，再把这种映射转换成一个用于有序键遍历的 TreeMap 可能更快。使用HashMap 要求添加的键类明确定义了 hashCode() 实现。有了TreeMap 实现，添加到映射的元素一定是可排序的。我们将在排序中详细介绍。<br>为了优化 HashMap 空间的使用，您可以调优初始容量和负载因子。这个TreeMap 没有调优选项，因为该树总处于平衡状态。<br>HashMap 和 TreeMap 都实现Cloneable 接口。<br>Hashtable 类和 Properties 类是Map 接口的历史实现。我们将在Dictionary 类、Hashtable 类和 Properties 类中讨论。</p>
+<p>映射的使用示例<br>以下程序演示了具体 Map 类的使用。该程序对自命令行传递的词进行频率计数。HashMap 起初用于数据存储。后来，映射被转换为TreeMap 以显示有序的键列列表。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">import java.util.*;</div><div class="line"></div><div class="line">public class MapExample &#123;</div><div class="line">    public static void main(String args[]) &#123;</div><div class="line">        Map map = new HashMap();</div><div class="line">        Integer ONE = new Integer(1);</div><div class="line">        for (int i=0, n=args.length; i&lt;n; i++) &#123;</div><div class="line">            String key = args[i];</div><div class="line">            Integer frequency = (Integer)map.get(key);</div><div class="line">            if (frequency == null) &#123;</div><div class="line">                frequency = ONE;</div><div class="line">            &#125; else &#123;</div><div class="line">                int value = frequency.intValue();</div><div class="line">                frequency = new Integer(value + 1);</div><div class="line">            &#125;</div><div class="line">            map.put(key, frequency);</div><div class="line">        &#125;</div><div class="line">        System.out.println(map);</div><div class="line">        Map sortedMap = new TreeMap(map);</div><div class="line">        System.out.println(sortedMap);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Java集合框架是最常被问到的Java面试问题，要理解Java技术强大特性就有必要掌握集合框架。这里有一些实用问题，常在核心Java面试中问到。</p>
+<ul>
+<li><p>什么是Java集合API<br>　　Java集合框架API是用来表示和操作集合的统一框架，它包含接口、实现类、以及帮助程序员完成一些编程的算法。简言之，API在上层完成以下几件事：<br>　　<em> 编程更加省力，提高城程序速度和代码质量
+　　</em> 非关联的API提高互操作性<br>　　<em> 节省学习使用新API成本
+　　</em> 节省设计新API的时间<br>　　* 鼓励、促进软件重用<br>　　具体来说，有6个集合接口，最基本的是Collection接口，由三个接口Set、List、SortedSet继承，另外两个接口是Map、SortedMap，这两个接口不继承Collection，表示映射而不是真正的集合。</p>
+</li>
+<li><p>什么是Iterator<br>　　一些集合类提供了内容遍历的功能，通过java.util.Iterator接口。这些接口允许遍历对象的集合。依次操作每个元素对象。当使用 Iterators时，在获得Iterator的时候包含一个集合快照。通常在遍历一个Iterator的时候不建议修改集合本省。</p>
+</li>
+<li>Iterator与ListIterator有什么区别？<br>　　Iterator：只能正向遍历集合，适用于获取移除元素。ListIerator：继承Iterator，可以双向列表的遍历，同样支持元素的修改。</li>
+<li>什么是HaspMap和Map？<br>　　Map是接口，Java 集合框架中一部分，用于存储键值对，HashMap是用哈希算法实现Map的类。</li>
+<li>HashMap与HashTable有什么区别？对比Hashtable VS HashMap<br>　　两者都是用key-value方式获取数据。Hashtable是原始集合类之一（也称作遗留类）。HashMap作为新集合框架的一部分在Java2的1.2版本中加入。它们之间有一下区别：<br>　　<em> HashMap和HashTable大致是等同的，除了非同步和空值（HashMap允许null值作为key和value，而Hashtable不可以）。
+　　</em> HashMap没法保证映射的顺序一直不变，但是作为HashMap的子类LinkedHashMap，如果想要预知的顺序迭代（默认按照插入顺序），你可以很轻易的置换为HashMap，如果使用Hashtable就没那么容易了。<br>　　<em> HashMap不是同步的，而Hashtable是同步的。
+　　</em> 迭代HashMap采用快速失败机制，而Hashtable不是，所以这是设计的考虑点。</li>
+<li>在Hashtable上下文中同步是什么意思？<br>　　同步意味着在一个时间点只能有一个线程可以修改哈希表，任何线程在执行hashtable的更新操作前需要获取对象锁，其他线程等待锁的释放。</li>
+<li>什么叫做快速失败特性<br>　　从高级别层次来说<strong>快速失败</strong>是一个系统或软件对于其故障做出的响应。一个快速失败系统设计用来即时报告可能会导致失败的任何故障情况，它通常用来停止正常的操作而不是尝试继续做可能有缺陷的工作。当有问题发生时，快速失败系统即时可见地发错错误告警。在Java中，快速失败与iterators有关。如果一个iterator在集合对象上创建了，其它线程欲“结构化”的修改该集合对象，并发修改异常 （ConcurrentModificationException） 抛出。</li>
+<li>怎样使HashMap同步？<br>　　HashMap可以通过Map m = Collections.synchronizedMap（hashMap）来达到同步的效果。</li>
+<li>什么时候使用Hashtable，什么时候使用HashMap<br>　　基本的不同点是Hashtable同步HashMap不是的，所以无论什么时候有多个线程访问相同实例的可能时，就应该使用Hashtable，反之使用HashMap。非线程安全的数据结构能带来更好的性能。<br>　　如果在将来有一种可能—你需要按顺序获得键值对的方案时，HashMap是一个很好的选择，因为有HashMap的一个子类 LinkedHashMap。所以如果你想可预测的按顺序迭代（默认按插入的顺序），你可以很方便用LinkedHashMap替换HashMap。反观要是使用的Hashtable就没那么简单了。同时如果有多个线程访问HashMap，Collections.synchronizedMap（）可以代替，总的来说HashMap更灵活。</li>
+<li>为什么Vector类认为是废弃的或者是非官方地不推荐使用？或者说为什么我们应该一直使用ArrayList而不是Vector<br>　　你应该使用ArrayList而不是Vector是因为默认情况下你是非同步访问的，Vector同步了每个方法，你几乎从不要那样做，通常有想要同步的是整个操作序列。同步单个的操作也不安全（如果你迭代一个Vector，你还是要加锁，以避免其它线程在同一时刻改变集合）.而且效率更慢。当然同样有锁的开销即使你不需要，这是个很糟糕的方法在默认情况下同步访问。你可以一直使用Collections.sychronizedList来装饰一个集合。<br>　　事实上Vector结合了“可变数组”的集合和同步每个操作的实现。这是另外一个设计上的缺陷。Vector还有些遗留的方法在枚举和元素获取的方法，这些方法不同于List接口，如果这些方法在代码中程序员更趋向于想用它。尽管枚举速度更快，但是他们不能检查如果集合在迭代的时候修改了，这样将导致问题。尽管以上诸多原因，oracle也从没宣称过要废弃Vector。</li>
+</ul>
 
       
     </div>
@@ -448,8 +523,6 @@
           
             <a href="/tags/java/" rel="tag"># java</a>
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
-          
         </div>
       
 
@@ -461,8 +534,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/09/java-hashmap/" rel="next" title="【Java】equals方法和hashCode方法">
-                <i class="fa fa-chevron-left"></i> 【Java】equals方法和hashCode方法
+              <a href="/2017/09/21/java-exception/" rel="next" title="【Java基础】异常处理">
+                <i class="fa fa-chevron-left"></i> 【Java基础】异常处理
               </a>
             
           </div>
@@ -470,10 +543,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/11/centos-python/" rel="prev" title="Centos下Scrapy环境搭建">
-                Centos下Scrapy环境搭建 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -634,7 +703,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PriorityQueue-实现最大堆和最小堆"><span class="nav-number">1.</span> <span class="nav-text">PriorityQueue 实现最大堆和最小堆</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念："><span class="nav-number"></span> <span class="nav-text">概念：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最大堆和最小堆实例："><span class="nav-number"></span> <span class="nav-text">最大堆和最小堆实例：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法实例："><span class="nav-number">1.</span> <span class="nav-text">算法实例：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述-数据流中的中位数"><span class="nav-number"></span> <span class="nav-text">题目描述(数据流中的中位数)</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-Collection-集合类详解"><span class="nav-number">1.</span> <span class="nav-text">Java Collection(集合类详解)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set接口"><span class="nav-number"></span> <span class="nav-text">Set接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-接口"><span class="nav-number"></span> <span class="nav-text">List 接口</span></a></div>
             
 
           </div>
