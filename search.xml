@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[二叉树深度]]></title>
+    <url>%2F2017%2F09%2F22%2Ftreenode-depth%2F</url>
+    <content type="text"><![CDATA[代码实现: 递归 写法 123456789public class Solution&#123; public static int treeDepth(TreeNode root)&#123; if(root == null) return 0; int left = treeDepth(root.left); int right = treeDepth(root.right); return (left&gt;right) ? left+1:right+1; &#125;&#125; 非递归写法 12345678910111213141516171819202122232425262728import java.util.Queue;import java.util.LinkedList;public class Solution&#123; public static int treeDepth(TreeNode pRoot)&#123; if(pRoot == null) return 0; Queue&lt;TreeNode&gt; queue = new LinkedList&lt;TreeNode&gt;(); queue.add(pRoot); int depth = 0; int count = 0; int nextCount = 1; // 记录每一层的个数 while(queue.size()!=0)&#123; TreeNode top = queue.poll(); count++; if(top.left != null) queue.add(top.left); if(top.right != null) queue.add(top.right); if(count == nextCount)&#123; nextCount = queue.size(); // 更新下一层的个数 count =0； depth++; &#125; &#125; return depth; &#125;&#125;]]></content>
+      <categories>
+        <category>算法</category>
+        <category>二叉树</category>
+      </categories>
+      <tags>
+        <tag>二叉树算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[二叉搜索树的后序遍历序列]]></title>
     <url>%2F2017%2F09%2F22%2Ftreenode-houxubianli%2F</url>
     <content type="text"><![CDATA[二叉搜索树的后序遍历序列输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。 思路：后续遍历：左右根 例如：arr = {3,4,2,1,5,6}根节点为 6, 后序遍历的最后一位既是根节点root 二叉搜索树的左子树均比root小 二叉搜索树的右子树均比root大 先找到根节点 确定左子树的长度，找到最后一个不大root的点 进行遍历 代码实现： import java.util.Arrays; public class Main{ public boolean VerifySequenceBST(int[] arr){ if(arr == null || arr.length == 0) return false; int len = arr.length; int root = arr[len-1]; // 根节点 int cut = 0; // 计算左子树的长度 // 确定左子树的长度 for(int i=0;i&lt;len-1;i++){ if(arr[i]&lt;root) cut = cut + 1 } // 如果cut=0,说明只有右子树,如果右子树中有小于root的点,返回false; if(cut == 0) VerifySequenceBST(Arrays.copyOfRange(arr,0,len-1)); else{ for(int j=0;j&lt;len-1;j++){ if(arr[j]&lt;root) return false; } } // 递归左子树 boolean left = true; if(cut &gt; 0) left = VerifySequenceBST(Arrays.copyOfRange(arr,0,cut)); // 递归右子树 boolean right = true; if(cut &lt; len-1) right = VerifySequenceBST(Arrays.copyOfRange(arr,cut,len-1)); return (left &amp;&amp; right); } }]]></content>

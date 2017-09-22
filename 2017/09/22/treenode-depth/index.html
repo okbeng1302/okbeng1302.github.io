@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="二叉树算法," />
 
 
 
@@ -95,17 +95,18 @@
 
 
 
-<meta name="description" content="坚持者，坚持着。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="代码实现: 递归 写法 123456789public class Solution&amp;#123;    public static int treeDepth(TreeNode root)&amp;#123;        if(root == null)            return 0;        int left = treeDepth(root.left);        int rig">
+<meta name="keywords" content="二叉树算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二叉树深度">
+<meta property="og:url" content="http://yoursite.com/2017/09/22/treenode-depth/index.html">
 <meta property="og:site_name" content="ok绷ii">
-<meta property="og:description" content="坚持者，坚持着。">
+<meta property="og:description" content="代码实现: 递归 写法 123456789public class Solution&amp;#123;    public static int treeDepth(TreeNode root)&amp;#123;        if(root == null)            return 0;        int left = treeDepth(root.left);        int rig">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-03T12:46:35.956Z">
+<meta property="og:updated_time" content="2017-09-22T08:37:58.967Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于">
-<meta name="twitter:description" content="坚持者，坚持着。">
+<meta name="twitter:title" content="二叉树深度">
+<meta name="twitter:description" content="代码实现: 递归 写法 123456789public class Solution&amp;#123;    public static int treeDepth(TreeNode root)&amp;#123;        if(root == null)            return 0;        int left = treeDepth(root.left);        int rig">
 
 
 
@@ -135,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/22/treenode-depth/"/>
 
 
 
 
 
-  <title>关于 | ok绷ii</title>
+  <title>二叉树深度 | ok绷ii</title>
   
 
 
@@ -300,33 +301,180 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/treenode-depth/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ok绷ii">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/upload/image/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ok绷ii">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">关于</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">二叉树深度</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-22T11:07:34+08:00">
+                2017-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/二叉树/" itemprop="url" rel="index">
+                    <span itemprop="name">二叉树</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>代码实现:</p>
+<p>递归 写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public class Solution&#123;</div><div class="line">    public static int treeDepth(TreeNode root)&#123;</div><div class="line">        if(root == null)</div><div class="line">            return 0;</div><div class="line">        int left = treeDepth(root.left);</div><div class="line">        int right = treeDepth(root.right);</div><div class="line">        return (left&gt;right) ? left+1:right+1;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>非递归写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">import java.util.Queue;</div><div class="line">import java.util.LinkedList;</div><div class="line"></div><div class="line">public class Solution&#123;</div><div class="line">    public static int treeDepth(TreeNode pRoot)&#123;</div><div class="line">        if(pRoot == null)</div><div class="line">            return 0;</div><div class="line">        Queue&lt;TreeNode&gt; queue = new LinkedList&lt;TreeNode&gt;();</div><div class="line">        queue.add(pRoot);</div><div class="line">        int depth = 0;</div><div class="line">        int count = 0;</div><div class="line">        int nextCount = 1; // 记录每一层的个数</div><div class="line">        while(queue.size()!=0)&#123;</div><div class="line">            TreeNode top = queue.poll();</div><div class="line">            count++;</div><div class="line">            if(top.left != null)</div><div class="line">                queue.add(top.left);</div><div class="line">            if(top.right != null)</div><div class="line">                queue.add(top.right);</div><div class="line">            if(count == nextCount)&#123;</div><div class="line">                nextCount = queue.size(); // 更新下一层的个数</div><div class="line">                count =0；</div><div class="line">                depth++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return depth;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/二叉树算法/" rel="tag"># 二叉树算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/22/treenode-houxubianli/" rel="next" title="二叉搜索树的后序遍历序列">
+                <i class="fa fa-chevron-left"></i> 二叉搜索树的后序遍历序列
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -581,6 +729,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 
