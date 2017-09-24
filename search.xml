@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【设计模式】单例模式(一)]]></title>
+    <url>%2F2017%2F09%2F24%2Fjava-designModel-siglton%2F</url>
+    <content type="text"><![CDATA[单例模式 实例下面一段代码是不是单例模式 12345678910111213141516public class Singleton&#123; private static Singleton singleton; public Singleton()&#123; &#125; public static synchronized Singleton getInstance()&#123; if(singleton == null)&#123; singleton = new Singleton(); &#125; return singleton; &#125; public void method(String s)&#123; System.out.println(s); &#125;&#125; 不是单例模式，因为构造方法应该改为私有方法。]]></content>
+      <categories>
+        <category>设计模式</category>
+        <category>单例模式</category>
+      </categories>
+      <tags>
+        <tag>单例模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【java面试/笔试】SSH]]></title>
+    <url>%2F2017%2F09%2F24%2Fjava-yaxin-exam1%2F</url>
+    <content type="text"><![CDATA[SSH 笔试/面试 请解释Structs实现MVC的机制 在Structs框架中，模型由实现业务逻辑的javaBean或Ejb组件完成，控制器由ActionServlet和Action来实现，视图由一组Jsp文件构成。 请说明如下 Hibernate 标识符生成器的区别： increment、indentity、sequence、assigned其中哪些是需要依赖底层数据库系统？ Increment:由hibernate自动以自增的方式生成标识符，每次增量为1。 Identity:由底层数据库生成标识符。前提条件底层数据库支持自动增长字段类型。 Sequence:由底层数据库的序列生成标识符。前提条件底层数据库支持序列。 Assigned:由java应用程序负责生成标识符。不能把setId()方法声明为 private类型。 简述Hibernate的Session接口提供的操作数据库的各种方法？ save():把java对象保存到数据库中 update():更新数据中的java对象 delete():把java对象从数据库中删除 load():从数据库中加载java对象 find():从数据库中查询对象 Hibernate load()和 get() 区别 都根据给定的OID从数据库中加载一个持久化对象。区别在于当数据库中不存在与OID对应的记录时，load()方法抛出net.sf.hibernate.ObjectNotFoundException 异常，get() 返回null Hibernate 应用中持久化对象的状态 临时状态：刚刚用new语句创建，还没有持久化，不处于Session的缓存中。出于临时状态的java对象被称为临时对象。 持久化状态：已经被持久化，加入到session的缓存中，处于持久化状态的java对象被称为持久化对象。 游离状态：已经被持久化，但不再处于session的缓存中。称为游离对象。]]></content>
+      <categories>
+        <category>java</category>
+        <category>java 笔试/面试</category>
+      </categories>
+      <tags>
+        <tag>SSH</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【java面试/笔试】 Jsp & Servlet & javascript]]></title>
     <url>%2F2017%2F09%2F24%2Fjava-yaxin-exam%2F</url>
     <content type="text"><![CDATA[Java 笔试/面试(一)Jsp &amp; Servlet &amp; javascript 请说明 HttpSession,ServletContext 的作用和区别？ HttpSession : Servlet容器为每一个Http会话创建一个HttpSession实例，HttpSession可以放session范围的共享数据。 ServletContext: servlet 容器为每个web应用创建一个ServletContext 实例，ServletContext 可以存放 application 范围的共享数据。 请解释请求转发与请求重定向的区别？ 请求转发：把请求转发给同一应用程序中的其他web组件。这些组件共享同一个请求对象。 请求重定向：web组件可以将请求重定向到任意URL，而不仅仅是同一应用中的URL；重定向的源组件和目标组件之间不共用一个HttpServletRequest对象，因此不能共享request范围内的共享数据。 简述 Servlet 的声明周期？ Servlet运行机制和Applet类似,Servlet 是在服务器端运行的，但是Applet是在客户端运行的。Servlet 是javax.servlet 包中HttpServlet 类的子类,由服务器完成该子类的创建和初试化。Servlet 的声明周期主要由3个过程组成: init(): 服务器初试化Servlet。 service(): 初始化完毕，Servlet对象调用该方法响应客户的请求。* destroy(): 调用该方法消灭Servlet对象。其中，init() 方法只在Servlet 第一次被请求加载的时候被调用一次,当客户再请求Servlet服务时，Web服务器将启动一个新的线程，在该线程中，调用service方法响应客户的请求。 表单传递数据的两种方式，并说明这两种方式的区别？Get 和 POST get：是把参数数据加到提交变淡的Action属性所指的URL中，值和表单内各个字段一一对应，在URL中可以看到。 post：是通过Http post机制，将表单内各个字段与其内容放在html header 内一起传送到action属性所指的url地址。用户看不到这个过程。 对于get方式，服务器端使用Request.QueryString获取变量的值，对于post方式，服务器端采用Request.Form 获取提交的数据。两种方式的参数都可以用Request来获得。 get传送的数据量小，不能大于2kb。post 传送的数据量较大，一般默认不受限制。但理论上，IIS4 最大 80kb IIS5 最大 100kb get 安全性非常低，post 安全性高 另外，get请求有如下特性：它会将数据添加到URL中，通过这种方式传递给服务器，通常利用一个问号?代表URL地址的结尾与数据参数的开端，后面的参数每一个数据参数以“名=值”的形式出现，参数和参数之间利用一个连接符&amp;来区分。post有如下特性：数据是放在http主体中的，其组织方式不只一种，有&amp;方式，也有分隔符方式，可隐藏参数，传递大批数据，比较方便。]]></content>
