@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【java】Jdbc 数据库访问]]></title>
+    <url>%2F2017%2F09%2F24%2Fjava-jdbc%2F</url>
+    <content type="text"><![CDATA[Java Jdbc 访问数据库实例 数据库 : mysql 数据库驱动 : com.mysql.jdbc.Driver 数据库Url : jdbc:mysql://127.0.0.1:3306/demo 用户名 : test 用户口令 : 123 在该数据库中，有一张新建立的User表: CREATE TABLE ‘user’(‘id’ int(11) not null auto_increament,’name’ varchar(100) not null default ‘’, ‘age’ int(4), primary key(‘id’)); 请写出一段JDBC程序，完成如下功能: 先向该表中插入一条记录(Tom,15),然后查询出该表中的所有数据,并打印(请考虑资源的回收). 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748public class Demo&#123; public static final String driver = &quot;com.mysql.jdbc.Driver&quot;; public static final String Url = &quot;jdbc:mysql://127.0.0.1:3306/demo&quot;; public static final String user = &quot;test&quot;; public static final String pwd = &quot;123&quot;; public static void main(String args[])&#123; Connection connection = null; Statement stmt = null; ResultSet s = null; try &#123; Class.ForName(driver); conn = DriverManager.getConnection(Url,user,pwd); conn.setAutoCommit(false); stmt.conn.creatStatement(); int count = stmt.executeUpdate(&quot;insert into user(name age) values (&quot;Tom&quot;,25)&quot;); rs = stmt.executeQuery(&quot;select * from user&quot;); while(rs.next())&#123; System.out.println(rs.getInt(1) + &quot;,&quot; + rs.getString(2) + &quot;,&quot; + rs.getInt(3)); &#125; conn.commit(); stmt.close(); conn.close(); &#125; catch (Exception e)&#123; System.out.println(&quot;数据库操作失败:&quot; + e.getMessage()); try &#123; conn.callback(); &#125; catch (SQLException e1)&#123; e1.printStackTrace(); &#125; &#125;finally &#123; try &#123; if(stmt != null) stmt.close(); &#125; catch(SQLException e1) &#123; e1.printStackTrace(); &#125; try &#123; if(conn != null) conn.close(); &#125; catch (SQLException e1)&#123; e1.printStackTrace(); &#125; &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>java</category>
+        <category>jdbc</category>
+      </categories>
+      <tags>
+        <tag>jdbc</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【java基础】 switch]]></title>
     <url>%2F2017%2F09%2F24%2Fjava-switch%2F</url>
     <content type="text"><![CDATA[Java 中的 switch语法注意：在java中switch后的表达式的类型只能为一下几种：byte,short,char,int(java1.6中是这样)在java1.7后支持了对String的判断 还有一点，在java中如果switch的case语句中少些了break;这个关键字，在编译的时候并没有报错，但是在执行的时候回一直执行所有的case条件下的语句并不是去判断，所以会一直到遇到break关键字跳出或者一直执行到default语句。 还有就是如果在switch表达的结果在case中没话，switch就会从default执行。 1234567891011121314151617181920212223public class TestSwitch&#123; public static void main(String args[])&#123; char c = &apos;a&apos;; //char类型字符 switch(c)&#123; default: System.out.println(&quot;打印默认值&quot;); break; case &apos;a&apos;: System.out.println(&quot;a&quot;); break; case &apos;b&apos;: System.out.println(&apos;b&apos;); break; case &apos;c&apos;: System.out.println(&apos;c&apos;); break; case &apos;d&apos;: System.out.println(&quot;d&quot;); break; &#125; &#125;&#125;]]></content>
