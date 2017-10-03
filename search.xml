@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【算法】链表的基本操作]]></title>
+    <url>%2F2017%2F10%2F03%2Flinklist-add-delete-sort%2F</url>
+    <content type="text"><![CDATA[如何实现单链表的增删操作代码实现： 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687class Node &#123; int data; Node next = null; public Node(int data)&#123; this.data = data; &#125;&#125;public class TestLinkedList &#123; // 头结点 Node head = null; // 向链表中插入结点 public void addNode(int d)&#123; Node newNode = new Node(d); if(head == null)&#123; head = newNode; return ; &#125; // 查找最后一个节点，插入到最后 Node tmp = head; while(tmp.next != null)&#123; tmp = tmp.next; &#125; tmp.next = newNode; &#125; // 删除第几个结点 public boolean deleteNode(int index)&#123; if(index &lt; 1 || index &gt; length())&#123; return false; &#125; // 删除头结点 if(index == 1)&#123; head = head.next; return true; &#125; int i = 2; Node preNode = head; Node curNode = preNode.next; while(curNode.next!=null)&#123; if(i == index)&#123; preNode.next = curNode.next; return true; &#125; preNode = preNode.next; curNode = curNode.next; i++; &#125; return true; &#125; // 排序,并返回头结点 public Node sortNode()&#123; Node nextNode = null; int temp = 0; Node curNode = head; while(curNode.next != null)&#123; nextNode = curNode; while(nextNode != null)&#123; if(curNode.data &gt; nextNode.data)&#123; temp = curNode.data; curNode.data = nextNode.data; nextNode.data = temp; &#125; nextNode = nextNode.next; &#125; curNode = curNode.next; &#125; return head; &#125; // 计算链表的长度 public int length()&#123; int len = 0; Node preNode = head; while(preNode != null)&#123; len++; preNode = preNode.next; &#125; return len; &#125;&#125;]]></content>
+      <categories>
+        <category>算法</category>
+        <category>链表</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【网络基础】ip分类]]></title>
     <url>%2F2017%2F09%2F30%2Fnetwork-ip%2F</url>
     <content type="text"><![CDATA[【网络基础】IP 分类ip 共5类，A,B,C,D,E A 类 0-127 ，其中 0 代表任何地址，127位回环测试地址，A类ip地址实际范围是 1-126默认子网掩码为 255.0.0.0 0.0.0.0 和 127.0.0.0 保留实际范围是 1.0.0.0 - 126.255.255.255 一个子网最多可容纳1658万多台电脑 B 类128-191 实际范围是 128.0.0.0 和 191.255.255.255默认子网掩码为 255.255.0.0一个子网最多可容纳6万台电脑 C 类 192-223实际范围是192.0.0.0和223.225.255.255 子网掩码默认是 255.255.255.0一个子网最多可容纳254台电脑 D 类224.0.0.0 到 239.255.255.255 用于多点广播 E 类 240.0.0.0 到 255.255.255.254255.255.255.255 用于广播地址]]></content>
