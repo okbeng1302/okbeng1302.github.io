@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="链表," />
 
 
 
@@ -95,17 +95,18 @@
 
 
 
-<meta name="description" content="翻转链表1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5head = 1next = 2 1-&amp;gt;2 保存1到2 的指针防止造成断链 null&amp;lt;-1 2-&amp;gt;3..-&amp;gt;5head.next = pre  1-&amp;gt;nullpre = 1head = next = 2 head = 2next = 3 2-&amp;gt;3head.next = pre = 1 1&amp;lt;-2-&amp;g">
+<meta name="description" content="单链表的中间结点思路： 第一步：有两个指针同时从头开始遍历；第二步：一个快指针一次走两步，一个慢指针一次走一步第三步：快指针先到链表尾部，而满指针恰好到达链表中部(快指针到链表尾部时，当链表长度为奇数时，慢指针指向的即是链表的中间节点；当链表长度为偶数时，慢指针指向的节点和慢指针指向的下一个节点都是链表的中间节点) 代码实现： 123456789public Node findMid(Node h">
+<meta name="keywords" content="链表">
 <meta property="og:type" content="article">
-<meta property="og:title" content="翻转链表">
-<meta property="og:url" content="http://yoursite.com/2017/09/08/linklist-reverse/index.html">
+<meta property="og:title" content="【算法】单链表的中间节点">
+<meta property="og:url" content="http://yoursite.com/2017/10/03/linklist-findmiddleNode/index.html">
 <meta property="og:site_name" content="ok绷ii">
-<meta property="og:description" content="翻转链表1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5head = 1next = 2 1-&amp;gt;2 保存1到2 的指针防止造成断链 null&amp;lt;-1 2-&amp;gt;3..-&amp;gt;5head.next = pre  1-&amp;gt;nullpre = 1head = next = 2 head = 2next = 3 2-&amp;gt;3head.next = pre = 1 1&amp;lt;-2-&amp;g">
+<meta property="og:description" content="单链表的中间结点思路： 第一步：有两个指针同时从头开始遍历；第二步：一个快指针一次走两步，一个慢指针一次走一步第三步：快指针先到链表尾部，而满指针恰好到达链表中部(快指针到链表尾部时，当链表长度为奇数时，慢指针指向的即是链表的中间节点；当链表长度为偶数时，慢指针指向的节点和慢指针指向的下一个节点都是链表的中间节点) 代码实现： 123456789public Node findMid(Node h">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-03T07:46:16.599Z">
+<meta property="og:updated_time" content="2017-10-03T08:28:02.087Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="翻转链表">
-<meta name="twitter:description" content="翻转链表1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5head = 1next = 2 1-&amp;gt;2 保存1到2 的指针防止造成断链 null&amp;lt;-1 2-&amp;gt;3..-&amp;gt;5head.next = pre  1-&amp;gt;nullpre = 1head = next = 2 head = 2next = 3 2-&amp;gt;3head.next = pre = 1 1&amp;lt;-2-&amp;g">
+<meta name="twitter:title" content="【算法】单链表的中间节点">
+<meta name="twitter:description" content="单链表的中间结点思路： 第一步：有两个指针同时从头开始遍历；第二步：一个快指针一次走两步，一个慢指针一次走一步第三步：快指针先到链表尾部，而满指针恰好到达链表中部(快指针到链表尾部时，当链表长度为奇数时，慢指针指向的即是链表的中间节点；当链表长度为偶数时，慢指针指向的节点和慢指针指向的下一个节点都是链表的中间节点) 代码实现： 123456789public Node findMid(Node h">
 
 
 
@@ -135,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/08/linklist-reverse/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/03/linklist-findmiddleNode/"/>
 
 
 
 
 
-  <title>翻转链表 | ok绷ii</title>
+  <title>【算法】单链表的中间节点 | ok绷ii</title>
   
 
 
@@ -312,7 +313,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/08/linklist-reverse/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/03/linklist-findmiddleNode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ok绷ii">
@@ -329,7 +330,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">翻转链表</h1>
+          <h1 class="post-title" itemprop="name headline">【算法】单链表的中间节点</h1>
         
 
         <div class="post-meta">
@@ -341,8 +342,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T09:03:35+08:00">
-                2017-09-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-03T15:51:47+08:00">
+                2017-10-03
               </time>
             
 
@@ -412,10 +413,10 @@
       
 
       
-        <h1 id="翻转链表"><a href="#翻转链表" class="headerlink" title="翻转链表"></a>翻转链表</h1><p>1-&gt;2-&gt;3-&gt;4-&gt;5<br>head = 1<br>next = 2 1-&gt;2 保存1到2 的指针防止造成断链 null&lt;-1 2-&gt;3..-&gt;5<br>head.next = pre  1-&gt;null<br>pre = 1<br>head = next = 2</p>
-<p>head = 2<br>next = 3 2-&gt;3<br>head.next = pre = 1 1&lt;-2-&gt;3..-&gt;5<br>pre = head = 2<br>head = next = 3<br>…</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">public class ListNode&#123;</div><div class="line">	int val;</div><div class="line">	ListNode next = null;</div><div class="line">	ListNode(int val)&#123;</div><div class="line">	this.val = val;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class Solution&#123;</div><div class="line">	public ListNode ReverseList(ListNode listnode)&#123;</div><div class="line">		if(listnode == null)</div><div class="line">			return null;</div><div class="line">		ListNode next = null; // 保存当前节点指向下一节点的指针</div><div class="line">		ListNode pre = null; // 保存当前节点的上一个节点</div><div class="line"></div><div class="line">		while(listnode != null)&#123;</div><div class="line">			next = listnode.next; // 保存指针，防止断链</div><div class="line">			listnode.next = pre;</div><div class="line">			pre = listnode;</div><div class="line">			listnode = next;</div><div class="line">		&#125;</div><div class="line">		return pre;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+        <h3 id="单链表的中间结点"><a href="#单链表的中间结点" class="headerlink" title="单链表的中间结点"></a>单链表的中间结点</h3><p>思路：</p>
+<p>第一步：有两个指针同时从头开始遍历；<br>第二步：一个快指针一次走两步，一个慢指针一次走一步<br>第三步：快指针先到链表尾部，而满指针恰好到达链表中部(快指针到链表尾部时，当链表长度为奇数时，慢指针指向的即是链表的中间节点；当链表长度为偶数时，慢指针指向的节点和慢指针指向的下一个节点都是链表的中间节点)</p>
+<p>代码实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public Node findMid(Node head)&#123;</div><div class="line">    Node p = head;</div><div class="line">    Node q = head;</div><div class="line">    while(p !=null &amp;&amp; p.next != null &amp;&amp; p.next.next != null)&#123;</div><div class="line">        p = p.next.next;</div><div class="line">        q = q.next;    </div><div class="line">    &#125;</div><div class="line">    return q;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -430,6 +431,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/链表/" rel="tag"># 链表</a>
+          
+        </div>
+      
 
       
       
@@ -439,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/07/tcp/" rel="next" title="TCP&&UDP常见面试题">
-                <i class="fa fa-chevron-left"></i> TCP&&UDP常见面试题
+              <a href="/2017/10/03/linklist-delete-repeatedata/" rel="next" title="【算法】删除链表中的重复数据">
+                <i class="fa fa-chevron-left"></i> 【算法】删除链表中的重复数据
               </a>
             
           </div>
@@ -448,10 +455,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/08/linklist-tail-head/" rel="prev" title="输入一个链表从尾到头进行打印">
-                输入一个链表从尾到头进行打印 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -612,7 +615,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#翻转链表"><span class="nav-number">1.</span> <span class="nav-text">翻转链表</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#单链表的中间结点"><span class="nav-number">1.</span> <span class="nav-text">单链表的中间结点</span></a></li></ol></div>
             
 
           </div>

@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【算法】单链表的中间节点]]></title>
+    <url>%2F2017%2F10%2F03%2Flinklist-findmiddleNode%2F</url>
+    <content type="text"><![CDATA[单链表的中间结点思路： 第一步：有两个指针同时从头开始遍历；第二步：一个快指针一次走两步，一个慢指针一次走一步第三步：快指针先到链表尾部，而满指针恰好到达链表中部(快指针到链表尾部时，当链表长度为奇数时，慢指针指向的即是链表的中间节点；当链表长度为偶数时，慢指针指向的节点和慢指针指向的下一个节点都是链表的中间节点) 代码实现： 123456789public Node findMid(Node head)&#123; Node p = head; Node q = head; while(p !=null &amp;&amp; p.next != null &amp;&amp; p.next.next != null)&#123; p = p.next.next; q = q.next; &#125; return q;&#125;]]></content>
+      <categories>
+        <category>算法</category>
+        <category>链表</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【算法】删除链表中的重复数据]]></title>
     <url>%2F2017%2F10%2F03%2Flinklist-delete-repeatedata%2F</url>
     <content type="text"><![CDATA[删除链表中的重复数据思路一：遍历链表,把遍历的值存储到一个Hashtable中，在遍历的过程中，若当前访问的值在Hashtable中已经存在，则说明这个数据是重复的。因此就可以删除。 代码实现： 12345678910111213141516public void deleteDuplecate(Node head)&#123; Hashtable&lt;Integer,Integer&gt; hashtable = new Hashtable&lt;Integer,Integer&gt;(); Node tmp = head; Node pre = null; while(tmp != null)&#123; if(hashtable.containsKey(tmp.data))&#123; pre.next = tmp.next; &#125;else&#123; hashtable.put(tmp.data,1); pre = tmp;// 保存上一节点 &#125; tmp = tmp.next; &#125;&#125; 思路二: 对链表进行双重遍历循环，外循环正常遍历链表，假设外循环当前遍历的节点为cur，内循环从cur开始遍历，若碰到与cur所指向节点值相同，则删除这个重复节点。 代码实现: 1234567891011121314public void deleteDeplecate(Node head)&#123; Node p = head; while(p != null)&#123; Node q = p; while(q.next != null)&#123; if(p.data == q.next.data)&#123; q.next = q.next.next; &#125;else&#123; q = q.next; &#125; &#125; p = p.next; &#125;&#125;]]></content>
@@ -543,7 +555,7 @@
   <entry>
     <title><![CDATA[翻转链表]]></title>
     <url>%2F2017%2F09%2F08%2Flinklist-reverse%2F</url>
-    <content type="text"><![CDATA[翻转链表1-&gt;2-&gt;3-&gt;4-&gt;5head = 1next = 2 1-&gt;2 保存1到2 的指针防止造成断链 null&lt;-1 2-&gt;3..-&gt;5head.next = pre 1-&gt;nullpre = 1head = next = 2 head = 2next = 3 2-&gt;3head.next = pre = 1 1&lt;-2-&gt;3..-&gt;5pre = head = 2head = next = 3… 123456789101112131415161718192021222324public class ListNode&#123; int val; ListNode next = null; ListNode(int val)&#123; this.val = val; &#125;&#125;public class Solution&#123; public ListNode ReverseList(ListNode listnode)&#123; if(listnode == null) return null; ListNode next = null; // 保存当前节点指向下一节点的指针 ListNode pre = null; // 保存当前节点的上一个节点 while(head != null)&#123; next = head.next; head.next = pre; pre = head; head = next; &#125; return pre; &#125;&#125;]]></content>
+    <content type="text"><![CDATA[翻转链表1-&gt;2-&gt;3-&gt;4-&gt;5head = 1next = 2 1-&gt;2 保存1到2 的指针防止造成断链 null&lt;-1 2-&gt;3..-&gt;5head.next = pre 1-&gt;nullpre = 1head = next = 2 head = 2next = 3 2-&gt;3head.next = pre = 1 1&lt;-2-&gt;3..-&gt;5pre = head = 2head = next = 3… 123456789101112131415161718192021222324public class ListNode&#123; int val; ListNode next = null; ListNode(int val)&#123; this.val = val; &#125;&#125;public class Solution&#123; public ListNode ReverseList(ListNode listnode)&#123; if(listnode == null) return null; ListNode next = null; // 保存当前节点指向下一节点的指针 ListNode pre = null; // 保存当前节点的上一个节点 while(listnode != null)&#123; next = listnode.next; // 保存指针，防止断链 listnode.next = pre; pre = listnode; listnode = next; &#125; return pre; &#125;&#125;]]></content>
       <categories>
         <category>算法</category>
         <category>链表</category>
