@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【设计模式】单例模式]]></title>
+    <url>%2F2017%2F10%2F04%2Fjava-designModel-singleton%2F</url>
+    <content type="text"><![CDATA[【设计模式】单例模式详解实现方式一： 使用静态内部类实现 123456789public class Singleton &#123; private Singleton()&#123; &#125; private static class T &#123; private static Singleton t = new Singleton(); &#125; public static Singleton getInstance()&#123; return T.t; &#125;&#125; 实现方式二: 使用双重校验所 DCL,使用 volatile 场景之一 1234567891011121314151617public class Singleton &#123; // 使用volatile修饰成员变量后，所有线程在任何时候看到变量的值都是相同的。 private static volatile Singleton instance = null; private Singleton() &#123; &#125; // 双重校验锁，只有在第一次实例化时，才启用同步机制，提高了性能。 public static Singleton getInstance()&#123; if(instance == null)&#123; synchronized(Singleton.class)&#123; if(instance == null)&#123; instance = new Singleton(); // 注意这条语句，非原子操作 &#125; &#125; &#125; return instance; &#125;&#125; 实现方式三:懒汉式单例模式 12345678910public class Singleton &#123; private static Singleton instance = null; private Singleton()&#123;&#125; public synchronized static Singleton getInstance()&#123; if(instance == null)&#123; instance = new Singleton(); &#125; return instance; &#125;&#125;]]></content>
+      <categories>
+        <category>设计模式</category>
+        <category>单例模式</category>
+      </categories>
+      <tags>
+        <tag>单例模式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【算法】链表是否有环]]></title>
     <url>%2F2017%2F10%2F03%2Flinklist-isRound%2F</url>
     <content type="text"><![CDATA[判断链表是否有环思路： 定义两个指针 fast 和 slow，其中 fast 是快指针，slow 是慢指针，二者的初始值都指向头结点。slow每次前进一步，fast每次前进两步，两个指针同时向前移动。快指针每次都要和慢指针进行比较，直到当快指针等于慢指针为止，就证明是带环的链表。 代码实现： 12345678910111213public boolean isLoop(Node head)&#123; Node fast = head; Node slow = head; if(fast == null) return faslse; while(fast != null &amp;&amp; fast.next != null)&#123; fast = fast.next.next; slow = slow.next; if(fast = slow) return true; &#125; return !(fast == null || fast.next == null);&#125; 如果链表有环，找到环的入口思路： 当走的快的指针fast 和走的慢的指针slow相遇时，slow 指针肯定没有遍历完链表，而fast已经在环上内循环了n圈（n&gt;=1）。假设 slow 走了 s步，则 fast走了 2s步（fast走的步数还等于 s 加上环的多转的 n 圈），设 环 长 r，则： 2s = s + nrs = nr 设链表的长度 L，入口环和相遇点距离为 x，起点到环入口点的距离 为 a，则： a + x = s = nra + x = (n-1)r + r = (n-1)r + L-aa = (n-1)r + L - a - x L-a-x 是相遇点到环入口的距离，从链表投到环入口点等于(n-1)循环内环 + 相遇点到环入口的点。 s = nr = a + x 代码实现： 1234567891011121314151617181920public Node FindLoopPort(Node head)&#123; Node slow = head; Node fast = head; // 找到相遇点 while(fast != null &amp;&amp; fast.next != null)&#123; fast = fast.next.next; slow = slow.next; if(slow == fast) bread; &#125; if(fast == null || fast.next == null) return null; slow = head; while(slow!=fast)&#123; slow = slow.next; fast = fast.next; &#125; return slow;&#125;]]></content>
