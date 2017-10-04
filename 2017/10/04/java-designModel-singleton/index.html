@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="ok绷ii">
 <meta property="og:description" content="【设计模式】单例模式详解实现方式一： 使用静态内部类实现 123456789public class Singleton &amp;#123;    private Singleton()&amp;#123; &amp;#125;    private static class T &amp;#123;        private static Singleton t = new Singleton();    &amp;#125;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-04T01:44:25.040Z">
+<meta property="og:updated_time" content="2017-10-04T01:46:23.041Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【设计模式】单例模式">
 <meta name="twitter:description" content="【设计模式】单例模式详解实现方式一： 使用静态内部类实现 123456789public class Singleton &amp;#123;    private Singleton()&amp;#123; &amp;#125;    private static class T &amp;#123;        private static Singleton t = new Singleton();    &amp;#125;">
@@ -421,6 +421,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public class Singleton &#123;</div><div class="line">    // 使用volatile修饰成员变量后，所有线程在任何时候看到变量的值都是相同的。</div><div class="line">    private static volatile Singleton instance = null;</div><div class="line">    private Singleton() &#123;</div><div class="line">    &#125;</div><div class="line">    // 双重校验锁，只有在第一次实例化时，才启用同步机制，提高了性能。</div><div class="line">    public static Singleton getInstance()&#123;</div><div class="line">        if(instance == null)&#123;</div><div class="line">            synchronized(Singleton.class)&#123;</div><div class="line">                if(instance == null)&#123;</div><div class="line">                    instance = new Singleton(); // 注意这条语句，非原子操作</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>实现方式三:<br>懒汉式单例模式</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public class Singleton &#123;</div><div class="line">    private static Singleton instance = null;</div><div class="line">    private Singleton()&#123;&#125;</div><div class="line">    public synchronized static Singleton getInstance()&#123;</div><div class="line">        if(instance == null)&#123;</div><div class="line">            instance = new Singleton();</div><div class="line">        &#125;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>单例模式的应用场景</p>
+<ul>
+<li>数据库连接池</li>
+<li>多线程线程池</li>
+<li>Windows的任务管理器</li>
+</ul>
+
       
     </div>
     
