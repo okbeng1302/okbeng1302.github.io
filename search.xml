@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【算法】判断两个链表是否相交]]></title>
+    <url>%2F2017%2F10%2F05%2Flinklist-isrelate%2F</url>
+    <content type="text"><![CDATA[判断两个链表是否相交如果两个链表相交，那么它们一定有着相同的尾节点 实现思路： 分别遍历两个链表，记录它们的尾结点，如果它们的尾结点相同，那么两个链表相交，否则不相交。 时间复杂度 O(len1+len2) 实现代码： 1234567891011121314public boolean isInterset(Node n1,Node n2)&#123; if(n1 == null || n2 == null) return false; Node tail1 = n1; while(tail1.next != null)&#123; tail1 = tail1.next; &#125; Node tail2 = n2; while(tail2.next != null)&#123; tail2 = tail2.next; &#125; return tail1 == tail2;&#125; 如果相交，找到它们的第一个相交点思路： 首先分别计算 两个链表head1、head2的长度len1和len2(假设len1&gt;len2),接着先对head1遍历(len1-len2),此时两个链表到达相交结点的距离相同。此时同时遍历两个链表，知道遇到相同的节点为止。需要注意的是，在查找相交的第一个结点时，需要先判断两个链表是否相交，只有在相交的情况下才有必要去找它们的交点。 代码实现： 12345678910111213141516171819202122232425262728293031323334353637383940414243public static Node getFirstMeetNode(Node h1,Node h2)&#123; // 计算h1的长度并且判断h1和h2是否相交 int len1 = 0;len2 = 0; Node tail1 = h1; Node tail2 = h2; // 计算h1的长度和找到h1的尾结点 while(tail1.next != null)&#123; tail1 = tail1.next; len1++; &#125; // 计算h2的长度和找到h2的尾结点 while(tail2.next != null)&#123; tail2 = tail2.next; len2++; &#125; // 判断是否相交 if(tail1 != tail2) return null; // 遍历长的链表|len1-len2| Node t1 = h1; Node t2 = h2; if(len1 &gt; len2)&#123; int d = len1-len2； while(d&gt;0)&#123; t1 = t1.next; d--; &#125; &#125;else&#123; int d = len2-len1; while(d&gt;0)&#123; t2 = t2.next; d--; &#125; &#125; // 找到第一个相遇的节点 while(t1 != t2)&#123; t1 = t1.next; t2 = t2.next; &#125;&#125; 时间复杂度 O(len1+len2)]]></content>
+      <categories>
+        <category>算法</category>
+        <category>链表</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【算法】在不知道头指针的情况下删除指定结点]]></title>
     <url>%2F2017%2F10%2F05%2Flinklist-delete-point%2F</url>
     <content type="text"><![CDATA[【算法】在不知道头指针的情况下删除指定结点思路： 若待删除的结点是链表的尾节点，则无法删除，因为删除后无法使前驱结点的next指针为空 若待删除的节点不是尾节点，则可以通过交换这个节点与其后序节点的值，然后删除后续结点。 代码实现： 123456789public boolean deleteNode(Node n)&#123; if(n == null || n.next == null) return fasle; int temp = n.data; n.data = n.next.data; n.next.data = temp; n.next = n.next.next; return true;&#125;]]></content>
