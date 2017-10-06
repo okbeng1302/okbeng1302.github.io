@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="ok绷ii">
 <meta property="og:description" content="如何实现队列 基于链表的实现  代码实现 123456789101112131415161718192021222324252627282930313233343536373839404142class Node&amp;lt;E&amp;gt; &amp;#123;    Node&amp;lt;E&amp;gt; next = null;    E data;    Node(E data)&amp;#123;        this.da">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-06T01:58:16.472Z">
+<meta property="og:updated_time" content="2017-10-06T02:06:54.153Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【算法】队列构造">
 <meta name="twitter:description" content="如何实现队列 基于链表的实现  代码实现 123456789101112131415161718192021222324252627282930313233343536373839404142class Node&amp;lt;E&amp;gt; &amp;#123;    Node&amp;lt;E&amp;gt; next = null;    E data;    Node(E data)&amp;#123;        this.da">
@@ -424,6 +424,12 @@
 </ol>
 <p>代码实现</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class MyQueue&lt;E&gt;&#123;</div><div class="line">    private LinkedList&lt;E&gt; list = new LinkedList&lt;E&gt;();</div><div class="line">    private int size = 0;</div><div class="line">    public synchronized void put(E e)&#123;</div><div class="line">        list.addLast(e);</div><div class="line">        size++;</div><div class="line">    &#125;</div><div class="line">    public synchronized E pop()&#123;</div><div class="line">        size--;</div><div class="line">        return list.removeFirst();</div><div class="line">    &#125;</div><div class="line">    public synchronized boolean empty()&#123;</div><div class="line">        return size == 0;</div><div class="line">    &#125;</div><div class="line">    public synchronized int size()&#123;</div><div class="line">        return size;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<ol>
+<li>使用两个栈模拟队列操作</li>
+</ol>
+<p>代码实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class MyQueue&lt;E&gt; &#123;</div><div class="line">    private Stack&lt;E&gt; s1 = new Stack&lt;E&gt;();</div><div class="line">    private Stack&lt;E&gt; s2 = new Stack&lt;E&gt;();</div><div class="line"></div><div class="line">    public synchronized void put(E data)&#123;</div><div class="line">        s1.push(data);</div><div class="line">    &#125;</div><div class="line">    public synchronized E pop()&#123;</div><div class="line">        if(s2.isEmpty())&#123;</div><div class="line">            while(!s1.isEmpty())&#123;</div><div class="line">                s2.push(s1.pop());</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return s2.pop();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public synchronized boolean isEmpty()&#123;</div><div class="line">        return s1.isEmpty() &amp;&amp; s2.isEmpty();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -462,10 +468,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/06/java-stack-findMin-1/" rel="prev" title="java-stack-findMin">
-                java-stack-findMin <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -545,7 +547,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">67</span>
+                <span class="site-state-item-count">66</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
