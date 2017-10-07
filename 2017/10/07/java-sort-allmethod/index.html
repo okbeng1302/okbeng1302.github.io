@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="【排序算法】各种排序算法有什么优劣   dog bird cat     foo foo foo   bar bar bar   baz baz baz">
+<meta name="description" content="【排序算法】各种排序算法有什么优劣   排序算法 最好时间 平均时间 最坏时间 辅助存储 稳定性 备注     选择排序 O(n2) O(n2) O(n2) O(1) 不稳定 n较小时比较好   插入排序 O(n) O(n2) O(n2) O(1) 稳定 大部分已有序时比较好   冒泡排序 O(n) O(n2) O(n2) O(1) 稳定 n较小时比较好   快速排序 O(nlogn) O(nlo">
 <meta name="keywords" content="排序算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【排序算法】各种排序算法有什么优劣">
 <meta property="og:url" content="http://yoursite.com/2017/10/07/java-sort-allmethod/index.html">
 <meta property="og:site_name" content="ok绷ii">
-<meta property="og:description" content="【排序算法】各种排序算法有什么优劣   dog bird cat     foo foo foo   bar bar bar   baz baz baz">
+<meta property="og:description" content="【排序算法】各种排序算法有什么优劣   排序算法 最好时间 平均时间 最坏时间 辅助存储 稳定性 备注     选择排序 O(n2) O(n2) O(n2) O(1) 不稳定 n较小时比较好   插入排序 O(n) O(n2) O(n2) O(1) 稳定 大部分已有序时比较好   冒泡排序 O(n) O(n2) O(n2) O(1) 稳定 n较小时比较好   快速排序 O(nlogn) O(nlo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-07T07:42:37.180Z">
+<meta property="og:updated_time" content="2017-10-07T07:56:59.780Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【排序算法】各种排序算法有什么优劣">
-<meta name="twitter:description" content="【排序算法】各种排序算法有什么优劣   dog bird cat     foo foo foo   bar bar bar   baz baz baz">
+<meta name="twitter:description" content="【排序算法】各种排序算法有什么优劣   排序算法 最好时间 平均时间 最坏时间 辅助存储 稳定性 备注     选择排序 O(n2) O(n2) O(n2) O(1) 不稳定 n较小时比较好   插入排序 O(n) O(n2) O(n2) O(1) 稳定 大部分已有序时比较好   冒泡排序 O(n) O(n2) O(n2) O(1) 稳定 n较小时比较好   快速排序 O(nlogn) O(nlo">
 
 
 
@@ -416,29 +416,82 @@
         <h1 id="【排序算法】各种排序算法有什么优劣"><a href="#【排序算法】各种排序算法有什么优劣" class="headerlink" title="【排序算法】各种排序算法有什么优劣"></a>【排序算法】各种排序算法有什么优劣</h1><table>
 <thead>
 <tr>
-<th>dog</th>
-<th>bird</th>
-<th>cat</th>
+<th>排序算法</th>
+<th>最好时间</th>
+<th>平均时间</th>
+<th>最坏时间</th>
+<th>辅助存储</th>
+<th>稳定性</th>
+<th>备注</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>foo</td>
-<td>foo</td>
-<td>foo</td>
+<td>选择排序</td>
+<td>O(n2)</td>
+<td>O(n2)</td>
+<td>O(n2)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+<td>n较小时比较好</td>
 </tr>
 <tr>
-<td>bar</td>
-<td>bar</td>
-<td>bar</td>
+<td>插入排序</td>
+<td>O(n)</td>
+<td>O(n2)</td>
+<td>O(n2)</td>
+<td>O(1)</td>
+<td>稳定</td>
+<td>大部分已有序时比较好</td>
 </tr>
 <tr>
-<td>baz</td>
-<td>baz</td>
-<td>baz</td>
+<td>冒泡排序</td>
+<td>O(n)</td>
+<td>O(n2)</td>
+<td>O(n2)</td>
+<td>O(1)</td>
+<td>稳定</td>
+<td>n较小时比较好</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>O(nlogn)</td>
+<td>O(nlogn)</td>
+<td>O(n2)</td>
+<td>O(logn)</td>
+<td>不稳定</td>
+<td>n大时比较好</td>
+</tr>
+<tr>
+<td>归并排序</td>
+<td>O(nlogn)</td>
+<td>O(nlogn)</td>
+<td>O(nlogn)</td>
+<td>O(n)</td>
+<td>稳定</td>
+<td>n大时比较好</td>
+</tr>
+<tr>
+<td>希尔排序</td>
+<td>O(n)</td>
+<td>O(nlogn)</td>
+<td>O(ns)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+<td>s是所选分组</td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td>O(nlogn)</td>
+<td>O(nlogn)</td>
+<td>O(nlogn)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+<td>n较大时比较好</td>
 </tr>
 </tbody>
 </table>
+<p>除了以上排序，还有图排序、桶排序、基数排序等。</p>
 
       
     </div>

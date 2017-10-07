@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[【排序算法】各种排序算法有什么优劣]]></title>
     <url>%2F2017%2F10%2F07%2Fjava-sort-allmethod%2F</url>
-    <content type="text"><![CDATA[【排序算法】各种排序算法有什么优劣 dog bird cat foo foo foo bar bar bar baz baz baz]]></content>
+    <content type="text"><![CDATA[【排序算法】各种排序算法有什么优劣 排序算法 最好时间 平均时间 最坏时间 辅助存储 稳定性 备注 选择排序 O(n2) O(n2) O(n2) O(1) 不稳定 n较小时比较好 插入排序 O(n) O(n2) O(n2) O(1) 稳定 大部分已有序时比较好 冒泡排序 O(n) O(n2) O(n2) O(1) 稳定 n较小时比较好 快速排序 O(nlogn) O(nlogn) O(n2) O(logn) 不稳定 n大时比较好 归并排序 O(nlogn) O(nlogn) O(nlogn) O(n) 稳定 n大时比较好 希尔排序 O(n) O(nlogn) O(ns) O(1) 不稳定 s是所选分组 堆排序 O(nlogn) O(nlogn) O(nlogn) O(1) 不稳定 n较大时比较好 除了以上排序，还有图排序、桶排序、基数排序等。]]></content>
       <categories>
         <category>算法</category>
         <category>排序</category>
