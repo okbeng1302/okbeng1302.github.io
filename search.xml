@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【排序算法】归并排序]]></title>
+    <url>%2F2017%2F10%2F07%2Fjava-sort-merge%2F</url>
+    <content type="text"><![CDATA[【排序算法】归并排序思路： 归并排序是利用递归与分治技术奖数据序列划分成为越来越小的半子表，再对半子表排序，最后在用递归方法将排好序的半子表合并称为越来越大的有序序列。 原理： 对于给定的一组记录(假设共有N个记录),首先将每一个相邻的长度为1的子序列进行归并，得到N/2(向上取整)个长度为2或1的有序子序列,再将其两两合并,反复执行此过程,直到得到一个有序序列。 代码实现： 12345678910111213141516171819202122232425262728293031323334public class Main&#123; public static void merge(int[] arr,low,high)&#123; if(low&lt;high)&#123; int mid = (high+low)/2; merge(arr,low,mid); merge(arr,mid+1;high); mergerSort(arr,low,mid,high); &#125; &#125; public static void mergeSort(int[] arr,int low,int mid,int high)&#123; int[] temp = new int[high-low+i]; int i = low; int j = high; int k = 0; // 把较小的数先移入到数组中 while(i&lt;=mid &amp;&amp; j&lt;=high)&#123; if(arr[i]&gt;arr[j])&#123; temp[k++] = arr[j++]; &#125;else&#123; temp[k++] = arr[i++]; &#125; &#125; while(i&lt;=mid) temp[k++] = arr[i++]; while(j&lt;high) temp[k++] = arr[j++]; for(int k2=0;k2&lt;temp.length;k2++)&#123; arr[k2+low] = temp[k2]; &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>算法</category>
+        <category>排序</category>
+      </categories>
+      <tags>
+        <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【MySQL】MySQL中 MyISAM和InnoDB的区别]]></title>
     <url>%2F2017%2F10%2F07%2Fmysql-InnoDB-MyISAM%2F</url>
     <content type="text"><![CDATA[【MySQL】MySQL中 MyISAM和InnoDB的区别Mysql 数据库中，最常用的两种引擎就是InnoDB和MyIsam。InnoDB是mysql的默认引擎。 事务处理方面MyIsam 强调的是性能，查询的速度比InnoDB类型更快，但是不能提供事务支持。InnoDB提供事务支出。 外键MyIsam 不支持外键。InnoDB 支持外键。 锁MyIsam 只支持表级锁，InnoDB支持表级锁和行级锁，默认使用行级锁，行级锁大幅度提高了多用户并发操作的性能。InnoDB 比较适合插入和更新操作频繁的情况。而MyIsam 适合查询频繁的情况。InnoDB表的行锁也不是绝对的，如果在执行一个SQL语句，Mysql不能确定要扫描的范围，InnoDB同样会锁全表，例如 update table set num=1 where name like %aaa% 。 全文索引MyIsam 支持全文索引，InnoDB 不支持全文索引。InnoDB 从mysql 5.6 开始支持全文索引。 表主键MyIsam 允许没有表的主键的存在。InnoDB 如果没有设定主键，就会自动成一个 6字节 的主键（用户不可见）。 表的具体行数MyIsam: select count() from table,MyIsam 只要简单的读出保存好的行数。因为 MyIsam 内置了一个计数器，count() 时它直接从技术器中读。 InnoDB: 不保存表的具体行数。在执行 select count(*) from table , InnoDB 要扫描整个表来计算有多少行。]]></content>
