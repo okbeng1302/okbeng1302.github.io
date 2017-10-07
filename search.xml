@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【MySQL】MySQL中 MyISAM和InnoDB的区别]]></title>
+    <url>%2F2017%2F10%2F07%2Fmysql-InnoDB-MyISAM%2F</url>
+    <content type="text"><![CDATA[【MySQL】MySQL中 MyISAM和InnoDB的区别Mysql 数据库中，最常用的两种引擎就是InnoDB和MyIsam。InnoDB是mysql的默认引擎。 事务处理方面MyIsam 强调的是性能，查询的速度比InnoDB类型更快，但是不能提供事务支持。InnoDB提供事务支出。 外键MyIsam 不支持外键。InnoDB 支持外键。 锁MyIsam 只支持表级锁，InnoDB支持表级锁和行级锁，默认使用行级锁，行级锁大幅度提高了多用户并发操作的性能。InnoDB 比较适合插入和更新操作频繁的情况。而MyIsam 适合查询频繁的情况。InnoDB表的行锁也不是绝对的，如果在执行一个SQL语句，Mysql不能确定要扫描的范围，InnoDB同样会锁全表，例如 update table set num=1 where name like %aaa% 。 全文索引MyIsam 支持全文索引，InnoDB 不支持全文索引。InnoDB 从mysql 5.6 开始支持全文索引。 表主键MyIsam 允许没有表的主键的存在。InnoDB 如果没有设定主键，就会自动成一个 6字节 的主键（用户不可见）。 表的具体行数MyIsam: select count() from table,MyIsam 只要简单的读出保存好的行数。因为 MyIsam 内置了一个计数器，count() 时它直接从技术器中读。 InnoDB: 不保存表的具体行数。在执行 select count(*) from table , InnoDB 要扫描整个表来计算有多少行。]]></content>
+      <categories>
+        <category>Mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【算法】队列构造]]></title>
     <url>%2F2017%2F10%2F06%2Fjava-queue-constructor%2F</url>
     <content type="text"><![CDATA[如何实现队列基于链表的实现代码实现 123456789101112131415161718192021222324252627282930313233343536373839404142class Node&lt;E&gt; &#123; Node&lt;E&gt; next = null; E data; Node(E data)&#123; this.data = data; &#125;&#125;public class MyQueue&lt;E&gt;&#123; private Node&lt;E&gt; head = null; privete Node&lt;E&gt; tail = null; public boolean isEmpty()&#123; return head==null; &#125; public void put(E data)&#123; Node&lt;E&gt; newNode = new Node&lt;E&gt;(data); if(head == null &amp;&amp; tail == null) head = tail = newNode; else&#123; tail.next = newNode; tail = newNode; &#125; &#125; public E pop()&#123; if(isEmpty()) return null; E data = head.data; head = head.next; return data; &#125; public int size()&#123; int len = 0; Node&lt;E&gt; tmp = head; while(tmp!=null)&#123; tmp = tmp.next; len++; &#125; return len; &#125;&#125; 基于数组的实现(实现线程安全)代码实现 123456789101112131415161718public class MyQueue&lt;E&gt;&#123; private LinkedList&lt;E&gt; list = new LinkedList&lt;E&gt;(); private int size = 0; public synchronized void put(E e)&#123; list.addLast(e); size++; &#125; public synchronized E pop()&#123; size--; return list.removeFirst(); &#125; public synchronized boolean empty()&#123; return size == 0; &#125; public synchronized int size()&#123; return size; &#125;&#125; 使用两个栈模拟队列操作代码实现 1234567891011121314151617181920public class MyQueue&lt;E&gt; &#123; private Stack&lt;E&gt; s1 = new Stack&lt;E&gt;(); private Stack&lt;E&gt; s2 = new Stack&lt;E&gt;(); public synchronized void put(E data)&#123; s1.push(data); &#125; public synchronized E pop()&#123; if(s2.isEmpty())&#123; while(!s1.isEmpty())&#123; s2.push(s1.pop()); &#125; &#125; return s2.pop(); &#125; public synchronized boolean isEmpty()&#123; return s1.isEmpty() &amp;&amp; s2.isEmpty(); &#125;&#125;]]></content>
