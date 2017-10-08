@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【二叉树算法】二叉排序树的构建]]></title>
+    <url>%2F2017%2F10%2F08%2Ftreenode-constructor%2F</url>
+    <content type="text"><![CDATA[二叉树的实现代码代码实现： 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899class TreeNode&#123; public int data; public Node left; public Node right; public TreeNode(int data)&#123; this.data = data; this.left = null; this.right = null; &#125;&#125;public class BinaryTree&#123; private Node root; public BinaryTree()&#123; &#125; // 将data插入到排序的二叉树中 public void insert(int data)&#123; Node newNode = new Node(data); if(root == null) root = newNode; else&#123; Node current = root; Node parent; // 寻找插入的位置 while(true)&#123; parent = current; if(data&lt;current.data)&#123; current = current.left; if(current == null)&#123; parent.left = newNode; return; &#125; &#125;else&#123; current = current.right; if(current == null)&#123; parent.right = newNode; return; &#125; &#125; &#125; &#125; &#125; // 将数值输入构建二叉树 public void buildTree(int[] data)&#123; for(int i=0;i&lt;data.length;i++)&#123; insert(data[i]); &#125; &#125; // 中序遍历二叉树 public void inOrder(TreeNode node)&#123; if(node != null)&#123; inOrder(node.left); System.out.println(node.data); inOrder(node.right); &#125; &#125; public void inOrder()&#123; this.inOrder(this.root); &#125; // 先序遍历二叉树 public void preOrder(TreeNode node)&#123; if(node!=null)&#123; System.out.println(node.data); preOrder(node.left); preOrder(node.right); &#125; &#125; public void preOrder()&#123; this.preOrder(this.root); &#125; // 后序遍历二叉树 public void lastOrder(TreeNode node)&#123; if(node != null)&#123; lastOrder(node.left); lastOrder(node.right); System.out.println(node.data); &#125; &#125; public void lastOrder()&#123; this.lastOrder(this.root); &#125; public static void main(String args[])&#123; BinaryTree br = new BinaryTree(); int[] data = &#123;2,8,7,4,9,3,1,6,7,5&#125; br.buildTree(data); System.out.println(&quot;二叉树中序遍历：&quot;)； br.inOrder(); System.out.println(&quot;二叉树先序遍历：&quot;)； br.preOrder(); System.out.println(&quot;二叉树后序遍历：&quot;)； br.lastOrder(); &#125;&#125; 输出结果：二叉树中序遍历：1 2 3 4 5 6 7 7 8 9二叉树先序遍历：2 1 8 7 4 3 6 5 7 9二叉树后序遍历：1 3 5 6 4 7 7 9 8 2]]></content>
+      <categories>
+        <category>算法</category>
+        <category>二叉树</category>
+      </categories>
+      <tags>
+        <tag>二叉树</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【java线程】生产者和消费者模式]]></title>
     <url>%2F2017%2F10%2F08%2Fjava-thread-consumerAndproducer%2F</url>
     <content type="text"><![CDATA[【java线程】生产者和消费者模式假设有这样一种情况，桌子上有一个盘子，盘子里只能放一颗鸡蛋，A专门向盘子里放鸡蛋，如果盘子里有鸡蛋，则一直等到盘子里没有鸡蛋，B专门从盘子里拿鸡蛋，如果盘子里没有鸡蛋，则等待直到盘子里有鸡蛋。其实盘子是一个互斥区，每次往盘子里放鸡蛋应该都是互斥的，A的等待其实就是主动放弃锁，B等待时还要提醒A放鸡蛋。 代码实现： 12345678910111213141516171819202122232425public class Plate&#123; List&lt;Object&gt; eggs = new ArrayList&lt;Object&gt;(); public synchronized Object getEgg()&#123; if(eggs.size() == 0)&#123; try&#123; wait(); &#125;catch(InterruptedException e)&#123; &#125; &#125; Object egg = eggs.get(0); eggs.clear(); notify(); return egg; &#125; public synchronized void putEgg(Object egg)&#123; if(eggs.size()&gt;0)&#123; try&#123; wait(); &#125;catch(InterruptedException e)&#123; &#125; &#125; eggs.add(egg); notify(); &#125;&#125;]]></content>
