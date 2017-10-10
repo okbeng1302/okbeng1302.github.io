@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【多线程专题】线程专题常考知识点]]></title>
+    <url>%2F2017%2F10%2F10%2Fjava-thread-theam%2F</url>
+    <content type="text"><![CDATA[【多线程专题】线程专题常考知识点Java 中实现多线程的四种方式 继承Thread类创建线程 定义 Thread 类的子类，并重写该类的 run 方法，该 run 方法的方法体就代表了线程要执行的任务。因此称 run() 方法为执行体。 创建 Thread 子类的实例，即创建了线程对象。 调用线程对象的 start() 方法来启动线程。 通过Runnable接口创建线程类 定义Runnable接口的实现类，并重写该接口的run()方法，该run()方法的方法体同样是线程的执行体。 创建Runnable实现类的实例，并依此实例作为Thread的target来创建Thread对象，该Thread对象才是真正的线程对象。 调用线程对象的start()方法来启动该线程。 通过 Callable 和 Future 创建线程 创建Callable接口的实现类，并实现call()方法，该call()方法将作为线程执行体，并且有返回值。 创建Callable实现类的实例，使用FutureTask类来包装Callable对象，该FutureTask对象封装了该Callable对象的call()方法的返回值。 使用FutureTask对象作为Thread对象的target创建启动新线程。 调用FutureTask对象的get()方法来获得子线程执行结束后的返回值。 通过使用线程池创建线程利用线程池不用new就可以创建线程，线程可以复用利用Executors创建线程池。 Java中Runnable和Callable的不同1.]]></content>
+      <categories>
+        <category>java</category>
+        <category>线程</category>
+      </categories>
+      <tags>
+        <tag>线程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【二叉树算法】对称的二叉树]]></title>
     <url>%2F2017%2F10%2F09%2Ftreenode-isSymmertrical%2F</url>
     <content type="text"><![CDATA[【二叉树算法】对称的二叉树请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。 代码实现: 12345678910111213141516171819public class Main &#123; public static boolean isSymmetrical(TreeNode node)&#123; if(node == null) return true; return comRoot(node.left,node.right); &#125; public static boolean comRoot(TreeNode left,TreeNode right)&#123; if(left == null) return right == null; if(right == null) return false; if(left.val != right.val) return false; return comRoot(left.left,right.right) &amp;&amp; comRoot(left.right,right.left); &#125;&#125;]]></content>
@@ -813,17 +825,17 @@
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[linux下mysql的配置修改]]></title>
-    <url>%2F2017%2F09%2F03%2Fmysql-centos1%2F</url>
-    <content type="text"><![CDATA[linux下mysql的配置修改 使用CentOS下yum安装mysql mysql启动和停止等操作 12345678910111213141516# /etc/init.d/mysqld start;# service mysqld start;#service mysqld stop;#/etc/init.d/mysqld stop;# service mysqld restart;#/etc/init.d/mysqld restart;#service mysqld status;设置新的最大连接数为200：mysql&gt; set GLOBAL max_connections=200 显示当前运行的Query：mysql&gt; show processlist 显示当前状态：mysql&gt; show status 退出客户端：mysql&gt; exit mysql配置文件 以使用的MySQL配置文件共有５个。最后４个位于/usr/share/mysql-server-*/目录中。·/etc/my.cnf是默认的MySQL配置文件。应该对这个文件配置修改。它是为学习目的而设计的。·my-small.cnf是为了小型数据库而设计的。不应该把这个模型用于含有一些常用项目的数据库。·my-medium.cnf是为中等规模的数据库而设计的。如果你正在企业中使用RHEL,可能会比这个操作系统的最小RAM需求(256MB)明显多得多的物理内存。由此可见，如果有那么多RAM内存可以使用，自然可以在同一台机器上运行其它服务。·my-large.cnf是为专用于一个SQL数据库的计算机而设计的。由于它可以为该数据库使用多达512MB的内存，所以在这种类型的系统上将需要至少1GB的RAM,以便它能够同时处理操作系统与数据库应用程序。·my-huge.cnf是为企业中的数据库而设计的。这样的数据库要求专用服务器和1GB或1GB以上的RAM。 mysql配置参数一般我们会把配置文件（例如：my-small.cnf）拷贝到/etc/my.cnf只需要修改这个配置文件就可以了，使用mysqladmin variables extended-status -u root -p可以看到目前的参数，有3个配置参数是最重要的，即123key_buffer_size,query_cache_size,table_cache。]]></content>
+    <title><![CDATA[CentOS 下 navicat 破解]]></title>
+    <url>%2F2017%2F09%2F03%2Fmysql-centos%2F</url>
+    <content type="text"><![CDATA[破解方案： 第一次执行start_navicat时，会在用户主目录下生成一个名为.navicat的隐藏文件夹。 cd /home/hadoop/.navicat/此文件夹下有一个system.reg文件 rm system.reg 把此文件删除后，下次启动navicat 会重新生成此文件，30天试用期会按新的时间开始计算。]]></content>
       <categories>
         <category>Mysql</category>
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[CentOS 下 navicat 破解]]></title>
-    <url>%2F2017%2F09%2F03%2Fmysql-centos%2F</url>
-    <content type="text"><![CDATA[破解方案： 第一次执行start_navicat时，会在用户主目录下生成一个名为.navicat的隐藏文件夹。 cd /home/hadoop/.navicat/此文件夹下有一个system.reg文件 rm system.reg 把此文件删除后，下次启动navicat 会重新生成此文件，30天试用期会按新的时间开始计算。]]></content>
+    <title><![CDATA[linux下mysql的配置修改]]></title>
+    <url>%2F2017%2F09%2F03%2Fmysql-centos1%2F</url>
+    <content type="text"><![CDATA[linux下mysql的配置修改 使用CentOS下yum安装mysql mysql启动和停止等操作 12345678910111213141516# /etc/init.d/mysqld start;# service mysqld start;#service mysqld stop;#/etc/init.d/mysqld stop;# service mysqld restart;#/etc/init.d/mysqld restart;#service mysqld status;设置新的最大连接数为200：mysql&gt; set GLOBAL max_connections=200 显示当前运行的Query：mysql&gt; show processlist 显示当前状态：mysql&gt; show status 退出客户端：mysql&gt; exit mysql配置文件 以使用的MySQL配置文件共有５个。最后４个位于/usr/share/mysql-server-*/目录中。·/etc/my.cnf是默认的MySQL配置文件。应该对这个文件配置修改。它是为学习目的而设计的。·my-small.cnf是为了小型数据库而设计的。不应该把这个模型用于含有一些常用项目的数据库。·my-medium.cnf是为中等规模的数据库而设计的。如果你正在企业中使用RHEL,可能会比这个操作系统的最小RAM需求(256MB)明显多得多的物理内存。由此可见，如果有那么多RAM内存可以使用，自然可以在同一台机器上运行其它服务。·my-large.cnf是为专用于一个SQL数据库的计算机而设计的。由于它可以为该数据库使用多达512MB的内存，所以在这种类型的系统上将需要至少1GB的RAM,以便它能够同时处理操作系统与数据库应用程序。·my-huge.cnf是为企业中的数据库而设计的。这样的数据库要求专用服务器和1GB或1GB以上的RAM。 mysql配置参数一般我们会把配置文件（例如：my-small.cnf）拷贝到/etc/my.cnf只需要修改这个配置文件就可以了，使用mysqladmin variables extended-status -u root -p可以看到目前的参数，有3个配置参数是最重要的，即123key_buffer_size,query_cache_size,table_cache。]]></content>
       <categories>
         <category>Mysql</category>
       </categories>
