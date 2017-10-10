@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="ok绷ii">
 <meta property="og:description" content="【多线程专题】线程专题常考知识点Java 中实现多线程的四种方式 继承Thread类创建线程  定义 Thread 类的子类，并重写该类的 run 方法，该 run 方法的方法体就代表了线程要执行的任务。因此称 run() 方法为执行体。 创建 Thread 子类的实例，即创建了线程对象。 调用线程对象的 start() 方法来启动线程。   通过Runnable接口创建线程类  定义Runnab">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-10T01:13:04.412Z">
+<meta property="og:updated_time" content="2017-10-10T06:54:55.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【多线程专题】线程专题常考知识点">
 <meta name="twitter:description" content="【多线程专题】线程专题常考知识点Java 中实现多线程的四种方式 继承Thread类创建线程  定义 Thread 类的子类，并重写该类的 run 方法，该 run 方法的方法体就代表了线程要执行的任务。因此称 run() 方法为执行体。 创建 Thread 子类的实例，即创建了线程对象。 调用线程对象的 start() 方法来启动线程。   通过Runnable接口创建线程类  定义Runnab">
@@ -441,8 +441,35 @@
 </ol>
 <h2 id="Java中Runnable和Callable的不同"><a href="#Java中Runnable和Callable的不同" class="headerlink" title="Java中Runnable和Callable的不同"></a>Java中Runnable和Callable的不同</h2><ol>
 <li>Callable 定义的方法是 call(),而Runnable定义的方法是 run();</li>
-<li>Callable 的 call() 方法可以有返回值，而 Runnable 的 run() 方法不能有返回值;<br>3.</li>
+<li>Callable 的 call() 方法可以有返回值，而 Runnable 的 run() 方法不能有返回值;</li>
+<li>Callable 的call方法可以抛出异常，而Runnable的run方法不能抛出异常。</li>
 </ol>
+<h2 id="一个类是否可以同时继承Thread和实现Runnable接口？"><a href="#一个类是否可以同时继承Thread和实现Runnable接口？" class="headerlink" title="一个类是否可以同时继承Thread和实现Runnable接口？"></a>一个类是否可以同时继承Thread和实现Runnable接口？</h2><p>可以，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public class Test extends Thread implements Runnable&#123;</div><div class="line">    public static void main(String args[])&#123;</div><div class="line">        Thread t = new Thread(new Test());</div><div class="line">        t.start();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="实现多线程的同步"><a href="#实现多线程的同步" class="headerlink" title="实现多线程的同步"></a>实现多线程的同步</h2><p>在Java中，提供了四种方式类实现同步互斥访问:synchronized 和 Lock 和 wait()/notify()/notifyAll() 和 CAS</p>
+<ol>
+<li><p>synchronized</p>
+<ul>
+<li>同步代码块<br>  synchronized(object){ }<br>  表示在线程执行的时候回将object对象上锁(这个对象可以是任意类的对象,也可以使用this关键字或者是class对象)<br>  synchronized块比synchronized方法更加细粒度的控制多个线程的访问,只有synchronized块中的内容不能同时被多个线程所访问，方法中的其他语句仍然可以同时被多个线程访问(包括synchronized块之前和之后的).</li>
+<li>修饰非静态方法<br>  当一个对象访问某个对象的synchronized方法时，将该对象上锁，其他任何线程都无法访问该对对象的synchronized方法了(这里是指所有的同步方法，而不仅仅是这一个方法)，直到之前的那个线程执行方法完毕后(或者抛出了异常)，才将该对象的锁释放掉，其他线程才有可能再去访问该对象的synchronized方法。</li>
+<li><p>修饰静态方法<br>  它会将这个方法所在的类的class对象上锁。</p>
+<p>synchronized方法是粗粒度的并发控制，某一时刻，只能有一个线程执行该synchronized方法。<br>synchronized块则是细粒度的并发控制,只会将块中的代码同步，位于方法内，synchronized块之外的其他代码是可以被多线程同时访问到的。</p>
+</li>
+</ul>
+</li>
+<li><p>Lock<br> 使用Lock必须在 try-catch-finally 块中进行，并且将释放锁的操作放在finally块中进行，以保证一定被释放，防止死锁的发生。通常使用Lock来进行同步的话，以下面的形式去使用：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Lock lock = ...;</div><div class="line">lock.lock();</div><div class="line">try &#123;</div><div class="line">    // 处理任务</div><div class="line">&#125; catch(Exception e)&#123;</div><div class="line"></div><div class="line">&#125; finally &#123;</div><div class="line">    lock.unlock(); // 释放锁</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Lock-和-synchronized-的区别和Lock的优势"><a href="#Lock-和-synchronized-的区别和Lock的优势" class="headerlink" title="Lock 和 synchronized 的区别和Lock的优势"></a>Lock 和 synchronized 的区别和Lock的优势</h2><ol>
+<li>Lock是一个接口，synchronized是Java中的关键字，synchronized是内置的语言实现;</li>
+<li>synchronized 在发生异常时，会自动释放线程占有的锁，因此不会导致死锁现象的发生；而Lock在发生异常时，如果没有主动通过unLock()去释放锁，则很可能造成死锁现象，因此使用Lock时需要在finally中释放锁;</li>
+<li>Lock可以让等待锁的线程响应中断(可中断锁),而synchronized却不行，使用synchronized时，等待的线程会一直等待下去，不能够响应中断(不可中断锁)；</li>
+<li>通过Lock可以知道有没有成功获取锁(tryLock()方法：如果获取了返回true，否则返回false)，synchronized办不到；</li>
+<li>Lock 可以提高多个线程进行读操作的效率；</li>
+<li>Lock可以实现公平锁,synchronized不保证公平性。</li>
+</ol>
+<p>当竞争资源非常激烈时，Lock的性能远远优于synchronized。</p>
 
       
     </div>
@@ -642,7 +669,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#【多线程专题】线程专题常考知识点"><span class="nav-number">1.</span> <span class="nav-text">【多线程专题】线程专题常考知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-中实现多线程的四种方式"><span class="nav-number">1.1.</span> <span class="nav-text">Java 中实现多线程的四种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中Runnable和Callable的不同"><span class="nav-number">1.2.</span> <span class="nav-text">Java中Runnable和Callable的不同</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#【多线程专题】线程专题常考知识点"><span class="nav-number">1.</span> <span class="nav-text">【多线程专题】线程专题常考知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-中实现多线程的四种方式"><span class="nav-number">1.1.</span> <span class="nav-text">Java 中实现多线程的四种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中Runnable和Callable的不同"><span class="nav-number">1.2.</span> <span class="nav-text">Java中Runnable和Callable的不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个类是否可以同时继承Thread和实现Runnable接口？"><span class="nav-number">1.3.</span> <span class="nav-text">一个类是否可以同时继承Thread和实现Runnable接口？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现多线程的同步"><span class="nav-number">1.4.</span> <span class="nav-text">实现多线程的同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lock-和-synchronized-的区别和Lock的优势"><span class="nav-number">1.5.</span> <span class="nav-text">Lock 和 synchronized 的区别和Lock的优势</span></a></li></ol></li></ol></div>
             
 
           </div>
