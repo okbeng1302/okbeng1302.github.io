@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="【多线程专题】线程专题常考知识点Java 中实现多线程的四种方式 继承Thread类创建线程   定义 Thread 类的子类，并重写该类的 run 方法，该 run 方法的方法体就代表了线程要执行的任务。因此称 run() 方法为执行体。 创建 Thread 子类的实例，即创建了线程对象。 调用线程对象的 start() 方法来启动线程。   通过Runnable接口创建线程类   定义Runn">
+<meta name="description" content="【多线程专题】线程专题常考知识点Java 中实现多线程的四种方式 继承Thread类创建线程  定义 Thread 类的子类，并重写该类的 run 方法，该 run 方法的方法体就代表了线程要执行的任务。因此称 run() 方法为执行体。 创建 Thread 子类的实例，即创建了线程对象。 调用线程对象的 start() 方法来启动线程。   通过Runnable接口创建线程类  定义Runnab">
 <meta name="keywords" content="线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【多线程专题】线程专题常考知识点">
 <meta property="og:url" content="http://yoursite.com/2017/10/10/java-thread-theam/index.html">
 <meta property="og:site_name" content="ok绷ii">
-<meta property="og:description" content="【多线程专题】线程专题常考知识点Java 中实现多线程的四种方式 继承Thread类创建线程   定义 Thread 类的子类，并重写该类的 run 方法，该 run 方法的方法体就代表了线程要执行的任务。因此称 run() 方法为执行体。 创建 Thread 子类的实例，即创建了线程对象。 调用线程对象的 start() 方法来启动线程。   通过Runnable接口创建线程类   定义Runn">
+<meta property="og:description" content="【多线程专题】线程专题常考知识点Java 中实现多线程的四种方式 继承Thread类创建线程  定义 Thread 类的子类，并重写该类的 run 方法，该 run 方法的方法体就代表了线程要执行的任务。因此称 run() 方法为执行体。 创建 Thread 子类的实例，即创建了线程对象。 调用线程对象的 start() 方法来启动线程。   通过Runnable接口创建线程类  定义Runnab">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-10T01:09:43.076Z">
+<meta property="og:updated_time" content="2017-10-10T01:13:04.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【多线程专题】线程专题常考知识点">
-<meta name="twitter:description" content="【多线程专题】线程专题常考知识点Java 中实现多线程的四种方式 继承Thread类创建线程   定义 Thread 类的子类，并重写该类的 run 方法，该 run 方法的方法体就代表了线程要执行的任务。因此称 run() 方法为执行体。 创建 Thread 子类的实例，即创建了线程对象。 调用线程对象的 start() 方法来启动线程。   通过Runnable接口创建线程类   定义Runn">
+<meta name="twitter:description" content="【多线程专题】线程专题常考知识点Java 中实现多线程的四种方式 继承Thread类创建线程  定义 Thread 类的子类，并重写该类的 run 方法，该 run 方法的方法体就代表了线程要执行的任务。因此称 run() 方法为执行体。 创建 Thread 子类的实例，即创建了线程对象。 调用线程对象的 start() 方法来启动线程。   通过Runnable接口创建线程类  定义Runnab">
 
 
 
@@ -414,34 +414,35 @@
 
       
         <h1 id="【多线程专题】线程专题常考知识点"><a href="#【多线程专题】线程专题常考知识点" class="headerlink" title="【多线程专题】线程专题常考知识点"></a>【多线程专题】线程专题常考知识点</h1><h2 id="Java-中实现多线程的四种方式"><a href="#Java-中实现多线程的四种方式" class="headerlink" title="Java 中实现多线程的四种方式"></a>Java 中实现多线程的四种方式</h2><ol>
-<li>继承Thread类创建线程</li>
-</ol>
+<li><p>继承Thread类创建线程</p>
 <ul>
 <li>定义 Thread 类的子类，并重写该类的 run 方法，该 run 方法的方法体就代表了线程要执行的任务。因此称 run() 方法为执行体。</li>
 <li>创建 Thread 子类的实例，即创建了线程对象。</li>
 <li>调用线程对象的 start() 方法来启动线程。</li>
 </ul>
-<ol>
-<li>通过Runnable接口创建线程类</li>
-</ol>
+</li>
+<li><p>通过Runnable接口创建线程类</p>
 <ul>
 <li>定义Runnable接口的实现类，并重写该接口的run()方法，该run()方法的方法体同样是线程的执行体。</li>
 <li>创建Runnable实现类的实例，并依此实例作为Thread的target来创建Thread对象，该Thread对象才是真正的线程对象。</li>
 <li>调用线程对象的start()方法来启动该线程。</li>
 </ul>
-<ol>
-<li>通过 Callable 和 Future 创建线程</li>
-</ol>
+</li>
+<li><p>通过 Callable 和 Future 创建线程</p>
 <ul>
 <li>创建Callable接口的实现类，并实现call()方法，该call()方法将作为线程执行体，并且有返回值。</li>
 <li>创建Callable实现类的实例，使用FutureTask类来包装Callable对象，该FutureTask对象封装了该Callable对象的call()方法的返回值。</li>
 <li>使用FutureTask对象作为Thread对象的target创建启动新线程。</li>
 <li>调用FutureTask对象的get()方法来获得子线程执行结束后的返回值。</li>
 </ul>
-<ol>
-<li>通过使用线程池创建线程<br>利用线程池不用new就可以创建线程，线程可以复用利用Executors创建线程池。</li>
+</li>
+<li><p>通过使用线程池创建线程<br>利用线程池不用new就可以创建线程，线程可以复用利用Executors创建线程池。</p>
+</li>
 </ol>
-<h2 id="Java中Runnable和Callable的不同"><a href="#Java中Runnable和Callable的不同" class="headerlink" title="Java中Runnable和Callable的不同"></a>Java中Runnable和Callable的不同</h2><p>1.</p>
+<h2 id="Java中Runnable和Callable的不同"><a href="#Java中Runnable和Callable的不同" class="headerlink" title="Java中Runnable和Callable的不同"></a>Java中Runnable和Callable的不同</h2><ol>
+<li>Callable 定义的方法是 call(),而Runnable定义的方法是 run();</li>
+<li>Callable 的 call() 方法可以有返回值，而 Runnable 的 run() 方法不能有返回值;<br>3.</li>
+</ol>
 
       
     </div>
