@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【Python】Virtualenv 环境的安装和使用]]></title>
+    <url>%2F2017%2F10%2F23%2Fvirtualenv%2F</url>
+    <content type="text"><![CDATA[【Python】Virtualenv 环境的安装和使用安装 virtualenv 1# pip install virtualenv 建立虚拟环境 1# virtualenv env 进入虚拟环境，激活虚拟环境 123456789# 若要进入隔离环境&gt; env\Scripts\activate (env) &gt; # 此时便进入了隔离环境# 若想退出隔离环境&gt; env\Scripts\deactivate&gt; # 此时便退出了隔离环境]]></content>
+      <categories>
+        <category>python</category>
+        <category>virtualenv虚拟环境</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【分布式爬虫学习】多线程和多进程的爬虫(课程四)]]></title>
     <url>%2F2017%2F10%2F22%2Fcrawler-distribute-part4%2F</url>
     <content type="text"><![CDATA[多线程和多进程的爬虫表单类型form-data:http请求中的multipart/form-data,它会将表单的数据处理为一条消息,以标签为单元，用分隔符分开。既可以上传键值对，也可以上传文件。当上传的字段是文件时，会有Content-Type来表明文件类型。由于boundary隔离，所以multipart/form-data既可以上传文件，也可以上传简直对，它采用了键值对的方式，所以可以上传多个文件。 12345678910111213141516171819POST /start.htm HTTP/1.1Host:192.168.1.1Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8Accept-Language:zh-CN,en-US;q=0.8,en;q=0.6Content-Type:multipart/form-data;boundary=---WebKitFormBoundary7MJASJOFCache-Control:no-cache----------------------------------------------------------------------------------Body部分:---WebKitFormBoundary7MJASJOFContent-Disposition:form-data;name=&quot;name&quot;chacha---WebKitFormBoundary7MJASJOFContent-Disposition:form-data;name=&quot;password&quot;chinahadoop---WebKitFormBoundary7MJASJOF x-www-form-urlencoded:application/x-www-form-urlencoded,会将表单内的数据转换为键值对 1234567POST /start.htm HTTP/1.1Host:192.168.1.1Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8Content-Type:application/x-www-form-urlencodedCache-Control:no-cachename=chacha&amp;password-chinahadoop Ajax 登录一般以json的方式提交数据 123456POST /start.htm HTTP/1.1Host:192.168.1.1Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8Cache-Control:no-cache&#123;&quot;name&quot;:&quot;chacha&quot;,&quot;password&quot;:&quot;123456&quot;&#125; 登录 表单登录 cookiejar 登录的核心就是为了获得Cookie 多线程爬虫 多线程的复杂性 资源、数据的安全性:锁保护 原子性:数据操锁是天然互斥的 同步等待:wait(),notify(),notifyAll() 死锁:多个线程对资源互锁，造成死锁 容灾:任何线程出现错误，整个进程都会终止 多线程的优势 Python线程 支持多线程(JS,PHP不支持多线程) python线程直接映射到native线程(Java 1.4 的Java线程是JVM实现的，共同运行在一个native thread) GIL(Global Interpretor Lock):对于多核的利用能力有限 实现一个多线程爬虫 多线程评价 threading 更安全 多进程线程进程间通信]]></content>
@@ -885,17 +897,17 @@
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[linux下mysql的配置修改]]></title>
-    <url>%2F2017%2F09%2F03%2Fmysql-centos1%2F</url>
-    <content type="text"><![CDATA[linux下mysql的配置修改 使用CentOS下yum安装mysql mysql启动和停止等操作 12345678910111213141516# /etc/init.d/mysqld start;# service mysqld start;#service mysqld stop;#/etc/init.d/mysqld stop;# service mysqld restart;#/etc/init.d/mysqld restart;#service mysqld status;设置新的最大连接数为200：mysql&gt; set GLOBAL max_connections=200 显示当前运行的Query：mysql&gt; show processlist 显示当前状态：mysql&gt; show status 退出客户端：mysql&gt; exit mysql配置文件 以使用的MySQL配置文件共有５个。最后４个位于/usr/share/mysql-server-*/目录中。·/etc/my.cnf是默认的MySQL配置文件。应该对这个文件配置修改。它是为学习目的而设计的。·my-small.cnf是为了小型数据库而设计的。不应该把这个模型用于含有一些常用项目的数据库。·my-medium.cnf是为中等规模的数据库而设计的。如果你正在企业中使用RHEL,可能会比这个操作系统的最小RAM需求(256MB)明显多得多的物理内存。由此可见，如果有那么多RAM内存可以使用，自然可以在同一台机器上运行其它服务。·my-large.cnf是为专用于一个SQL数据库的计算机而设计的。由于它可以为该数据库使用多达512MB的内存，所以在这种类型的系统上将需要至少1GB的RAM,以便它能够同时处理操作系统与数据库应用程序。·my-huge.cnf是为企业中的数据库而设计的。这样的数据库要求专用服务器和1GB或1GB以上的RAM。 mysql配置参数一般我们会把配置文件（例如：my-small.cnf）拷贝到/etc/my.cnf只需要修改这个配置文件就可以了，使用mysqladmin variables extended-status -u root -p可以看到目前的参数，有3个配置参数是最重要的，即123key_buffer_size,query_cache_size,table_cache。]]></content>
+    <title><![CDATA[CentOS 下 navicat 破解]]></title>
+    <url>%2F2017%2F09%2F03%2Fmysql-centos%2F</url>
+    <content type="text"><![CDATA[破解方案： 第一次执行start_navicat时，会在用户主目录下生成一个名为.navicat的隐藏文件夹。 cd /home/hadoop/.navicat/此文件夹下有一个system.reg文件 rm system.reg 把此文件删除后，下次启动navicat 会重新生成此文件，30天试用期会按新的时间开始计算。]]></content>
       <categories>
         <category>Mysql</category>
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[CentOS 下 navicat 破解]]></title>
-    <url>%2F2017%2F09%2F03%2Fmysql-centos%2F</url>
-    <content type="text"><![CDATA[破解方案： 第一次执行start_navicat时，会在用户主目录下生成一个名为.navicat的隐藏文件夹。 cd /home/hadoop/.navicat/此文件夹下有一个system.reg文件 rm system.reg 把此文件删除后，下次启动navicat 会重新生成此文件，30天试用期会按新的时间开始计算。]]></content>
+    <title><![CDATA[linux下mysql的配置修改]]></title>
+    <url>%2F2017%2F09%2F03%2Fmysql-centos1%2F</url>
+    <content type="text"><![CDATA[linux下mysql的配置修改 使用CentOS下yum安装mysql mysql启动和停止等操作 12345678910111213141516# /etc/init.d/mysqld start;# service mysqld start;#service mysqld stop;#/etc/init.d/mysqld stop;# service mysqld restart;#/etc/init.d/mysqld restart;#service mysqld status;设置新的最大连接数为200：mysql&gt; set GLOBAL max_connections=200 显示当前运行的Query：mysql&gt; show processlist 显示当前状态：mysql&gt; show status 退出客户端：mysql&gt; exit mysql配置文件 以使用的MySQL配置文件共有５个。最后４个位于/usr/share/mysql-server-*/目录中。·/etc/my.cnf是默认的MySQL配置文件。应该对这个文件配置修改。它是为学习目的而设计的。·my-small.cnf是为了小型数据库而设计的。不应该把这个模型用于含有一些常用项目的数据库。·my-medium.cnf是为中等规模的数据库而设计的。如果你正在企业中使用RHEL,可能会比这个操作系统的最小RAM需求(256MB)明显多得多的物理内存。由此可见，如果有那么多RAM内存可以使用，自然可以在同一台机器上运行其它服务。·my-large.cnf是为专用于一个SQL数据库的计算机而设计的。由于它可以为该数据库使用多达512MB的内存，所以在这种类型的系统上将需要至少1GB的RAM,以便它能够同时处理操作系统与数据库应用程序。·my-huge.cnf是为企业中的数据库而设计的。这样的数据库要求专用服务器和1GB或1GB以上的RAM。 mysql配置参数一般我们会把配置文件（例如：my-small.cnf）拷贝到/etc/my.cnf只需要修改这个配置文件就可以了，使用mysqladmin variables extended-status -u root -p可以看到目前的参数，有3个配置参数是最重要的，即123key_buffer_size,query_cache_size,table_cache。]]></content>
       <categories>
         <category>Mysql</category>
       </categories>
