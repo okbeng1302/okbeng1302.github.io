@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【分布式爬虫学习】分布式数据库及应用(课程五)]]></title>
+    <url>%2F2017%2F10%2F24%2Fcrawler-distribute-part5%2F</url>
+    <content type="text"><![CDATA[分布式数据库及应用大纲: 一个简单的分布式爬虫 分布式存储 分布式数据库及缓存 完整的分布式爬虫 分布式爬虫系统 分布式爬虫的作用 解决目标地址对IP访问频率的限制 利用更高的带宽，提高下载速度 大规模系统的分布式存储和备份 数据的扩展能力 将多进程爬虫部署到多台主机上 将数据库地址配置到统一的服务器上 数据库设置仅允许特定IP来源的访问请求 1234561. GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos; @ &apos;%&apos; IDENTIFIED BY &apos;password&apos; WITH GRANT OPTION;PLUSH PRIVILEGES;root 用户名 % IP2. my.cnf# bind-address = 127.0.0.1 设置防火墙，允许端口远程连接 1iptables -A INPUT -i eth0 -p tcp -m tcp -dport 3306 -j ACCEPT MYSQL 存储任务的调度Hbase 存储资源Redis 爬虫原始数据存储特点 文件小，大量kb级别的文件 文件数量大 增量方式一次性写入，极少需要修改 顺序读取 并发的文件读写 可扩展 Redis Overview 基于key value模式的内存数据库 支持复杂的对象模型(MemoryCached 仅支持少量类型) 支持 Replication ,实现集群(MemoryCached不支持分布式部署) 所有的操作都是原子性(MemoryCached 多数操作都不是原子的) 可以序列化到磁盘(MemoryCached不能序列化) Mongo 优化 url 作为 _id,默认会被创建索引,创建索引是需要额外的开销 index尽量简单,url长一些 dequeueUrl find_one() 没用利用index,会全库扫描,但是仍然会很宽,因为扫描到第一个后就停止了,但是当下载完成后的数据量特别大的时候,扫描依然是很费时的,考虑一下能不能进一步优化 插入的操作很频繁,每个网页对应几百次插入,到了depth=3的时候,技术网页都是百万级的,插入检查将是亿级,考虑使用更高效的方式来检查]]></content>
+      <categories>
+        <category>分布式爬虫学习</category>
+        <category>分布式数据库及应用</category>
+      </categories>
+      <tags>
+        <tag>分布式爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【Python】Virtualenv 环境的安装和使用]]></title>
     <url>%2F2017%2F10%2F23%2Fvirtualenv%2F</url>
     <content type="text"><![CDATA[【Python】Virtualenv 环境的安装和使用安装 virtualenv 1# pip install virtualenv 建立虚拟环境 1# virtualenv env 进入虚拟环境，激活虚拟环境 123456789# 若要进入隔离环境&gt; env\Scripts\activate (env) &gt; # 此时便进入了隔离环境# 若想退出隔离环境&gt; env\Scripts\deactivate&gt; # 此时便退出了隔离环境]]></content>
