@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[【机器学习】windows10 下keras环境搭建]]></title>
     <url>%2F2017%2F10%2F26%2Fkeras-install%2F</url>
-    <content type="text"><![CDATA[Windows10 下 keras环境搭建由于本人习惯使用windows做开发，所以就采用的windows搭建keras 环境，在其中遇到的坑无数，由于我使用的是python2.7 32位，因为keras基于tensorflow，tensorflow不支持32位，我自己又不想重新装python环境，所以使用anaconda，注意要下载64位的。 安装步骤: 123456789101112131415161718192021222324252627282930313233341. 首先去anaconda官网去下载anaconda，然后安装即可。2. 创建环境conda create -n test python=3.5 # 在使用python2.7 发现无法安装tensorflow，所以创建3.x3. 因为要用到numpy,scipy安装scipy的时候就把numpy安装了。conda install scipy4. 安装 theanoconda install theano5. 开始安装 tensorflowconda install tensorflow6. 安装 graphvizconda install python-graphviz7. 安装 pydotplus-》python3 pydot-ng-》python2.7因为我使用的python3.5conda install pydotplus8. 安装keras,keras 依赖于 graphviz 和 pydotplusconda install keras安装完成。]]></content>
+    <content type="text"><![CDATA[Windows10 下 keras环境搭建由于本人习惯使用windows做开发，所以就采用的windows搭建keras 环境，在其中遇到的坑无数，由于我使用的是python2.7 32位，因为keras基于tensorflow，tensorflow不支持32位，我自己又不想重新装python环境，所以使用anaconda，注意要下载64位的。 安装步骤: 123456789101112131415161718192021222324252627282930313233341. 首先去anaconda官网去下载anaconda，然后安装即可。2. 创建环境conda create -n test python=3.5 # 在使用python2.7 发现无法安装tensorflow，所以创建3.x3. 因为要用到numpy,scipy安装scipy的时候就把numpy安装了。conda install scipy4. 安装 theanoconda install theano5. 开始安装 tensorflowconda install tensorflow6. 安装 graphvizconda install python-graphviz7. 安装 pydotplus-》python3 pydot-ng-》python2.7因为我使用的python3.5conda install pydotplus8. 安装keras,keras 依赖于 graphviz 和 pydotplusconda install keras安装完成。 如果出现错误，就采用下面的措施: 12345671. Download &quot;graphviz-2.38.msi&quot; from http://www.graphviz.org/Download_windows.php2. Execute the &quot;graphviz-2.38.msi&quot; file3. Add the graphviz bin folder to the PATH system environment variable (Example: &quot;C:\Graphviz2.38\bin&quot;)4. Go to Anaconda Prompt using start menu (Make sure to right click and select &quot;Run as Administrator&quot;. We may get permission issues if Prompt as not opened as Administrator)5. Execute the command: conda install graphviz6. Execute the command: pip install git+https://github.com/nlhepler/pydot.git7. Execute the command &quot;conda list&quot; and make sure pydot and graphviz modules are listed. Thanks]]></content>
       <categories>
         <category>机器学习</category>
         <category>keras环境搭建</category>
@@ -15,7 +15,7 @@
   <entry>
     <title><![CDATA[【分布式爬虫学习】应对反爬虫的策略(第七课)]]></title>
     <url>%2F2017%2F10%2F25%2Fcrawler-distribute-part7%2F</url>
-    <content type="text"><![CDATA[【分布式爬虫学习】应对反爬虫的策略(第七课)大纲 Web服务器 网站的反爬虫技术 应对网站的反爬策略 服务器处理Web请求 服务器处理Web请求流程 到达防火墙，对访问频次进行检查 根据端口映射，到达对应的服务，例如Apache 到达Apache，通过 virtual host 查找根目录 查找 .htaccess 伪静态设置，映射实际目录及文件 执行脚本或提取文件 确认cookie信息，查找用户 用户权限检查 执行命令，返回数据 Virtual Host 不同的运营商提供不同的DNS 网站如何发现爬虫？ 静态爬虫不会去加载 js,css 网站如何进行反爬User-Agent .htaccess JavaScript 基于流量的拒绝 基于IP连接的拒绝 如何发现自己可能被网站识别了？ ##]]></content>
+    <content type="text"><![CDATA[【分布式爬虫学习】应对反爬虫的策略(第七课)大纲 Web服务器 网站的反爬虫技术 应对网站的反爬策略 服务器处理Web请求 服务器处理Web请求流程 到达防火墙，对访问频次进行检查 根据端口映射，到达对应的服务，例如Apache 到达Apache，通过 virtual host 查找根目录 查找 .htaccess 伪静态设置，映射实际目录及文件 执行脚本或提取文件 确认cookie信息，查找用户 用户权限检查 执行命令，返回数据 Virtual Host 不同的运营商提供不同的DNS 网站如何发现爬虫？ 静态爬虫不会去加载 js,css 网站如何进行反爬User-Agent .htaccess JavaScript 基于流量的拒绝 基于IP连接的拒绝 如何发现自己可能被网站识别了？ 动态IP技术 路由器登录 好的规避反爬虫检查的方法]]></content>
       <categories>
         <category>分布式爬虫学习</category>
         <category>应对反爬虫的策略</category>
