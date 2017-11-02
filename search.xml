@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【数据仓库】Hive 环境搭建]]></title>
+    <url>%2F2017%2F11%2F02%2Fhive-environment-constructor%2F</url>
+    <content type="text"><![CDATA[【数据仓库】Hive 环境搭建依赖环境: CentOS6.5 64 Hadoop 2.5.1 64 Mysql 5.1 Java 1.8 64 Hive 2.1.1 先使用的Hive 2.3.1,启动时总是报错,怀疑是与Hadoop2.5.1不兼容，所以采用 Hive 2.1.1 说明：安装hive前提是要先安装hadoop集群，并且hive只需要再hadoop的namenode节点集群里安装即可(需要再所有namenode上安装)，可以不在datanode节点的机器上安装。另外还需要说明的是，虽然修改配置文件并不需要你已经把hadoop跑起来，但是本文中用到了hadoop命令，在执行这些命令前你必须确保hadoop是在正常跑着的，而且启动hive的前提也是需要hadoop在正常跑着，所以建议你先将hadoop跑起来在按照本文操作。 安装解压缩在opt目录下新建一个名为hive的目录，将apache-hive-2.1.1-bin.tar.gz拷贝上去执行进入目录的命令： 123# cd /opt/hive# tar -zxvf apache-hive-2.1.1-bin.tar.gz 配置环境变量编辑/etc/profile文件，增加hive相关的环境变量配置如图: profile文件编辑完成后，执行下面命令，让配置生效，命令是: 1source /etc/profile 说明：上面的环境变量中只有JAVA_HOME相关的、HADOOP相关的、HIVE相关的是必须的， 相关的路径必须要和你机器对应。 对hive进行配置hive-site.xml 相关的配置 新建hive-site.xml进入到/opt/hive/apache-hive-2.1.1-bin/conf目录，命令是： 1cd /opt/hive/apache-hive-2.1.1-bin/conf 将hive-default.xml.template文件复制一份，并且改名为hive-site.xml，命令是： 1cp hive-default.xml.template hive-site.xml 使用hadoop新建hdfs目录因为在hive-site.xml中有这样的配置：1234&lt;name&gt;hive.metastore.warehouse.dir&lt;/name&gt;&lt;value&gt;/user/hive/warehouse&lt;/value&gt; &lt;name&gt;hive.exec.scratchdir&lt;/name&gt;&lt;value&gt;/tmp/hive&lt;/value&gt; 所以要让hadoop新建/user/hive/warehouse目录，执行命令： 123$HADOOP_HOME/bin/hadoop fs -mkdir -p /user/hive/warehouse``` 给刚才新建的目录赋予读写权限，执行命令： $HADOOP_HOME/bin/hadoop fs -chmod 777 /user/hive/warehouse12让hadoop新建/tmp/hive/目录，执行命令： $HADOOP_HOME/bin/hadoop fs -mkdir -p /tmp/hive/1给刚才新建的目录赋予读写权限，执行命令： $HADOOP_HOME/bin/hadoop fs -chmod 777 /tmp/hive13. 检查hdfs目录是否创建成功 $HADOOP_HOME/bin/hadoop fs -ls /user/hive/$HADOOP_HOME/bin/hadoop fs -ls /tmp/12345674. 修改hive-site.xml中的临时目录![](/images/hive/2.jpg)5. 修改hive-site.xml数据库相关的配置搜索javax.jdo.option.ConnectionURL，将该name对应的value修改为MySQL的地址，例如我修改后是： javax.jdo.option.ConnectionURL jdbc:mysql://192.168.27.138:3306/hive?createDatabaseIfNotExist=true1234567搜索javax.jdo.option.ConnectionDriverName，将该name对应的value修改为MySQL驱动类路径，例如我的修改后是：``` &lt;property&gt; &lt;name&gt;javax.jdo.option.ConnectionDriverName&lt;/name&gt; &lt;value&gt;com.mysql.jdbc.Driver&lt;/value&gt; &lt;/property&gt; 搜索javax.jdo.option.ConnectionUserName，将对应的value修改为MySQL数据库登录名： 12&lt;name&gt;javax.jdo.option.ConnectionUserName&lt;/name&gt;&lt;value&gt;root&lt;/value&gt; 搜索javax.jdo.option.ConnectionPassword，将对应的value修改为MySQL数据库的登录密码： 12&lt;name&gt;javax.jdo.option.ConnectionPassword&lt;/name&gt;&lt;value&gt;cj&lt;/value&gt; 搜索hive.metastore.schema.verification，将对应的value修改为false： 12&lt;name&gt;hive.metastore.schema.verification&lt;/name&gt;&lt;value&gt;false&lt;/value&gt; 将mysql驱动包放到hive的lib目录下 hive-env.sh文件并进行修改进入到/opt/hive/apache-hive-2.1.1-bin/conf目录，命令是： 1cd /opt/hive/apache-hive-2.1.1-bin/conf 将hive-env.sh.template文件复制一份，并且改名为hive-env.sh，命令是： 1cp hive-env.sh.template hive-env.sh 打开hive-env.sh配置并且添加以下内容： 123export HADOOP_HOME=/opt/hadoop/hadoop-2.8.0export HIVE_CONF_DIR=/opt/hive/apache-hive-2.1.1-bin/confexport HIVE_AUX_JARS_PATH=/opt/hive/apache-hive-2.1.1-bin/lib 启动和测试对Mysql数据库进行初始化进入到hive的bin目录 执行命令： 1cd /opt/hive/apache-hive-2.1.1-bin/bin 对数据库进行初始化，执行命令： 1schematool -initSchema -dbType mysql 如图: 执行成功后，hive数据库里已经有一堆表创建好了,打开navicate就可看到结果了 启动hive进入到hive的bin目录执行命令： 1234cd /opt/hive/apache-hive-2.1.1-bin/bin``` 执行hive脚本进行启动，执行命令： ./hive123456![](/images/hive/5.png)### 测试执行了3.2的hive脚本，启动成功后，就进入了hive的命令行模式。下面进行一系列简单测试：执行查看函数的命令： show functions;123456如图：![](/images/hive/6.png)执行查看sum函数的详细信息的命令： desc function sum;12345如图：![](/images/hive/7.png)执行新建数据库的hive命令： create database db_hive_edu;12在刚才创建的数据库中创建数据表，执行hive命令： use db_hive_edu;create table student(id int,name string) row format delimited fields terminated by ‘\t’;12345**将文件数据写入表中**(1)在/opt/hive目录内新建一个文件执行Linux命令(最好是重新打开一个终端来执行)： touch /opt/hive/student.txt12345678910往文件中添加以下内容：001 zhangsan002 lisi003 wangwu004 zhaoliu005 chenqi说明：ID和name直接是TAB键，不是空格，因为在上面创建表的语句中用了terminated by &apos;\t&apos;所以这个文本里id和name的分割必须是用TAB键(复制粘贴如果有问题，手动敲TAB键吧)，还有就是行与行之间不能有空行，否则下面执行load，会把NULL存入表内，该文件要使用unix格式，如果是在windows上用txt文本编辑器编辑后在上载到服务器上，需要用工具将windows格式转为unix格式，例如可以使用Notepad++来转换。完成上面的步骤后，在磁盘上/opt/hive/student.txt文件已经创建成功，文件中也已经有了内容，在hive命令行中执行加载数据的hive命令： load data local inpath ‘/opt/hive/student.txt’ into table db_hive_edu.student;``` 在界面上查看刚才写入hdfs的数据 我的hadoop的namenode的IP地址是192.168.27.134，所以我要在浏览器里访问如下地址：http://192.168.27.134:50070/explorer.html#/user/hive/warehouse/db_hive_edu.db 喝水不忘挖井人:http://blog.csdn.net/pucao_cug/article/details/71773665(转载)]]></content>
+      <categories>
+        <category>数据仓库</category>
+        <category>Hive 环境搭建</category>
+      </categories>
+      <tags>
+        <tag>Hive</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【分布式爬虫学习】日志系统、以及基于Page Rank的顺序调整(课程九)]]></title>
+    <url>%2F2017%2F10%2F26%2Fcrawler-distribute-part9%2F</url>
+    <content type="text"><![CDATA[日志系统、以及基于Page Rank的顺序调整(课程九)]]></content>
+      <categories>
+        <category>分布式爬虫学习</category>
+        <category>日志系统、以及基于Page Rank的顺序调整(课程九)</category>
+      </categories>
+      <tags>
+        <tag>分布式爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【分布式爬虫学习】分布式系统的高可用与高并发处理(课程八)]]></title>
     <url>%2F2017%2F10%2F26%2Fcrawler-distribute-part8%2F</url>
-    <content type="text"><![CDATA[分布式系统的高可用与高并发处理(课程八)淘宝双十一，微博 高并发 处理 墨菲定律 任何事情没有看起来简单 所有的事情都会比你预计的时间长 可能出错的事情会出错 如果你担心某种情况会发生，那么他一般会发生 应用高并发的基本思路 加快单机的速度，例如使用redis，提高数据访问速率；增加cpu的内核数，增大内存 增加服务器的数量，利用集群 无状态对于分布式系统的设计，应用本省没有状态，状态全部通过配置文件或者集群的服务端提供并与之同步。比如不同的机房需要读取不同的数据源，那么它们直接通过配置文件或者中心来指定进一步，在分布式集群中，如果数据请求的节点可以做到没有状态，意味着任意节点都可以被请求，结合去中心化，就能有效避免单点的访问瓶颈。 拆分 系统拆分的原则 负载均衡 负载均衡的算法]]></content>
+    <content type="text"><![CDATA[分布式系统的高可用与高并发处理(课程八)淘宝双十一，微博 高并发 处理 墨菲定律 任何事情没有看起来简单 所有的事情都会比你预计的时间长 可能出错的事情会出错 如果你担心某种情况会发生，那么他一般会发生 应用高并发的基本思路 加快单机的速度，例如使用redis，提高数据访问速率；增加cpu的内核数，增大内存 增加服务器的数量，利用集群 无状态对于分布式系统的设计，应用本省没有状态，状态全部通过配置文件或者集群的服务端提供并与之同步。比如不同的机房需要读取不同的数据源，那么它们直接通过配置文件或者中心来指定进一步，在分布式集群中，如果数据请求的节点可以做到没有状态，意味着任意节点都可以被请求，结合去中心化，就能有效避免单点的访问瓶颈。 拆分 系统拆分的原则 负载均衡 负载均衡的算法 一致性hash 服务化 消息队列 databus架构 案例:微博的Feed流推送 缓存 隔离]]></content>
       <categories>
-        <category>分布式爬虫实习</category>
+        <category>分布式爬虫学习</category>
         <category>分布式系统的高可用与高并发处理(课程八)</category>
       </categories>
       <tags>
@@ -37,12 +61,12 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[【分布式爬虫学习】多机并行的微博抓取:分布式系统设计(课程6)]]></title>
+    <title><![CDATA[【分布式爬虫学习】多机并行的微博抓取:分布式系统设计(课程六)]]></title>
     <url>%2F2017%2F10%2F25%2Fcrawler-distribute-part6%2F</url>
     <content type="text"><![CDATA[【分布式爬虫学习】多机并行的微博抓取:分布式系统设计(课程6)大纲: 分布式系统 分布式系统 Master-Slave结构]]></content>
       <categories>
         <category>分布式爬虫学习</category>
-        <category>多机并行的微博抓取(课程6)</category>
+        <category>多机并行的微博抓取(课程六)</category>
       </categories>
       <tags>
         <tag>分布式爬虫</tag>
